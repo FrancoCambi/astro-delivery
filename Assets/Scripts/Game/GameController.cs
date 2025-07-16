@@ -1,16 +1,69 @@
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private static GameController instance;
+
+    public static GameController Instance
     {
-        
+        get
+        {
+            return instance;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public static int CurrentLevel { get; private set; }
+
+    public static int LastLevelIndex { get; private set; }
+
+    private void Awake()
     {
-        
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        CurrentLevel = PlayerPrefs.GetInt("level", 1);
+        LastLevelIndex = SceneManager.sceneCountInBuildSettings - 1;
+
+    }
+
+    private void Start()
+    {
+        LoadLevel(CurrentLevel);
+    }
+
+    public void AdvanceToNextLevel()
+    {
+        CurrentLevel++;
+        print(CurrentLevel);
+        PlayerPrefs.SetInt("level", CurrentLevel);
+
+        if (CurrentLevel <= LastLevelIndex)
+        {
+            LoadLevel(CurrentLevel);    
+        }
+        else
+        {
+            GameFinished();
+        }
+
+    }
+
+    private void LoadLevel(int level)
+    {
+        SceneManager.LoadScene(level);
+    }
+
+    private void GameFinished()
+    {
+        print("You Won!");
     }
 }
