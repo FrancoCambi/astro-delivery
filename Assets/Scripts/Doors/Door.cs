@@ -4,9 +4,14 @@ public class OpenDoor : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (!collision.gameObject.CompareTag("Player")) return;
+
+        if (!PlayerManager.Instance.HoldingPackage)
         {
-            GameController.Instance.AdvanceToNextLevel();
+            print("You need the package!");
+            return;
         }
+        
+        GameController.Instance.AdvanceToNextLevel();
     }
 }

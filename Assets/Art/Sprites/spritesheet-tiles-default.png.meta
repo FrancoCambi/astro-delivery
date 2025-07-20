@@ -178,7 +178,7 @@ TextureImporter:
         width: 64
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -187,6 +187,28 @@ TextureImporter:
       bones: []
       spriteID: a27e8bdd31ee709d0800000000000000
       internalID: -2808014073550543062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Package
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 383
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a47ca23696a382f4a9481f4b10299ad4
+      internalID: -734905680
       vertices: []
       indices: 
       edges: []
@@ -206,6 +228,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       DoorOpen: -2808014073550543062
+      Package: -734905680
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

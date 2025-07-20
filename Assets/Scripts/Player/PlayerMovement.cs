@@ -8,6 +8,8 @@ public struct FrameInput
 }
 public class PlayerMovement : MonoBehaviour
 {
+    #region properties
+
     [Header("Stats")]
     [SerializeField] private float maxMoveSpeed;
     [SerializeField] private float jumpForce;
@@ -39,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
     private bool grounded = true;
     private bool endedJumpEarly = false;
     private bool jumpToConsume = false;
+
+    #endregion
 
     private void Awake()
     {
