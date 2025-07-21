@@ -9195,6 +9195,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 351290674636650022, guid: 8f3156802a097a3499393c9217afa939, type: 3}
+      propertyPath: coyoteTime
+      value: 0.075
+      objectReference: {fileID: 0}
+    - target: {fileID: 351290674636650022, guid: 8f3156802a097a3499393c9217afa939, type: 3}
+      propertyPath: jumpBuffer
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3466345316120399724, guid: 8f3156802a097a3499393c9217afa939, type: 3}
       propertyPath: m_Name
       value: Player

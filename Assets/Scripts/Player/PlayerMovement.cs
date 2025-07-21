@@ -10,10 +10,12 @@ public class PlayerMovement : MonoBehaviour
 {
     #region properties
 
-    [Header("Stats")]
+    [Header("Modifiers")]
     [SerializeField] private float maxMoveSpeed;
     [SerializeField] private float jumpForce;
     [SerializeField] private float maxFallSpeed;
+    [SerializeField] private float jumpBuffer;
+    [SerializeField] private float coyoteTime;
 
     [Header("Physics")]
     [SerializeField] private float acceleration;
@@ -41,6 +43,14 @@ public class PlayerMovement : MonoBehaviour
     private bool grounded = true;
     private bool endedJumpEarly = false;
     private bool jumpToConsume = false;
+    private float time;
+    private float timeJumpWasPressed;
+    private float frameLeftGrounded = float.MinValue;
+    private bool bufferedJumpUsable;
+    private bool coyoteUsable;
+
+    private bool HasBufferedJump => bufferedJumpUsable && time < timeJumpWasPressed + jumpBuffer;
+    private bool CanUseCoyote => coyoteUsable && !grounded && time < frameLeftGrounded + coyoteTime;
 
     #endregion
 
@@ -56,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        time += Time.deltaTime;
         GatherInput();
         SetAnimation();
         FlipSprite();
@@ -84,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
         if (frameInput.JumpDown)
         {
             jumpToConsume = true;
+            timeJumpWasPressed = time;
         }
     }
 
@@ -126,11 +138,14 @@ public class PlayerMovement : MonoBehaviour
         if (!grounded && groundHit)
         {
             grounded = true;
+            coyoteUsable = true;
+            bufferedJumpUsable = true;
             endedJumpEarly = false;
         }
         else if (grounded && !groundHit)
         {
             grounded = false;
+            frameLeftGrounded = time;
         }
     }
 
@@ -149,9 +164,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleJump()
     {
-        if (!endedJumpEarly && !frameInput.JumpHeld && frameVelocity.y > 0f) endedJumpEarly = true;
+        if (!endedJumpEarly && !grounded && !frameInput.JumpHeld && frameVelocity.y > 0f) endedJumpEarly = true;
 
-        if (grounded && jumpToConsume) ExecuteJump();
+        if (!jumpToConsume && !HasBufferedJump) return;
+
+        if (grounded || CanUseCoyote) ExecuteJump();
 
         jumpToConsume = false;
     }
@@ -159,6 +176,9 @@ public class PlayerMovement : MonoBehaviour
     private void ExecuteJump()
     {
         endedJumpEarly = false;
+        timeJumpWasPressed = 0f;
+        bufferedJumpUsable = false;
+        coyoteUsable = false;
         frameVelocity.y = jumpForce;
     }
 
