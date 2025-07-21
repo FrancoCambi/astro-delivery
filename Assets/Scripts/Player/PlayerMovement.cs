@@ -26,10 +26,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpEndEarlyGravityModifier;
 
     [Header("Colliders")]
-    [SerializeField] private BoxCollider2D standCollider;
+    [SerializeField] private BoxCollider2D defaultCollider;
+    [SerializeField] private BoxCollider2D holdingPackageCollider;
 
     [Header("Misc")]
-    [SerializeField] LayerMask playerLayer;
+    [SerializeField] LayerMask jumpCollisionMask;
     [SerializeField] float grounderDistance;
 
     private Rigidbody2D rb;
@@ -61,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         playerAnimations = GetComponent<PlayerAnimations>();
 
         // TEMPORAL
-        currentCollider = standCollider;
+        currentCollider = defaultCollider;
     }
 
     private void Update()
@@ -130,8 +131,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckCollisions()
     {
-        bool groundHit = Physics2D.BoxCast(currentCollider.bounds.center, currentCollider.size, 0, Vector2.down, grounderDistance, ~playerLayer);
-        bool ceilingHit = Physics2D.BoxCast(currentCollider.bounds.center, currentCollider.size, 0, Vector2.up, grounderDistance, ~playerLayer);
+        bool groundHit = Physics2D.BoxCast(currentCollider.bounds.center, currentCollider.size, 0, Vector2.down, grounderDistance, ~jumpCollisionMask);
+        bool ceilingHit = Physics2D.BoxCast(currentCollider.bounds.center, currentCollider.size, 0, Vector2.up, grounderDistance, ~jumpCollisionMask);
 
         if (ceilingHit) frameVelocity.y = Mathf.Min(0, frameVelocity.y);
         

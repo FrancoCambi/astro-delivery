@@ -6,12 +6,13 @@ public class OpenDoor : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag("Player")) return;
 
-        if (!PlayerManager.Instance.HoldingPackage)
+        if (!Package.Instance.IsBeingHeld)
         {
             print("You need the package!");
             return;
         }
-        
-        GameController.Instance.AdvanceToNextLevel();
+
+        Package.Instance.HeldStop();
+        //GameController.Instance.AdvanceToNextLevel();
     }
 }

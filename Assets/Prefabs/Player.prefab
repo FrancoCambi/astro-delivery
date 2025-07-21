@@ -203,6 +203,8 @@ MonoBehaviour:
   maxMoveSpeed: 7
   jumpForce: 20
   maxFallSpeed: 20
+  jumpBuffer: 0.2
+  coyoteTime: 0.075
   acceleration: 60
   groundDeceleration: 30
   airDeceleration: 15

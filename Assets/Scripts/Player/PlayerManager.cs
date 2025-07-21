@@ -12,8 +12,6 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public bool HoldingPackage { get; set; }
-
     private void Awake()
     {
         if (instance == null)
@@ -26,7 +24,17 @@ public class PlayerManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        HoldingPackage = false;
     }
 
+    #region collisions
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Package"))
+        {
+            Package.Instance.HeldStart();
+        }
+    }
+
+    #endregion
 }

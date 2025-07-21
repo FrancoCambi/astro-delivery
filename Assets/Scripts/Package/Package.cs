@@ -1,42 +1,83 @@
 using UnityEngine;
 
-[RequireComponent (typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D))]
 public class Package : MonoBehaviour
 {
+    private static Package instance;
+
+    public static Package Instance
+    {
+        get
+        {
+            return instance;
+        }
+    }
+
     [Header("Position")]
     [SerializeField] private Vector2 offset;
 
-    private Rigidbody2D rb;
+    [Header("Misc")]
+    [SerializeField] private GameObject prefab;
 
-    private bool held;
+    private Rigidbody2D rb;
+    private new BoxCollider2D collider;
+
+    private Vector3 startingPos;
+
+    public bool IsBeingHeld
+    {
+        get
+        {
+            return transform.parent != null;
+        }
+    }
     
 
     private void Awake()
     {
+        instance = this;
+
         rb = GetComponent<Rigidbody2D>();
-        held = false;
+        collider = GetComponent<BoxCollider2D>();
+
+        startingPos = transform.position;
     }
 
     #region management
 
-    private void HeldStart()
+    public void HeldStart()
     {
-        held = true;
-        PlayerManager.Instance.HoldingPackage = true;
-        gameObject.layer = LayerMask.NameToLayer("Player");
+        transform.rotation = Quaternion.identity;
         transform.SetParent(PlayerManager.Instance.transform);
+        gameObject.layer = LayerMask.NameToLayer("Player");
         transform.localPosition = offset;
         rb.bodyType = RigidbodyType2D.Kinematic;
 
     }
 
-    private void HeldStop()
+    public void HeldStop()
     {
-        held = false;
-        PlayerManager.Instance.HoldingPackage = false;
-        gameObject.layer = LayerMask.NameToLayer("Default");
+
+        collider.isTrigger = true;
         transform.SetParent(null);
         rb.bodyType = RigidbodyType2D.Dynamic;
+
+    }
+
+    private void Respawn()
+    {
+        gameObject.SetActive(false);
+        transform.position = startingPos;
+        gameObject.SetActive(true);
+        SetUp();
+
+    }
+
+    private void SetUp()
+    {
+        collider.isTrigger = false;
+        gameObject.layer = LayerMask.NameToLayer("Default");
+        transform.rotation = Quaternion.identity;
 
     }
 
@@ -44,14 +85,13 @@ public class Package : MonoBehaviour
 
     #region collisions
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.CompareTag("Ground"))
         {
-            HeldStart();
+            Respawn();
         }
     }
-
 
     #endregion
 }
