@@ -1297,7 +1297,54 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spritesheet-enemies-default_0: -8622931333009076412
+      spritesheet-enemies-default_1: 8138384791569886869
+      spritesheet-enemies-default_10: -6258022838966886893
+      spritesheet-enemies-default_11: -5754696771302321873
+      spritesheet-enemies-default_12: 726871254384644304
+      spritesheet-enemies-default_13: -857311260081076315
+      spritesheet-enemies-default_14: 1068406194044225660
+      spritesheet-enemies-default_15: 8478795542446671903
+      spritesheet-enemies-default_16: 6073498379793958392
+      spritesheet-enemies-default_17: -8869251334879017474
+      spritesheet-enemies-default_18: 3709481434803517645
+      spritesheet-enemies-default_19: 2247449233575761949
+      spritesheet-enemies-default_2: -5243380894535096039
+      spritesheet-enemies-default_20: 8106433167754813610
+      spritesheet-enemies-default_21: 4680467464554389486
+      spritesheet-enemies-default_22: 3069365389130190883
+      spritesheet-enemies-default_23: 5284925279742116695
+      spritesheet-enemies-default_24: -79995383143094187
+      spritesheet-enemies-default_25: -7131089463743363628
+      spritesheet-enemies-default_26: -1706898738784242222
+      spritesheet-enemies-default_27: -2054591482363924352
+      spritesheet-enemies-default_28: 3065462229134569613
+      spritesheet-enemies-default_29: 8032412406033605201
+      spritesheet-enemies-default_3: 5080115327060218688
+      spritesheet-enemies-default_30: 760887916654485647
+      spritesheet-enemies-default_31: 3943893313893164264
+      spritesheet-enemies-default_32: -1551626114637035722
+      spritesheet-enemies-default_33: 7580160553232150795
+      spritesheet-enemies-default_34: 44510455844962935
+      spritesheet-enemies-default_35: -8269610485382836847
+      spritesheet-enemies-default_36: -8030093311980981720
+      spritesheet-enemies-default_37: -723407936279683160
+      spritesheet-enemies-default_38: -7532245112105592367
+      spritesheet-enemies-default_39: -3816121941126968624
+      spritesheet-enemies-default_4: -2245507873865067452
+      spritesheet-enemies-default_40: -748276595248923552
+      spritesheet-enemies-default_41: 8082720308168405817
+      spritesheet-enemies-default_42: -7609784486296134634
+      spritesheet-enemies-default_43: -6621502357947117671
+      spritesheet-enemies-default_44: -3148707441481890667
+      spritesheet-enemies-default_45: 4882731317381094212
+      spritesheet-enemies-default_46: -2951720655117309193
+      spritesheet-enemies-default_5: -2963128928895027625
+      spritesheet-enemies-default_6: 3205652936629761601
+      spritesheet-enemies-default_7: 6703776934847484372
+      spritesheet-enemies-default_8: 6676955799227460392
+      spritesheet-enemies-default_9: 4966256765803392008
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

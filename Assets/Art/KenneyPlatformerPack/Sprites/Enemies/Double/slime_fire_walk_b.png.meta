@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      slime_fire_walk_b_0: 4557119292588143238
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

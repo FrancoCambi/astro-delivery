@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      background_fade_desert_0: -1800335414287589653
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

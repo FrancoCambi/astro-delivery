@@ -3,9 +3,16 @@ using UnityEngine;
 
 public class PlayerCarryHandler : MonoBehaviour
 {
-    public static event Action OnShouldDropPackage;
+    [Header("Settings")]
+    [SerializeField] private float tooltipDistance;
 
+    #region events
+    public static event Action OnShouldDropPackage;
+    #endregion
+
+    #region attributes
     private PlayerStateController playerState;
+    #endregion
 
     private void OnEnable()
     {
@@ -14,6 +21,25 @@ public class PlayerCarryHandler : MonoBehaviour
     private void Start()
     {
         playerState = GetComponent<PlayerStateController>();
+    }
+
+    private void Update()
+    {
+        if (CanGrabPackage())
+        {
+            // Show
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                GrabPackage();
+                return;
+            }
+        }
+
+        if (Package.Instance.IsBeingHeld && Input.GetKeyDown(KeyCode.E))
+        {
+            DropPackage();
+        }
     }
 
     private void OnDisable()
@@ -37,11 +63,11 @@ public class PlayerCarryHandler : MonoBehaviour
         Package.Instance.HeldStop();
         playerState.SetState(PlayerState.Normal);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private bool CanGrabPackage()
     {
-        if (collision.gameObject.CompareTag("Package"))
-        {
-            GrabPackage();
-        }
+        return !Package.Instance.IsBeingHeld && 
+            Vector3.Distance(transform.position, Package.Instance.transform.position) <= tooltipDistance; 
     }
+    
 }

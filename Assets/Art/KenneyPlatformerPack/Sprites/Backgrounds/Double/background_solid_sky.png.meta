@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      background_solid_sky_0: 1570698742127296960
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

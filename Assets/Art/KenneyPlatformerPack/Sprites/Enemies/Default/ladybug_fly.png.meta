@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ladybug_fly_0: -8073703935447732575
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

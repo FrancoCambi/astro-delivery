@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fish_purple_up_0: -216811179633252291
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

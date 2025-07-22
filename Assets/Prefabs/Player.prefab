@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8346028062118228644}
   m_Layer: 3
   m_Name: NormalCollider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -245,7 +245,7 @@ MonoBehaviour:
   airDeceleration: 15
   groundingForce: -0.75
   fallAcceleration: 55
-  jumpEndEarlyGravityModifier: 2
+  jumpEndEarlyGravityModifier: 2.3
   defaultCollider: {fileID: 0}
   holdingPackageCollider: {fileID: 0}
   jumpCollisionMask:
@@ -276,6 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a13a8e15917287e4eb61c3519debbcf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tooltipDistance: 0.5
 --- !u!114 &7470598830712347427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,7 +317,7 @@ GameObject:
   - component: {fileID: 5544239966992815743}
   m_Layer: 3
   m_Name: CarryingCollider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -343,7 +344,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6226270627974659420}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}

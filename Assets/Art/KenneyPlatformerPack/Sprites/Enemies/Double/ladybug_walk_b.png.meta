@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ladybug_walk_b_0: 5778317987796256504
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

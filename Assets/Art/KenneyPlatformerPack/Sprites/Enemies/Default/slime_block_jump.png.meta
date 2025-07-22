@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      slime_block_jump_0: -5791568675491453657
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

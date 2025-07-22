@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      worm_ring_move_a_0: 1487947251175549451
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      background_fade_mushrooms_0: 8580536678407168306
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

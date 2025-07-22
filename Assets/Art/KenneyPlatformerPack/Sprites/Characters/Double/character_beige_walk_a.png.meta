@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      character_beige_walk_a_0: 723976254158381003
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
