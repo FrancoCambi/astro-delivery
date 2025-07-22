@@ -36,8 +36,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private Vector2 frameVelocity;
-    private BoxCollider2D currentCollider;
 
+    private PlayerColliderManager playerColliderManager;
     private PlayerAnimations playerAnimations;
     private FrameInput frameInput;
 
@@ -61,8 +61,12 @@ public class PlayerMovement : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         playerAnimations = GetComponent<PlayerAnimations>();
 
-        // TEMPORAL
-        currentCollider = defaultCollider;
+    }
+
+    private void Start()
+    {
+        playerColliderManager = GetComponent<PlayerColliderManager>();
+
     }
 
     private void Update()
@@ -105,15 +109,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (frameInput.Move.x != 0f && grounded)
         {
-            playerAnimations.State = PlayerState.Walk;
+            playerAnimations.State = PlayerAnimationState.Walk;
         }
         else if (!grounded)
         {
-            playerAnimations.State = PlayerState.Jump;
+            playerAnimations.State = PlayerAnimationState.Jump;
         }
         else
         {
-            playerAnimations.State = PlayerState.Idle;
+            playerAnimations.State = PlayerAnimationState.Idle;
         }
     }
 
@@ -131,6 +135,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckCollisions()
     {
+        BoxCollider2D currentCollider = playerColliderManager.CurrentCollider;
+
         bool groundHit = Physics2D.BoxCast(currentCollider.bounds.center, currentCollider.size, 0, Vector2.down, grounderDistance, ~jumpCollisionMask);
         bool ceilingHit = Physics2D.BoxCast(currentCollider.bounds.center, currentCollider.size, 0, Vector2.up, grounderDistance, ~jumpCollisionMask);
 

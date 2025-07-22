@@ -21,6 +21,7 @@ public class Package : MonoBehaviour
 
     private Rigidbody2D rb;
     private new BoxCollider2D collider;
+    private GameObject player;
 
     private Vector3 startingPos;
 
@@ -31,8 +32,7 @@ public class Package : MonoBehaviour
             return transform.parent != null;
         }
     }
-    
-
+   
     private void Awake()
     {
         instance = this;
@@ -43,12 +43,19 @@ public class Package : MonoBehaviour
         startingPos = transform.position;
     }
 
+    private void Start()
+    {
+        // Inefficient, i know.
+        // Does not matter given the size of the game. For now.
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
     #region management
 
     public void HeldStart()
     {
         transform.rotation = Quaternion.identity;
-        transform.SetParent(PlayerManager.Instance.transform);
+        transform.SetParent(player.transform);
         gameObject.layer = LayerMask.NameToLayer("Player");
         transform.localPosition = offset;
         rb.bodyType = RigidbodyType2D.Kinematic;

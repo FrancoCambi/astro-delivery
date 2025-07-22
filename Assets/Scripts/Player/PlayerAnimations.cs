@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum PlayerState
+public enum PlayerAnimationState
 {
     None, Idle, Walk, Jump, Duck, Hit, Climb
 }
@@ -9,7 +9,7 @@ public class PlayerAnimations : MonoBehaviour
 {
     private Animator animator;
 
-    public PlayerState State { get; set; }
+    public PlayerAnimationState State { get; set; }
 
     private void Awake()
     {
@@ -18,27 +18,27 @@ public class PlayerAnimations : MonoBehaviour
 
     private void Update()
     {
-        if (State == PlayerState.Idle)
+        if (State == PlayerAnimationState.Idle)
         {
             animator.Play("idle");
         }
-        else if (State == PlayerState.Walk)
+        else if (State == PlayerAnimationState.Walk)
         {
             animator.Play("walk");
         }
-        else if (State == PlayerState.Jump)
+        else if (State == PlayerAnimationState.Jump)
         {
             animator.Play("jump");
         }
-        else if (State == PlayerState.Duck)
+        else if (State == PlayerAnimationState.Duck)
         {
             animator.Play("duck");
         }
-        else if (State == PlayerState.Hit)
+        else if (State == PlayerAnimationState.Hit)
         {
             animator.Play("hit");
         }
-        else if (State == PlayerState.Climb)
+        else if (State == PlayerAnimationState.Climb)
         {
             animator.Play("climb");
         }
