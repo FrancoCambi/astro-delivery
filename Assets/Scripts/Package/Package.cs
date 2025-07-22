@@ -25,13 +25,7 @@ public class Package : MonoBehaviour
 
     private Vector3 startingPos;
 
-    public bool IsBeingHeld
-    {
-        get
-        {
-            return transform.parent != null;
-        }
-    }
+    public bool IsBeingHeld { get; private set; }
    
     private void Awake()
     {
@@ -41,6 +35,8 @@ public class Package : MonoBehaviour
         collider = GetComponent<BoxCollider2D>();
 
         startingPos = transform.position;
+
+        IsBeingHeld = false;
     }
 
     private void Start()
@@ -59,15 +55,16 @@ public class Package : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer("Player");
         transform.localPosition = offset;
         rb.bodyType = RigidbodyType2D.Kinematic;
+        IsBeingHeld = true;
 
     }
 
     public void HeldStop()
     {
-
         collider.isTrigger = true;
         transform.SetParent(null);
         rb.bodyType = RigidbodyType2D.Dynamic;
+        IsBeingHeld = false;
 
     }
 
@@ -85,6 +82,7 @@ public class Package : MonoBehaviour
         collider.isTrigger = false;
         gameObject.layer = LayerMask.NameToLayer("Default");
         transform.rotation = Quaternion.identity;
+        IsBeingHeld = false;
 
     }
 

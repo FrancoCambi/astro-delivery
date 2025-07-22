@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8346028062118228644}
   m_Layer: 3
   m_Name: NormalCollider
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a13a8e15917287e4eb61c3519debbcf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tooltipDistance: 0.5
+  tooltipDistance: 2
 --- !u!114 &7470598830712347427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 5544239966992815743}
   m_Layer: 3
   m_Name: CarryingCollider
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
