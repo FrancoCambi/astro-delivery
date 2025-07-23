@@ -16,7 +16,7 @@ public class PlayerCarryHandler : MonoBehaviour
 
     private void OnEnable()
     {
-        OnShouldDropPackage += DropPackage;
+        OnShouldDropPackage += HardDropPackage;
     }
     private void Start()
     {
@@ -43,29 +43,35 @@ public class PlayerCarryHandler : MonoBehaviour
 
         if (Package.Instance.IsBeingHeld && Input.GetKeyDown(KeyCode.E))
         {
-            DropPackage();
+            SoftDropPackage();
         }
     }
 
     private void OnDisable()
     {
-        OnShouldDropPackage -= DropPackage;
+        OnShouldDropPackage -= HardDropPackage;
 
     }
 
-    public static void RequestDrop()
+    public static void RequestHardDrop()
     {
         OnShouldDropPackage?.Invoke();
     }
     private void GrabPackage()
     {
-        Package.Instance.HeldStart();
+        Package.Instance.Grab();
         playerState.SetState(PlayerState.Carrying);
     }
 
-    private void DropPackage()
+    private void HardDropPackage()
     {
-        Package.Instance.HeldStop();
+        Package.Instance.HardDrop();
+        playerState.SetState(PlayerState.Normal);
+    }
+
+    private void SoftDropPackage()
+    {
+        Package.Instance.SoftDrop();
         playerState.SetState(PlayerState.Normal);
     }
 

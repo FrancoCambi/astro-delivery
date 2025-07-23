@@ -19,9 +19,9 @@ public class Tooltip : MonoBehaviour
     [Header("References")]
     [SerializeField] private TextMeshProUGUI tooltipText;
     [SerializeField] private Canvas canvas;
+    [SerializeField] private GameObject player;
 
     private Camera mainCamera;
-    private GameObject player;
     private RectTransform rectTransform;
     private Vector3 desiredPosition;
 
@@ -33,10 +33,6 @@ public class Tooltip : MonoBehaviour
 
     private void Start()
     {
-        // Inefficient, i know.
-        // Does not matter given the size of the game. For now.
-        player = GameObject.FindGameObjectWithTag("Player");
-
         mainCamera = Camera.main;
     }
 

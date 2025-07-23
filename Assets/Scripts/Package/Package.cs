@@ -13,60 +13,76 @@ public class Package : MonoBehaviour
         }
     }
 
-    [Header("Position")]
+    [Header("Settings")]
     [SerializeField] private Vector2 offset;
 
-    [Header("Misc")]
+    [Header("References")]
     [SerializeField] private GameObject prefab;
+    [SerializeField] private GameObject player;
+    [SerializeField] private PhysicsMaterial2D normalFriction;
+    [SerializeField] private PhysicsMaterial2D highFriction;
 
     private Rigidbody2D rb;
+    private SpriteRenderer playerRenderer;
     private new BoxCollider2D collider;
-    private GameObject player;
-
+    
     private Vector3 startingPos;
 
-    public bool IsBeingHeld { get; private set; }
+    private bool hardDropped;
+    public bool IsBeingHeld => transform.parent != null;
    
     private void Awake()
     {
         instance = this;
 
         rb = GetComponent<Rigidbody2D>();
+        playerRenderer = player.GetComponent<SpriteRenderer>();
         collider = GetComponent<BoxCollider2D>();
 
         startingPos = transform.position;
-
-        IsBeingHeld = false;
-    }
-
-    private void Start()
-    {
-        // Inefficient, i know.
-        // Does not matter given the size of the game. For now.
-        player = GameObject.FindGameObjectWithTag("Player");
+        hardDropped = false;
     }
 
     #region management
 
-    public void HeldStart()
+    public void Grab()
     {
+        if (hardDropped) return;
+
         transform.rotation = Quaternion.identity;
         transform.SetParent(player.transform);
         gameObject.layer = LayerMask.NameToLayer("Player");
         transform.localPosition = offset;
         rb.bodyType = RigidbodyType2D.Kinematic;
-        IsBeingHeld = true;
 
     }
 
-    public void HeldStop()
+    public void HardDrop()
     {
+        rb.linearVelocity = Vector3.zero;
+        hardDropped = true;
         collider.isTrigger = true;
         transform.SetParent(null);
         rb.bodyType = RigidbodyType2D.Dynamic;
-        IsBeingHeld = false;
+        rb.AddForce(new Vector2(0, 6f), ForceMode2D.Impulse);
 
     }
+
+    public void SoftDrop()
+    {
+        rb.linearVelocity = Vector3.zero;
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        transform.SetParent(null);
+        gameObject.layer = LayerMask.NameToLayer("Default");
+
+        Vector2 dropDir = GetSoftDropDir();
+        rb.AddForce(dropDir, ForceMode2D.Impulse);
+
+    }
+
+    #endregion
+
+    #region utils
 
     private void Respawn()
     {
@@ -79,11 +95,16 @@ public class Package : MonoBehaviour
 
     private void SetUp()
     {
+        hardDropped = false;
         collider.isTrigger = false;
         gameObject.layer = LayerMask.NameToLayer("Default");
         transform.rotation = Quaternion.identity;
-        IsBeingHeld = false;
 
+    }
+
+    private Vector2 GetSoftDropDir()
+    {
+        return playerRenderer.flipX ? new Vector2(-4,1) : new Vector2(4,1);
     }
 
     #endregion
@@ -92,11 +113,27 @@ public class Package : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ground"))
+        if (collision.CompareTag("Ground") && hardDropped)
         {
             Respawn();
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            rb.sharedMaterial = normalFriction;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            rb.sharedMaterial = highFriction;
+        }
+
+    }
     #endregion
 }

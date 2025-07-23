@@ -12,7 +12,7 @@ public class OpenDoor : MonoBehaviour
             return;
         }
 
-        PlayerCarryHandler.RequestDrop();
-        GameController.Instance.AdvanceToNextLevel();
+        PlayerCarryHandler.RequestHardDrop();
+        //GameController.Instance.AdvanceToNextLevel();
     }
 }
