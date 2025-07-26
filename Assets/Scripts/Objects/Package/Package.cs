@@ -15,6 +15,7 @@ public class Package : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] private Vector2 offset;
+    [SerializeField] private bool startsFloating;
 
     [Header("References")]
     [SerializeField] private GameObject prefab;
@@ -41,6 +42,8 @@ public class Package : MonoBehaviour
 
         startingPos = transform.position;
         hardDropped = false;
+
+        if (startsFloating) rb.gravityScale = 0f;
     }
 
     #region management
@@ -48,23 +51,29 @@ public class Package : MonoBehaviour
     public void Grab()
     {
         if (hardDropped) return;
+        if (startsFloating) ResetGravity();
 
         transform.rotation = Quaternion.identity;
         transform.SetParent(player.transform);
-        gameObject.layer = LayerMask.NameToLayer("Player");
         transform.localPosition = offset;
+
+        gameObject.layer = LayerMask.NameToLayer("Player");
+
         rb.bodyType = RigidbodyType2D.Kinematic;
+
 
     }
 
     public void HardDrop()
     {
-        rb.linearVelocity = Vector3.zero;
         hardDropped = true;
         collider.isTrigger = true;
-        transform.SetParent(null);
+
+        rb.linearVelocity = Vector3.zero;
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.AddForce(new Vector2(0, 6f), ForceMode2D.Impulse);
+
+        transform.SetParent(null);
 
     }
 
@@ -107,6 +116,14 @@ public class Package : MonoBehaviour
         return playerRenderer.flipX ? new Vector2(-4,1) : new Vector2(4,1);
     }
 
+    private void ResetGravity()
+    {
+        if (rb)
+        {
+            rb.gravityScale = 1f;
+        }
+    }
+
     #endregion
 
     #region collisions
@@ -123,6 +140,8 @@ public class Package : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            if (startsFloating) ResetGravity();
+
             rb.sharedMaterial = normalFriction;
         }
     }
@@ -133,7 +152,6 @@ public class Package : MonoBehaviour
         {
             rb.sharedMaterial = highFriction;
         }
-
     }
     #endregion
 }
