@@ -27,18 +27,12 @@ public class PlayerCarryHandler : MonoBehaviour
     {
         if (CanGrabPackage())
         {
-            Tooltip.Instance.ShowTooltip("Use E to pickup the package.");
 
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(GameController.InteractKey))
             {
                 GrabPackage();
-                Tooltip.Instance.HideTooltip();
                 return;
             }
-        }
-        else
-        {
-            Tooltip.Instance.HideTooltip();
         }
 
         if (Package.Instance.IsBeingHeld && Input.GetKeyDown(KeyCode.E))

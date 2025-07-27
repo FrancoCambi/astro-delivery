@@ -17,6 +17,9 @@ public class GameController : MonoBehaviour
 
     public static int LastLevelIndex { get; private set; }
 
+    public static KeyCode InteractKey = KeyCode.E;
+    public static string InteractKeyString => InteractKey.ToString();
+
     private void Awake()
     {
         if (instance == null)

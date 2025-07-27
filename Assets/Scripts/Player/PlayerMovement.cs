@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private Vector2 frameVelocity;
+    private float launchForce;
 
     private PlayerColliderManager playerColliderManager;
     private PlayerAnimations playerAnimations;
@@ -49,6 +50,8 @@ public class PlayerMovement : MonoBehaviour
     private float frameLeftGrounded = float.MinValue;
     private bool bufferedJumpUsable;
     private bool coyoteUsable;
+    private bool launchToConsume = false;
+    private bool launchJumping = false;
 
     private bool HasBufferedJump => bufferedJumpUsable && time < timeJumpWasPressed + jumpBuffer;
     private bool CanUseCoyote => coyoteUsable && !grounded && time < frameLeftGrounded + coyoteTime;
@@ -145,6 +148,7 @@ public class PlayerMovement : MonoBehaviour
         if (!grounded && groundHit)
         {
             grounded = true;
+            launchJumping = false;
             coyoteUsable = true;
             bufferedJumpUsable = true;
             endedJumpEarly = false;
@@ -171,22 +175,31 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleJump()
     {
-        if (!endedJumpEarly && !grounded && !frameInput.JumpHeld && frameVelocity.y > 0f) endedJumpEarly = true;
+        if (!endedJumpEarly && !grounded && !frameInput.JumpHeld && !launchJumping && frameVelocity.y > 0f) endedJumpEarly = true;
 
-        if (!jumpToConsume && !HasBufferedJump) return;
+        if (!jumpToConsume && !HasBufferedJump && !launchToConsume) return;
 
         if (grounded || CanUseCoyote) ExecuteJump();
 
         jumpToConsume = false;
+        launchToConsume = false;
     }
 
     private void ExecuteJump()
     {
+        float force = jumpForce;
+
+        if (launchToConsume)
+        {
+            force = launchForce;
+            launchJumping = true;
+        }
+        
         endedJumpEarly = false;
         timeJumpWasPressed = 0f;
         bufferedJumpUsable = false;
         coyoteUsable = false;
-        frameVelocity.y = jumpForce;
+        frameVelocity.y = force;
     }
 
     private void HandleGravity()
@@ -204,4 +217,13 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void ApplyMovement() => rb.linearVelocity = frameVelocity;
+
+    #region extras
+    public void ExternalJumpBoost(float force)
+    {
+        launchForce = force;
+        launchToConsume = true;
+    }
+
+    #endregion
 }

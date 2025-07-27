@@ -108,6 +108,7 @@ public class Package : MonoBehaviour
         collider.isTrigger = false;
         gameObject.layer = LayerMask.NameToLayer("Default");
         transform.rotation = Quaternion.identity;
+        rb.gravityScale = 0f;
 
     }
 
