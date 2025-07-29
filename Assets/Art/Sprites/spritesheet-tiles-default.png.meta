@@ -354,7 +354,7 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -376,7 +376,7 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -385,6 +385,50 @@ TextureImporter:
       bones: []
       spriteID: d91047c9497faba4b86f12b044dca769
       internalID: 1325159006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spikes
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c190116240b61741a21e230b2803ef2
+      internalID: 917623551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullStar
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cbca2fb8d029214989126dfe2f046e8
+      internalID: 1063024075
       vertices: []
       indices: 
       edges: []
@@ -404,6 +448,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       DoorOpen: -2808014073550543062
+      FullStar: 1063024075
       JumpPlatformDown: 1325159006
       JumpPlatformUp: 602304636
       LeverLeft: 1889002887
@@ -412,6 +457,7 @@ TextureImporter:
       Package: -734905680
       RedButton: -1051958158
       RedButtonPressed: -218180363
+      Spikes: 917623551
       Stick: 1719643817
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

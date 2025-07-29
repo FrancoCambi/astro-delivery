@@ -20,6 +20,7 @@ public class LaunchPad : PuzzleReceiver
     private float delay = 1f;
     private bool used = false;
     private float timeAfterUsed = 0f;
+    private bool playerOnTop;
 
     private void Awake()
     {
@@ -77,7 +78,7 @@ public class LaunchPad : PuzzleReceiver
         sr.sprite = spriteUp;
         downCollider.enabled = false;
         upCollider.enabled = true;
-        playerMovement.ExternalJumpBoost(pushForce);
+        if (playerOnTop) playerMovement.ExternalJumpBoost(pushForce);
         used = true;
         timeAfterUsed = 0f;
     }
@@ -86,7 +87,16 @@ public class LaunchPad : PuzzleReceiver
     {
         if (collision.gameObject.CompareTag("Player") && !used && activated)
         {
+            playerOnTop = true;
             Launch();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && activated)
+        {
+            playerOnTop = false;
         }
     }
 }

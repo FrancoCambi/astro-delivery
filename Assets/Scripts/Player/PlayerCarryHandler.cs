@@ -22,6 +22,7 @@ public class PlayerCarryHandler : MonoBehaviour
     {
         playerState = GetComponent<PlayerStateController>();
     }
+    public bool IsCarrying => Package.Instance.IsBeingHeld;
 
     private void Update()
     {
@@ -35,7 +36,7 @@ public class PlayerCarryHandler : MonoBehaviour
             }
         }
 
-        if (Package.Instance.IsBeingHeld && Input.GetKeyDown(KeyCode.E))
+        if (Package.Instance.IsBeingHeld && Input.GetKeyDown(KeyCode.F))
         {
             SoftDropPackage();
         }
@@ -57,7 +58,7 @@ public class PlayerCarryHandler : MonoBehaviour
         playerState.SetState(PlayerState.Carrying);
     }
 
-    private void HardDropPackage()
+    public void HardDropPackage()
     {
         Package.Instance.HardDrop();
         playerState.SetState(PlayerState.Normal);

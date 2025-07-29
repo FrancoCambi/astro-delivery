@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public struct FrameInput
@@ -25,10 +26,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float fallAcceleration;
     [SerializeField] private float jumpEndEarlyGravityModifier;
 
-    [Header("Colliders")]
-    [SerializeField] private BoxCollider2D defaultCollider;
-    [SerializeField] private BoxCollider2D holdingPackageCollider;
-
     [Header("Misc")]
     [SerializeField] LayerMask jumpCollisionMask;
     [SerializeField] float grounderDistance;
@@ -52,9 +49,12 @@ public class PlayerMovement : MonoBehaviour
     private bool coyoteUsable;
     private bool launchToConsume = false;
     private bool launchJumping = false;
+    private bool madeFirstMove = false;
 
     private bool HasBufferedJump => bufferedJumpUsable && time < timeJumpWasPressed + jumpBuffer;
     private bool CanUseCoyote => coyoteUsable && !grounded && time < frameLeftGrounded + coyoteTime;
+
+    public static Action OnFirstMove;
 
     #endregion
 
@@ -104,6 +104,12 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpToConsume = true;
             timeJumpWasPressed = time;
+        }
+
+        if (!madeFirstMove && (frameInput.Move != Vector2.zero || frameInput.JumpDown))
+        {
+            OnFirstMove?.Invoke();
+            madeFirstMove = true;
         }
     }
 

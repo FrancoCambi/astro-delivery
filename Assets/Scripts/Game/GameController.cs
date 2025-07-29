@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
+        PlayerPrefs.DeleteAll();
         if (instance == null)
         {
             instance = this;
@@ -42,6 +43,14 @@ public class GameController : MonoBehaviour
         LoadLevel(CurrentLevel);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ResetLevel();
+        }
+    }
+
     public void AdvanceToNextLevel()
     {
         CurrentLevel++;
@@ -57,6 +66,16 @@ public class GameController : MonoBehaviour
             GameFinished();
         }
 
+    }
+
+    public void ResetLevel()
+    {
+        LoadLevel(CurrentLevel);
+    }
+
+    public void LoseLevel()
+    {
+        LoadLevel(CurrentLevel);
     }
 
     private void LoadLevel(int level)

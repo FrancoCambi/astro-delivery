@@ -8,11 +8,10 @@ public class OpenDoor : MonoBehaviour
 
         if (!Package.Instance.IsBeingHeld)
         {
-            print("You need the package!");
+            WarningManager.Instance.ShowWarning("You need the package!", 1.5f);
             return;
         }
 
-        PlayerCarryHandler.RequestHardDrop();
-        //GameController.Instance.AdvanceToNextLevel();
+        GameController.Instance.AdvanceToNextLevel();
     }
 }
