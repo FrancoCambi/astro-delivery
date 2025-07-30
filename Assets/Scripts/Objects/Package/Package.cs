@@ -29,8 +29,12 @@ public class Package : MonoBehaviour
     
     private Vector3 startingPos;
 
-    private bool hardDropped;
+    private bool hardDropped = false;
+    private bool calculatingTime = false;
+    private float fallingTime = 0f;
     public bool IsBeingHeld => transform.parent != null;
+    public bool Grounded => rb.linearVelocity.y == 0f;
+    public bool Falling => !Grounded && rb.linearVelocity.y < 0f;
    
     private void Awake()
     {
@@ -46,12 +50,20 @@ public class Package : MonoBehaviour
         if (startsFloating) rb.gravityScale = 0f;
     }
 
+    private void Update()
+    {
+        CheckBreak();
+    }
+
     #region management
 
     public void Grab()
     {
         if (hardDropped) return;
         if (startsFloating) ResetGravity();
+
+        rb.linearVelocity = Vector2.zero;
+        calculatingTime = false;
 
         transform.rotation = Quaternion.identity;
         transform.SetParent(player.transform);
@@ -92,6 +104,28 @@ public class Package : MonoBehaviour
     #endregion
 
     #region utils
+
+    private void CheckBreak()
+    {
+        if (Falling && !calculatingTime)
+        {
+            calculatingTime = true;
+            fallingTime = 0f;
+        }
+        else if (Falling && calculatingTime)
+        {
+            fallingTime += Time.deltaTime;
+        }
+        else
+        {
+            if (!IsBeingHeld && !hardDropped && fallingTime >= 1f)
+            {
+                Respawn();
+            }
+            calculatingTime = false;
+            fallingTime = 0f;
+        }
+    }
 
     private void Respawn()
     {
@@ -145,6 +179,7 @@ public class Package : MonoBehaviour
 
             rb.sharedMaterial = normalFriction;
         }
+
     }
 
     private void OnCollisionExit2D(Collision2D collision)

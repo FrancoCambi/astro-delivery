@@ -8,9 +8,15 @@ public class LevelTimer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timerText;
 
     [Header("Settings")]
-    [SerializeField] private float seconds;
+    [SerializeField] private float maxSeconds;
 
     private bool start = false;
+    private float secondsRemaining;
+
+    private void Awake()
+    {
+        secondsRemaining = maxSeconds;
+    }
 
     private void OnEnable()
     {
@@ -26,19 +32,45 @@ public class LevelTimer : MonoBehaviour
     {
         if (!start) return;
 
-        seconds -= Time.deltaTime;
+        secondsRemaining -= Time.deltaTime;
 
         UpdateText();
 
-        if (seconds <= 0)
+        if (secondsRemaining <= 0)
         {
             GameController.Instance.LoseLevel();
         }
     }
 
+    public int GetStarsAmount()
+    {
+        float baseTime = maxSeconds / 2.5f;
+        float completedTime = maxSeconds - secondsRemaining;
+
+        if (0 <= completedTime && completedTime <= baseTime * 1.25f)
+        {
+            return 3;
+        }
+        else if (baseTime * 1.25f < completedTime && completedTime <= baseTime * 2f)
+        {
+            return 2;
+        }
+        else
+        {
+            return 1;
+        }
+    }
+
+    public float GetCompletedTime()
+    {
+        float completedTime = maxSeconds - secondsRemaining;
+
+        return completedTime;
+    }
+
     private void UpdateText()
     {
-        TimeSpan timeSpan = TimeSpan.FromSeconds(seconds);
+        TimeSpan timeSpan = TimeSpan.FromSeconds(secondsRemaining);
 
         String[] values = timeSpan.ToString(@"mm\:ss\:ff").Split(":");
 

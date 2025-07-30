@@ -9,38 +9,21 @@ public class GameController : MonoBehaviour
     {
         get
         {
+            instance = instance != null ? instance : FindAnyObjectByType<GameController>();
             return instance;
         }
     }
 
-    public static int CurrentLevel { get; private set; }
-
-    public static int LastLevelIndex { get; private set; }
-
-    public static KeyCode InteractKey = KeyCode.E;
-    public static string InteractKeyString => InteractKey.ToString();
+    [Header("References")]
+    [SerializeField] private LevelTimer timer;
+    public KeyCode InteractKey => KeyCode.E;
+    public string InteractKeyString => InteractKey.ToString();
+    public bool IsPaused { get; private set; } 
 
     private void Awake()
     {
-        PlayerPrefs.DeleteAll();
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
-        CurrentLevel = PlayerPrefs.GetInt("level", 1);
-        LastLevelIndex = SceneManager.sceneCountInBuildSettings - 1;
-
-    }
-
-    private void Start()
-    {
-        LoadLevel(CurrentLevel);
+        PlayerPrefs.SetInt("level", 1);
+        Unpause();
     }
 
     private void Update()
@@ -49,38 +32,60 @@ public class GameController : MonoBehaviour
         {
             ResetLevel();
         }
-    }
-
-    public void AdvanceToNextLevel()
-    {
-        CurrentLevel++;
-        print(CurrentLevel);
-        PlayerPrefs.SetInt("level", CurrentLevel);
-
-        if (CurrentLevel <= LastLevelIndex)
+        else if (Input.GetKeyDown(KeyCode.Escape))
         {
-            LoadLevel(CurrentLevel);    
+            if (!IsPaused)
+            {
+                Pause(true);
+            }
+            else
+            {
+                Unpause();
+            }
         }
-        else
-        {
-            GameFinished();
-        }
-
     }
 
     public void ResetLevel()
     {
-        LoadLevel(CurrentLevel);
+        LevelManager.Instance.LoadLevel(LevelManager.Instance.CurrentLevel);
+    }
+
+    public void GoToMainMenu()
+    {
+        LevelManager.Instance.LoadLevel(0);
+    }
+
+    public void GoToLevelMenu()
+    {
+
     }
 
     public void LoseLevel()
     {
-        LoadLevel(CurrentLevel);
+        Pause(false);
+        OverlayManager.Instance.OpenLost();
     }
 
-    private void LoadLevel(int level)
+    public void WinLevel()
     {
-        SceneManager.LoadScene(level);
+        Pause(false);
+        int starsWon = timer.GetStarsAmount();
+        float completedTime = timer.GetCompletedTime();
+        OverlayManager.Instance.OpenWon(starsWon, completedTime);
+    }
+
+    private void Pause(bool overlay)
+    {
+        if (overlay) OverlayManager.Instance.OpenPause();
+        Time.timeScale = 0;
+        IsPaused = true;
+    }
+
+    private void Unpause()
+    {
+        OverlayManager.Instance.ClosePause();
+        Time.timeScale = 1;
+        IsPaused = false;
     }
 
     private void GameFinished()

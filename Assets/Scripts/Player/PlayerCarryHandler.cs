@@ -6,30 +6,38 @@ public class PlayerCarryHandler : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float tooltipDistance;
 
-    #region events
-    public static event Action OnShouldDropPackage;
-    #endregion
-
-    #region attributes
     private PlayerStateController playerState;
-    #endregion
+    private PlayerMovement playerMovement;
+    private Rigidbody2D rb;
+
+    private bool calculatingTime = false;
+    private float fallingTime;
+
+    public bool IsCarrying => Package.Instance.IsBeingHeld;
+
+    public static event Action OnShouldDropPackage;
 
     private void OnEnable()
     {
         OnShouldDropPackage += HardDropPackage;
     }
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     private void Start()
     {
         playerState = GetComponent<PlayerStateController>();
+        playerMovement = GetComponent<PlayerMovement>();
     }
-    public bool IsCarrying => Package.Instance.IsBeingHeld;
 
     private void Update()
     {
         if (CanGrabPackage())
         {
 
-            if (Input.GetKeyDown(GameController.InteractKey))
+            if (Input.GetKeyDown(GameController.Instance.InteractKey))
             {
                 GrabPackage();
                 return;
@@ -40,6 +48,25 @@ public class PlayerCarryHandler : MonoBehaviour
         {
             SoftDropPackage();
         }
+
+        if (playerMovement.Falling && !calculatingTime)
+        {
+            calculatingTime = true;
+        }
+        else if (playerMovement.Falling && calculatingTime)
+        {
+            fallingTime += Time.deltaTime;
+        }
+        else
+        {
+            if (IsCarrying && fallingTime >= 0.58f)
+            {
+                HardDropPackage();
+            }
+            calculatingTime = false;
+            fallingTime = 0f;
+        }
+
     }
 
     private void OnDisable()
@@ -75,5 +102,5 @@ public class PlayerCarryHandler : MonoBehaviour
         return !Package.Instance.IsBeingHeld && 
             Vector3.Distance(transform.position, Package.Instance.transform.position) <= tooltipDistance; 
     }
-    
+
 }

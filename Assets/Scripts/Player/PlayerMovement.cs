@@ -53,6 +53,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool HasBufferedJump => bufferedJumpUsable && time < timeJumpWasPressed + jumpBuffer;
     private bool CanUseCoyote => coyoteUsable && !grounded && time < frameLeftGrounded + coyoteTime;
+    public bool Grounded => grounded;
+    public bool Falling => !grounded && frameVelocity.y < 0;
 
     public static Action OnFirstMove;
 
@@ -74,6 +76,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (GameController.Instance.IsPaused) return;
+
         time += Time.deltaTime;
         GatherInput();
         SetAnimation();

@@ -18,7 +18,7 @@ public class Lever : PuzzleSender
 
         if (CanBeUsed())
         {
-            if (Input.GetKeyDown(GameController.InteractKey))
+            if (Input.GetKeyDown(GameController.Instance.InteractKey))
             {
                 Use();
             }

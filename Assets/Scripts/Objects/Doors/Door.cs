@@ -12,6 +12,6 @@ public class OpenDoor : MonoBehaviour
             return;
         }
 
-        GameController.Instance.AdvanceToNextLevel();
+        GameController.Instance.WinLevel();
     }
 }
