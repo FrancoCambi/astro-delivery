@@ -30,6 +30,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] LayerMask jumpCollisionMask;
     [SerializeField] float grounderDistance;
 
+    [Header("Audio")]
+    [SerializeField] AudioClip jumpClip;
+
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private Vector2 frameVelocity;
@@ -50,7 +53,6 @@ public class PlayerMovement : MonoBehaviour
     private bool launchToConsume = false;
     private bool launchJumping = false;
     private bool madeFirstMove = false;
-
     private bool HasBufferedJump => bufferedJumpUsable && time < timeJumpWasPressed + jumpBuffer;
     private bool CanUseCoyote => coyoteUsable && !grounded && time < frameLeftGrounded + coyoteTime;
     public bool Grounded => grounded;
@@ -79,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
         if (GameController.Instance.IsPaused) return;
 
         time += Time.deltaTime;
+
         GatherInput();
         SetAnimation();
         FlipSprite();
@@ -210,6 +213,8 @@ public class PlayerMovement : MonoBehaviour
         bufferedJumpUsable = false;
         coyoteUsable = false;
         frameVelocity.y = force;
+
+        //SoundFXManager.Instance.PlaySoundFXClip(jumpClip, transform);
     }
 
     private void HandleGravity()

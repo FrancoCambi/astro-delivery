@@ -22,7 +22,6 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        PlayerPrefs.SetInt("level", 1);
         Unpause();
     }
 
@@ -38,7 +37,7 @@ public class GameController : MonoBehaviour
             {
                 Pause(true);
             }
-            else
+            else if (IsPaused && OverlayManager.Instance.IsPauseOpen)
             {
                 Unpause();
             }
@@ -50,15 +49,6 @@ public class GameController : MonoBehaviour
         LevelManager.Instance.LoadLevel(LevelManager.Instance.CurrentLevel);
     }
 
-    public void GoToMainMenu()
-    {
-        LevelManager.Instance.LoadLevel(0);
-    }
-
-    public void GoToLevelMenu()
-    {
-
-    }
 
     public void LoseLevel()
     {
@@ -69,9 +59,12 @@ public class GameController : MonoBehaviour
     public void WinLevel()
     {
         Pause(false);
+
         int starsWon = timer.GetStarsAmount();
         float completedTime = timer.GetCompletedTime();
         OverlayManager.Instance.OpenWon(starsWon, completedTime);
+
+        LevelManager.Instance.WinCurrentLevel();
     }
 
     private void Pause(bool overlay)
@@ -79,6 +72,7 @@ public class GameController : MonoBehaviour
         if (overlay) OverlayManager.Instance.OpenPause();
         Time.timeScale = 0;
         IsPaused = true;
+        MusicManager.Instance.StopMusic();
     }
 
     private void Unpause()
@@ -86,10 +80,6 @@ public class GameController : MonoBehaviour
         OverlayManager.Instance.ClosePause();
         Time.timeScale = 1;
         IsPaused = false;
-    }
-
-    private void GameFinished()
-    {
-        print("You Won!");
+        MusicManager.Instance.StartMusic();
     }
 }

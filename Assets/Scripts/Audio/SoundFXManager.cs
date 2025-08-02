@@ -15,7 +15,7 @@ public class SoundFXManager : MonoBehaviour
 
     [SerializeField] private AudioSource soundFXObject;
 
-    public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume = 1f, bool randomPitch = true)
+    public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume = 1f, bool randomPitch = false)
     {
         AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position, Quaternion.identity);
 

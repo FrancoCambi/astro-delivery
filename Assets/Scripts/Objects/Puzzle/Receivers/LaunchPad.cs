@@ -15,6 +15,9 @@ public class LaunchPad : PuzzleReceiver
     [SerializeField] private float restoreTime;
     [SerializeField] private bool activated;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip soundClip;
+
     private SpriteRenderer sr;
 
     private float delay = 1f;
@@ -48,14 +51,14 @@ public class LaunchPad : PuzzleReceiver
 
     public override void Actuate()
     {
-        activated = true;
-        sr.color = Color.white;
+        activated = !activated;
+        sr.color = activated ? Color.white : Color.gray;
     }
 
     public override void Restore()
     {
-        activated = false;
-        sr.color = Color.gray;
+        activated = !activated;
+        sr.color = activated ? Color.white : Color.gray;
 
     }
 
@@ -81,6 +84,8 @@ public class LaunchPad : PuzzleReceiver
         if (playerOnTop) playerMovement.ExternalJumpBoost(pushForce);
         used = true;
         timeAfterUsed = 0f;
+
+        SoundFXManager.Instance.PlaySoundFXClip(soundClip, transform);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

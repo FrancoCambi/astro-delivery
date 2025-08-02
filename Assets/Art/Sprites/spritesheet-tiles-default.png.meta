@@ -81,7 +81,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -420,7 +420,7 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -429,6 +429,50 @@ TextureImporter:
       bones: []
       spriteID: 8cbca2fb8d029214989126dfe2f046e8
       internalID: 1063024075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandCloud
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fa8b66a7a595b24daea9bd832db8405
+      internalID: -1494760716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bush
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be3394af789da324f80be281c0f7c4dd
+      internalID: 1459805207
       vertices: []
       indices: 
       edges: []
@@ -447,6 +491,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      Bush: 1459805207
       DoorOpen: -2808014073550543062
       FullStar: 1063024075
       JumpPlatformDown: 1325159006
@@ -457,6 +502,7 @@ TextureImporter:
       Package: -734905680
       RedButton: -1051958158
       RedButtonPressed: -218180363
+      SandCloud: -1494760716
       Spikes: 917623551
       Stick: 1719643817
   mipmapLimitGroupName: 

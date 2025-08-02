@@ -7,11 +7,11 @@ public class DisappearingWall : PuzzleReceiver
 
     public override void Actuate()
     {
-        wall.SetActive(false);
+        wall.SetActive(!wall.activeSelf);
     }
 
     public override void Restore()
     {
-        wall.SetActive(true);
+        wall.SetActive(!wall.activeSelf);
     }
 }

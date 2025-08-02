@@ -24,14 +24,16 @@ public class LevelManager : MonoBehaviour
     }
     public void AdvanceToNextLevel()
     {
-        CurrentLevel++;
-        PlayerPrefs.SetInt("level", CurrentLevel);
-
         if (CurrentLevel <= LastLevelIndex)
         {
             LoadLevel(CurrentLevel);
         }
+    }
 
+    public void WinCurrentLevel()
+    {
+        CurrentLevel++;
+        PlayerPrefs.SetInt("level", CurrentLevel);
     }
 
     public void LoadLevel(int level)

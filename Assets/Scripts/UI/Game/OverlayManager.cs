@@ -12,6 +12,7 @@ public class OverlayManager : MonoBehaviour
     {
         get
         {
+            instance = instance != null ? instance : FindAnyObjectByType<OverlayManager>();
             return instance;
         }
     }
@@ -25,14 +26,12 @@ public class OverlayManager : MonoBehaviour
     [SerializeField] private Sprite emptyStar;
     [SerializeField] private Sprite fullStar;
 
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
+    [Header("Audio")]
+    [SerializeField] private AudioClip lostClip;
+    [SerializeField] private AudioClip wonClip;
 
-    }
+    public bool IsPauseOpen => pauseGroup.alpha == 1;
+
 
     private void Start()
     {
@@ -49,6 +48,8 @@ public class OverlayManager : MonoBehaviour
     {
         lostGroup.alpha = 1f;
         lostGroup.blocksRaycasts = true;
+
+        SoundFXManager.Instance.PlaySoundFXClip(lostClip, transform);
     }
 
     public void OpenWon(int starsAmount, float completedTime)
@@ -66,6 +67,9 @@ public class OverlayManager : MonoBehaviour
         String[] values = timeSpan.ToString(@"mm\:ss\:ff").Split(":");
 
         completedTimeText.text = $"{values[0]}:{values[1]}<size=25>:{values[2]}</size>";
+
+        SoundFXManager.Instance.PlaySoundFXClip(wonClip, transform);
+
     }
 
     public void ClosePause()

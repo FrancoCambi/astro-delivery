@@ -39,6 +39,7 @@ public class LevelTimer : MonoBehaviour
         if (secondsRemaining <= 0)
         {
             GameController.Instance.LoseLevel();
+            start = false;
         }
     }
 

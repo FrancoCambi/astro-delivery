@@ -3,13 +3,17 @@ using UnityEngine;
 public abstract class PuzzleSender : MonoBehaviour
 {
     [Header("Sender References")]
-    [SerializeField] PuzzleReceiver receiver;
+    [SerializeField] PuzzleReceiver[] receivers;
     [SerializeField] private Sprite spriteUnused;
     [SerializeField] private Sprite spriteUsed;
 
     [Header("Sender Settings")]
     [SerializeField] protected bool releaseAfterTime;
     [SerializeField] protected float releaseTime;
+
+    [Header("Audio")]
+    [SerializeField] private AudioClip activateClip;
+    [SerializeField] private AudioClip deActivateClip;
 
     protected SpriteRenderer spriteRenderer;
 
@@ -39,18 +43,27 @@ public abstract class PuzzleSender : MonoBehaviour
     #region methods
     public virtual void Activate()
     {
-        receiver.Actuate();
+        foreach (PuzzleReceiver receiver in receivers)
+        {
+            receiver.Actuate();
+        }
         used = true;
         spriteRenderer.sprite = spriteUsed;
         timeAfterPressed = 0f;
+
+        SoundFXManager.Instance.PlaySoundFXClip(activateClip, transform);
     }
 
     public virtual void DeActivate()
     {
-        receiver.Restore();
+        foreach (PuzzleReceiver receiver in receivers)
+        {
+            receiver.Restore();
+        }
         used = false;
         spriteRenderer.sprite = spriteUnused;
 
+        SoundFXManager.Instance.PlaySoundFXClip(deActivateClip, transform);
     }
 
     #endregion
