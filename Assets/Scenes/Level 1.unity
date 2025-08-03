@@ -9770,6 +9770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15be5892a718f2a4dba94b6341ed0608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: {fileID: 940328571}
 --- !u!4 &1417772117
 Transform:
   m_ObjectHideFlags: 0
@@ -10168,7 +10169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 751f0684fa132da498d5b5693f001c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 940328571}
 --- !u!4 &1796123713
 Transform:
   m_ObjectHideFlags: 0
@@ -13784,7 +13784,15 @@ PrefabInstance:
     - target: {fileID: 6359312748587218852, guid: 49cadd1ff2a070f428c81b9de8620d8c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1582624355}
+      objectReference: {fileID: 1417772116}
+    - target: {fileID: 6359312748587218852, guid: 49cadd1ff2a070f428c81b9de8620d8c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayNextLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6359312748587218852, guid: 49cadd1ff2a070f428c81b9de8620d8c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 8874239070996902521, guid: 49cadd1ff2a070f428c81b9de8620d8c, type: 3}
       propertyPath: m_Name
       value: Overlay

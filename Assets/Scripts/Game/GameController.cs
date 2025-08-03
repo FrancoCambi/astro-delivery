@@ -14,8 +14,6 @@ public class GameController : MonoBehaviour
         }
     }
 
-    [Header("References")]
-    [SerializeField] private LevelTimer timer;
     public KeyCode InteractKey => KeyCode.E;
     public string InteractKeyString => InteractKey.ToString();
     public bool IsPaused { get; private set; } 
@@ -46,25 +44,19 @@ public class GameController : MonoBehaviour
 
     public void ResetLevel()
     {
-        LevelManager.Instance.LoadLevel(LevelManager.Instance.CurrentLevel);
+        LevelManager.Instance.LoadLevel(LevelManager.Instance.PlayingLevel);
     }
-
 
     public void LoseLevel()
     {
         Pause(false);
-        OverlayManager.Instance.OpenLost();
+        LevelManager.Instance.LoseLevel();
     }
 
     public void WinLevel()
     {
         Pause(false);
-
-        int starsWon = timer.GetStarsAmount();
-        float completedTime = timer.GetCompletedTime();
-        OverlayManager.Instance.OpenWon(starsWon, completedTime);
-
-        LevelManager.Instance.WinCurrentLevel();
+        LevelManager.Instance.WinLevel();
     }
 
     private void Pause(bool overlay)
