@@ -22,8 +22,7 @@ public abstract class PuzzleSender : MonoBehaviour
 
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-
+        if (spriteUsed || spriteUnused) spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     protected virtual void Update()
@@ -48,10 +47,10 @@ public abstract class PuzzleSender : MonoBehaviour
             receiver.Actuate();
         }
         used = true;
-        spriteRenderer.sprite = spriteUsed;
+        if (spriteUsed) spriteRenderer.sprite = spriteUsed;
         timeAfterPressed = 0f;
 
-        SoundFXManager.Instance.PlaySoundFXClip(activateClip, transform);
+        if (activateClip) SoundFXManager.Instance.PlaySoundFXClip(activateClip, transform);
     }
 
     public virtual void DeActivate()
@@ -61,9 +60,9 @@ public abstract class PuzzleSender : MonoBehaviour
             receiver.Restore();
         }
         used = false;
-        spriteRenderer.sprite = spriteUnused;
+        if (spriteUnused) spriteRenderer.sprite = spriteUnused;
 
-        SoundFXManager.Instance.PlaySoundFXClip(deActivateClip, transform);
+        if (deActivateClip) SoundFXManager.Instance.PlaySoundFXClip(deActivateClip, transform);
     }
 
     #endregion

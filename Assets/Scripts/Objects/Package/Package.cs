@@ -22,6 +22,8 @@ public class Package : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private PhysicsMaterial2D normalFriction;
     [SerializeField] private PhysicsMaterial2D highFriction;
+    [SerializeField] private AudioClip grabClip;
+    [SerializeField] private AudioClip dropClip;
 
     private Rigidbody2D rb;
     private SpriteRenderer playerRenderer;
@@ -74,6 +76,8 @@ public class Package : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Kinematic;
 
 
+        SoundFXManager.Instance.PlaySoundFXClip(grabClip, transform);
+
     }
 
     public void HardDrop()
@@ -87,6 +91,8 @@ public class Package : MonoBehaviour
 
         transform.SetParent(null);
 
+        SoundFXManager.Instance.PlaySoundFXClip(dropClip, transform);
+
     }
 
     public void SoftDrop()
@@ -99,6 +105,7 @@ public class Package : MonoBehaviour
         Vector2 dropDir = GetSoftDropDir();
         rb.AddForce(dropDir, ForceMode2D.Impulse);
 
+        SoundFXManager.Instance.PlaySoundFXClip(dropClip, transform);
     }
 
     #endregion

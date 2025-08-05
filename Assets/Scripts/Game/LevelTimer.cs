@@ -8,13 +8,16 @@ public class LevelTimer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timerText;
 
     [Header("Settings")]
-    [SerializeField] private float maxSeconds;
+    [SerializeField] private float minTime;
+    [SerializeField] private float normalTime;
 
     private bool start = false;
     private float secondsRemaining;
+    private float maxSeconds;
 
     private void Awake()
     {
+        maxSeconds = normalTime * 2.5f;
         secondsRemaining = maxSeconds;
     }
 
@@ -45,14 +48,15 @@ public class LevelTimer : MonoBehaviour
 
     public int GetStarsAmount()
     {
-        float baseTime = maxSeconds / 2.5f;
+        float threeStarsMax = minTime * 1.25f;
+        float twoStarsMax = normalTime * 2;
         float completedTime = maxSeconds - secondsRemaining;
 
-        if (0 <= completedTime && completedTime <= baseTime * 1.25f)
+        if (0 <= completedTime && completedTime <= threeStarsMax)
         {
             return 3;
         }
-        else if (baseTime * 1.25f < completedTime && completedTime <= baseTime * 2f)
+        else if (threeStarsMax < completedTime && completedTime <= twoStarsMax)
         {
             return 2;
         }

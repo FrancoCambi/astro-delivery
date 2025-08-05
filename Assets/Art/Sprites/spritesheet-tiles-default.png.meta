@@ -464,7 +464,7 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -473,6 +473,94 @@ TextureImporter:
       bones: []
       spriteID: be3394af789da324f80be281c0f7c4dd
       internalID: 1459805207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenButtonPressed
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1034
+        width: 64
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a2f0a4a8746fbe4fa7a1b10ae64f41d
+      internalID: -334781052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenButton
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 970
+        width: 64
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: decb79882e088234493e07adf277a45c
+      internalID: -149000560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueButtonPressed
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 906
+        width: 64
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5374c297409a0c44da3b569665d9d548
+      internalID: 1608155066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueButton
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 842
+        width: 64
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b15b9b7e53b21b44ea3cd52a05bc73a9
+      internalID: -265305460
       vertices: []
       indices: 
       edges: []
@@ -491,9 +579,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      BlueButton: -265305460
+      BlueButtonPressed: 1608155066
       Bush: 1459805207
       DoorOpen: -2808014073550543062
       FullStar: 1063024075
+      GreenButton: -149000560
+      GreenButtonPressed: -334781052
       JumpPlatformDown: 1325159006
       JumpPlatformUp: 602304636
       LeverLeft: 1889002887

@@ -5,13 +5,19 @@ public class DisappearingWall : PuzzleReceiver
     [Header("References")]
     [SerializeField] private GameObject wall;
 
+    [Header("Settings")]
+    [SerializeField] private bool actuateOnContrary;
+    [SerializeField] private bool activatedByDefault;
+
     public override void Actuate()
-    {
-        wall.SetActive(!wall.activeSelf);
+    { 
+        bool arg = actuateOnContrary ? !wall.activeSelf : !activatedByDefault;
+        wall.SetActive(arg);
     }
 
     public override void Restore()
     {
-        wall.SetActive(!wall.activeSelf);
+        bool arg = actuateOnContrary ? !wall.activeSelf : !activatedByDefault;
+        wall.SetActive(arg);
     }
 }

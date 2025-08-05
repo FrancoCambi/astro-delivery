@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2610241031376660147}
   - component: {fileID: 5845096081624359147}
   m_Layer: 0
-  m_Name: DisappearingSticks5
+  m_Name: DisappearingWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wall: {fileID: 642517242784755415}
+  actuateOnContrary: 1
+  activatedByDefault: 1
 --- !u!1 &642517242784755415
 GameObject:
   m_ObjectHideFlags: 0

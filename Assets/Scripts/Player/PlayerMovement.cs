@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
     private float timeJumpWasPressed;
     private float frameLeftGrounded = float.MinValue;
     private bool bufferedJumpUsable;
-    private bool coyoteUsable;
+    private bool coyoteUsable = true;
     private bool launchToConsume = false;
     private bool launchJumping = false;
     private bool madeFirstMove = false;
@@ -85,6 +85,7 @@ public class PlayerMovement : MonoBehaviour
         GatherInput();
         SetAnimation();
         FlipSprite();
+
     }
 
     private void FixedUpdate()
