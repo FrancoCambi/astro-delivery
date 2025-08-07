@@ -193,10 +193,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82260f6eab9ecd748bc783b631cae4cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  receivers: []
+  receivers:
+  - {fileID: 0}
   spriteUnused: {fileID: -149000560, guid: 4ec24d92b57414743a7612c4443f93db, type: 3}
   spriteUsed: {fileID: -334781052, guid: 4ec24d92b57414743a7612c4443f93db, type: 3}
-  releaseAfterTime: 1
-  releaseTime: 5
+  releaseAfterTime: 0
+  releaseTime: 0
   activateClip: {fileID: 8300000, guid: afef9c1d7a8b8a7448971badedde132d, type: 3}
   deActivateClip: {fileID: 8300000, guid: afef9c1d7a8b8a7448971badedde132d, type: 3}
+  onlyPressure: 1

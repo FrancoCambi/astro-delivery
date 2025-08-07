@@ -6,7 +6,6 @@ public class LaunchPad : PuzzleReceiver
     [Header("Platform References")]
     [SerializeField] private Sprite spriteDown;
     [SerializeField] private Sprite spriteUp;
-    [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private BoxCollider2D downCollider;
     [SerializeField] private BoxCollider2D upCollider;
 
@@ -19,6 +18,8 @@ public class LaunchPad : PuzzleReceiver
     [SerializeField] private AudioClip soundClip;
 
     private SpriteRenderer sr;
+
+    private PlayerMovement playerMovement;
 
     private float delay = 1f;
     private bool used = false;
@@ -33,6 +34,8 @@ public class LaunchPad : PuzzleReceiver
     private void Start()
     {
         if (!activated) sr.color = Color.gray;
+
+        playerMovement = FindAnyObjectByType<PlayerMovement>();
     }
 
     private void Update()

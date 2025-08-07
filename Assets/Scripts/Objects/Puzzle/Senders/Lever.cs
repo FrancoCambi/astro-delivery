@@ -3,7 +3,6 @@ using UnityEngine;
 public class Lever : PuzzleSender
 {
     [Header("Lever References")]
-    [SerializeField] private GameObject player;
     [SerializeField] private Sprite spriteMiddle;
     [SerializeField] private Sprite spriteLeft;
     [SerializeField] private Sprite spriteRight;
@@ -11,6 +10,12 @@ public class Lever : PuzzleSender
     [Header("Lever Settings")]
     [SerializeField] private bool directionSensitive;
     [SerializeField] private float maxPlayerDistance;
+
+    private GameObject player;
+    private void Start()
+    {
+        player = FindAnyObjectByType<PlayerMovement>().gameObject;
+    }
 
     protected override void Update()
     {

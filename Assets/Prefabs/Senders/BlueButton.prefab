@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 398569320613880235}
   - component: {fileID: 6731085423095089180}
   m_Layer: 0
-  m_Name: RedButton
+  m_Name: BlueButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: -1413461193
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1051958158, guid: 4ec24d92b57414743a7612c4443f93db, type: 3}
+  m_Sprite: {fileID: -265305460, guid: 4ec24d92b57414743a7612c4443f93db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -195,9 +195,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   receivers:
   - {fileID: 0}
-  spriteUnused: {fileID: -1051958158, guid: 4ec24d92b57414743a7612c4443f93db, type: 3}
-  spriteUsed: {fileID: -218180363, guid: 4ec24d92b57414743a7612c4443f93db, type: 3}
-  releaseAfterTime: 0
+  spriteUnused: {fileID: -265305460, guid: 4ec24d92b57414743a7612c4443f93db, type: 3}
+  spriteUsed: {fileID: 1608155066, guid: 4ec24d92b57414743a7612c4443f93db, type: 3}
+  releaseAfterTime: 1
   releaseTime: 15
   activateClip: {fileID: 8300000, guid: afef9c1d7a8b8a7448971badedde132d, type: 3}
   deActivateClip: {fileID: 8300000, guid: afef9c1d7a8b8a7448971badedde132d, type: 3}

@@ -49,6 +49,8 @@ public class GameController : MonoBehaviour
 
     public void LoseLevel()
     {
+        if (IsPaused) return;
+
         Pause(false);
         LevelManager.Instance.LoseLevel();
     }

@@ -37,6 +37,8 @@ public abstract class PuzzleSender : MonoBehaviour
                 timeAfterPressed = 0;
             }
         }
+
+
     }
 
     #region methods

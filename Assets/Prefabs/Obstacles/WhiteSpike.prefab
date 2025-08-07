@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8641534327030839108}
   - component: {fileID: 8671995427472542929}
   - component: {fileID: 3783397974375775210}
-  - component: {fileID: 2458730552137452671}
+  - component: {fileID: 5596766723700242102}
   m_Layer: 0
   m_Name: WhiteSpike
   m_TagString: Untagged
@@ -103,8 +103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carryHandler: {fileID: 0}
   deadly: 0
---- !u!61 &2458730552137452671
-BoxCollider2D:
+--- !u!60 &5596766723700242102
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -137,7 +137,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.00048339367, y: -0.24499178}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -147,5 +147,12 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.0046456, y: 0.51001644}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.28232598, y: 0.019042015}
+      - {x: -0.33571124, y: -0.20336556}
+      - {x: -0.44136155, y: -0.49625707}
+      - {x: 0.4429568, y: -0.50107384}
+      - {x: 0.34150153, y: -0.20748854}
+      - {x: 0.28185013, y: 0.014434814}
+  m_UseDelaunayMesh: 0

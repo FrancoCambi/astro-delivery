@@ -34,9 +34,10 @@ public class Package : MonoBehaviour
     private bool hardDropped = false;
     private bool calculatingTime = false;
     private float fallingTime = 0f;
-    public bool IsBeingHeld => transform.parent != null;
+    public bool IsBeingHeld { get; private set; }
     public bool Grounded => rb.linearVelocity.y == 0f;
     public bool Falling => !Grounded && rb.linearVelocity.y < 0f;
+    public bool GoingToRespawn { get; private set; }
    
     private void Awake()
     {
@@ -49,7 +50,12 @@ public class Package : MonoBehaviour
         startingPos = transform.position;
         hardDropped = false;
 
-        if (startsFloating) rb.gravityScale = 0f;
+        GoingToRespawn = false;
+    }
+
+    private void Start()
+    {
+        SetGravity();
     }
 
     private void Update()
@@ -62,12 +68,15 @@ public class Package : MonoBehaviour
     public void Grab()
     {
         if (hardDropped) return;
-        if (startsFloating) ResetGravity();
+
+        SetGravity();
+        IsBeingHeld = true;
 
         rb.linearVelocity = Vector2.zero;
         calculatingTime = false;
 
         transform.rotation = Quaternion.identity;
+        transform.SetParent(null);
         transform.SetParent(player.transform);
         transform.localPosition = offset;
 
@@ -82,6 +91,7 @@ public class Package : MonoBehaviour
 
     public void HardDrop()
     {
+        IsBeingHeld = false;
         hardDropped = true;
         collider.isTrigger = true;
 
@@ -97,6 +107,7 @@ public class Package : MonoBehaviour
 
     public void SoftDrop()
     {
+        IsBeingHeld = false;
         rb.linearVelocity = Vector3.zero;
         rb.bodyType = RigidbodyType2D.Dynamic;
         transform.SetParent(null);
@@ -127,6 +138,7 @@ public class Package : MonoBehaviour
         {
             if (!IsBeingHeld && !hardDropped && fallingTime >= 1f)
             {
+                GoingToRespawn = true;
                 Respawn();
             }
             calculatingTime = false;
@@ -149,7 +161,8 @@ public class Package : MonoBehaviour
         collider.isTrigger = false;
         gameObject.layer = LayerMask.NameToLayer("Default");
         transform.rotation = Quaternion.identity;
-        rb.gravityScale = 0f;
+        if (startsFloating) rb.gravityScale = 0f;
+        GoingToRespawn = false;
 
     }
 
@@ -158,12 +171,10 @@ public class Package : MonoBehaviour
         return playerRenderer.flipX ? new Vector2(-4,1) : new Vector2(4,1);
     }
 
-    private void ResetGravity()
+    private void SetGravity()
     {
-        if (rb)
-        {
-            rb.gravityScale = 1f;
-        }
+        if (!rb) return;
+        rb.gravityScale = startsFloating ? 0f : 1f;
     }
 
     #endregion
@@ -182,8 +193,7 @@ public class Package : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (startsFloating) ResetGravity();
-
+            SetGravity();
             rb.sharedMaterial = normalFriction;
         }
 

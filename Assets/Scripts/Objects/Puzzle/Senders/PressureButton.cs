@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class PressureButton : PuzzleSender
 {
+    [Header("Button Settings")]
+    [SerializeField] private bool onlyPressure = false;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!used) Activate();
@@ -11,6 +14,14 @@ public class PressureButton : PuzzleSender
     private void OnTriggerStay2D(Collider2D collision)
     {
         timeAfterPressed = 0;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (onlyPressure)
+        {
+            DeActivate();
+        }
     }
 
 }

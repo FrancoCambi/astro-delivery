@@ -17,7 +17,7 @@ public class DisappearingWall : PuzzleReceiver
 
     public override void Restore()
     {
-        bool arg = actuateOnContrary ? !wall.activeSelf : !activatedByDefault;
+        bool arg = actuateOnContrary ? !wall.activeSelf : activatedByDefault;
         wall.SetActive(arg);
     }
 }

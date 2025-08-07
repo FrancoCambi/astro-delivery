@@ -239,7 +239,7 @@ MonoBehaviour:
   jumpForce: 20
   maxFallSpeed: 20
   jumpBuffer: 0.2
-  coyoteTime: 0.1
+  coyoteTime: 0.075
   acceleration: 60
   groundDeceleration: 30
   airDeceleration: 15
@@ -249,7 +249,7 @@ MonoBehaviour:
   jumpCollisionMask:
     serializedVersion: 2
     m_Bits: 12
-  grounderDistance: 0.2
+  grounderDistance: 0.05
   jumpClip: {fileID: 8300000, guid: e449e0c042d654541ac07db66ce36bc6, type: 3}
 --- !u!114 &4567838452790044018
 MonoBehaviour:
