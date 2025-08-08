@@ -25,6 +25,7 @@ public class LaunchPad : PuzzleReceiver
     private bool used = false;
     private float timeAfterUsed = 0f;
     private bool playerOnTop;
+    private bool routineRunning = false;
 
     private void Awake()
     {
@@ -67,7 +68,7 @@ public class LaunchPad : PuzzleReceiver
 
     private void Launch()
     {
-        StartCoroutine(ApplyForce());
+        if (!routineRunning) StartCoroutine(ApplyForce());
     }
 
     private void SetDown()
@@ -80,15 +81,18 @@ public class LaunchPad : PuzzleReceiver
 
     private IEnumerator ApplyForce()
     {
+        routineRunning = true;
         yield return new WaitForSeconds(delay);
+        used = true;
         sr.sprite = spriteUp;
         downCollider.enabled = false;
         upCollider.enabled = true;
         if (playerOnTop) playerMovement.ExternalJumpBoost(pushForce);
-        used = true;
         timeAfterUsed = 0f;
 
         SoundFXManager.Instance.PlaySoundFXClip(soundClip, transform);
+
+        routineRunning = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

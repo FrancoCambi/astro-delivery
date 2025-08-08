@@ -24,6 +24,7 @@ public class LevelTimer : MonoBehaviour
     private void OnEnable()
     {
         PlayerMovement.OnFirstMove += StartTimer;
+        Package.OnGrabbed += StartTimer;
     }
 
     private void Start()
@@ -85,6 +86,7 @@ public class LevelTimer : MonoBehaviour
     private void OnDisable()
     {
         PlayerMovement.OnFirstMove -= StartTimer;
+        Package.OnGrabbed -= StartTimer;
     }
 
     private void StartTimer()

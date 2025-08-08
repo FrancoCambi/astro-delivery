@@ -14,6 +14,6 @@ public class CameraMove : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        mainCamera.transform.position = newPos;
+        if (collision.CompareTag("Player")) mainCamera.transform.position = newPos;
     }
 }

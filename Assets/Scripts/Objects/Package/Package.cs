@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D))]
@@ -38,7 +39,9 @@ public class Package : MonoBehaviour
     public bool Grounded => rb.linearVelocity.y == 0f;
     public bool Falling => !Grounded && rb.linearVelocity.y < 0f;
     public bool GoingToRespawn { get; private set; }
-   
+
+    public static Action OnGrabbed;
+
     private void Awake()
     {
         instance = this;
@@ -69,7 +72,7 @@ public class Package : MonoBehaviour
     {
         if (hardDropped) return;
 
-        SetGravity();
+        ResetGravity();
         IsBeingHeld = true;
 
         rb.linearVelocity = Vector2.zero;
@@ -86,6 +89,8 @@ public class Package : MonoBehaviour
 
 
         SoundFXManager.Instance.PlaySoundFXClip(grabClip, transform);
+
+        OnGrabbed?.Invoke();
 
     }
 
@@ -177,6 +182,12 @@ public class Package : MonoBehaviour
         rb.gravityScale = startsFloating ? 0f : 1f;
     }
 
+    private void ResetGravity()
+    {
+        if (!rb) return;
+        rb.gravityScale = 1f;
+    }
+
     #endregion
 
     #region collisions
@@ -193,7 +204,7 @@ public class Package : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            SetGravity();
+            ResetGravity();
             rb.sharedMaterial = normalFriction;
         }
 
