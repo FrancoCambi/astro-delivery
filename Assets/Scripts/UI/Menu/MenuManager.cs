@@ -21,8 +21,14 @@ public class MenuManager : MonoBehaviour
 
     public void GoToLevelMenu()
     {
-        GoToMainMenu();
         PlayerPrefs.SetInt("levelMenu", 1);
+        GoToMainMenu();
         
+    }
+
+    public void GoToWishListMenu()
+    {
+        PlayerPrefs.SetInt("wishMenu", 1);
+        GoToMainMenu();
     }
 }

@@ -14,6 +14,12 @@ public class MainMenu : MonoBehaviour
             LevelSelection();
             PlayerPrefs.SetInt("levelMenu", 0);
         }
+
+        else if (PlayerPrefs.GetInt("wishMenu", 0) == 1)
+        {
+            WishListMenu();
+            PlayerPrefs.SetInt("wishMenu", 0);
+        }
     }
 
     public void LevelSelection()
@@ -32,6 +38,11 @@ public class MainMenu : MonoBehaviour
 
         optionsGroup.alpha = 1f;
         optionsGroup.blocksRaycasts = true;
+    }
+
+    public void WishListMenu()
+    {
+        LevelSelection();
     }
 
     public void ExitButton()

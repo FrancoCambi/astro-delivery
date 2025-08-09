@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7026140916261566871}
   - component: {fileID: 6564870734272412418}
   - component: {fileID: 9163666757172247342}
+  - component: {fileID: 3347156425320191345}
   m_Layer: 5
   m_Name: LostMenu
   m_TagString: Untagged
@@ -92,6 +93,24 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &3347156425320191345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938447530846669860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04c233214c0a1064eb5ebb83406bcef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectables:
+  - {fileID: 2056771112587091870}
+  - {fileID: 2524148387100260221}
+  - {fileID: 2061017709134952462}
+  selectedAnimationScale: 1.1
+  scaleDuration: 0.25
 --- !u!1 &1431867355395017576
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,6 +1520,7 @@ GameObject:
   - component: {fileID: 1867433744203934461}
   - component: {fileID: 4433621158788100231}
   - component: {fileID: 6102523651268710660}
+  - component: {fileID: 8209562375806414885}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -1581,6 +1601,24 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &8209562375806414885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4099013184692931033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04c233214c0a1064eb5ebb83406bcef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectables:
+  - {fileID: 3886114392471096331}
+  - {fileID: 3539299497968634800}
+  - {fileID: 1591588861949965387}
+  selectedAnimationScale: 1.1
+  scaleDuration: 0.25
 --- !u!1 &4418373466516145929
 GameObject:
   m_ObjectHideFlags: 0
@@ -2808,6 +2846,7 @@ GameObject:
   - component: {fileID: 1646138578262076172}
   - component: {fileID: 4967130498873095487}
   - component: {fileID: 9135825518418789625}
+  - component: {fileID: 6815889948422091102}
   m_Layer: 5
   m_Name: WonMenu
   m_TagString: Untagged
@@ -2888,6 +2927,23 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &6815889948422091102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7510902853938527722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04c233214c0a1064eb5ebb83406bcef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectables:
+  - {fileID: 6359312748587218852}
+  - {fileID: 9024739275068299371}
+  selectedAnimationScale: 1.1
+  scaleDuration: 0.25
 --- !u!1 &8162658317209266791
 GameObject:
   m_ObjectHideFlags: 0

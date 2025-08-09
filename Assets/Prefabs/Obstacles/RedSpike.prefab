@@ -16,13 +16,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedSpike
       objectReference: {fileID: 0}
+    - target: {fileID: 7580264452504353764, guid: e5a89245baeaa7a46964a4459e6d273a, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8641534327030839108, guid: e5a89245baeaa7a46964a4459e6d273a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5
+      value: -14.4
       objectReference: {fileID: 0}
     - target: {fileID: 8641534327030839108, guid: e5a89245baeaa7a46964a4459e6d273a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.147
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 8641534327030839108, guid: e5a89245baeaa7a46964a4459e6d273a, type: 3}
       propertyPath: m_LocalPosition.z

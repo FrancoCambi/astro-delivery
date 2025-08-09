@@ -243,10 +243,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteDown: {fileID: 1325159006, guid: 4ec24d92b57414743a7612c4443f93db, type: 3}
   spriteUp: {fileID: 602304636, guid: 4ec24d92b57414743a7612c4443f93db, type: 3}
-  playerMovement: {fileID: 0}
   downCollider: {fileID: 7219058660292603756}
   upCollider: {fileID: 220479950973602714}
   pushForce: 25
-  restoreTime: 2
+  restoreTime: 1
   activated: 0
   soundClip: {fileID: 8300000, guid: 993ce401da4233544b068a29b1211ab6, type: 3}

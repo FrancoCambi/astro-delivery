@@ -36,8 +36,14 @@ public class LevelTooltip : MonoBehaviour
             tooltipStars[i].sprite = emptyStar;
             if (i < record.Stars) tooltipStars[i].sprite = fullStar;
         }
-
-        tooltipText.text = record.CompletedTime != Mathf.Infinity ? SecondsToTimeText(record.CompletedTime) : "Not completed.";
+#if FULL_BUILD
+        tooltipText.text = record.CompletedTime != Mathf.Infinity ? SecondsToTimeText(record.CompletedTime) 
+            : level <= LevelManager.Instance.MaxLevelUnlocked ? "Not Completed." : "Locked.";
+#endif
+#if DEMO_BUILD
+        tooltipText.text = record.CompletedTime != Mathf.Infinity ? SecondsToTimeText(record.CompletedTime)
+            : level <= GameConstants.MaxBetaLevels ? "Not Completed." : "Locked.";
+#endif
 
         rectTransform.anchoredPosition = pos + offset;
 

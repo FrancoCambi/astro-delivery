@@ -17,7 +17,6 @@ public class GameController : MonoBehaviour
     public KeyCode InteractKey => KeyCode.E;
     public string InteractKeyString => InteractKey.ToString();
     public bool IsPaused { get; private set; } 
-
     private void Awake()
     {
         Unpause();

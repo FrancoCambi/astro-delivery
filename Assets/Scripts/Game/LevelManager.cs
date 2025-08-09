@@ -22,7 +22,13 @@ public class LevelManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private LevelTimer timer;
 
-    public int MaxLevelUnlocked { get; private set; }
+    public int MaxLevelUnlocked
+    {
+        get
+        {
+            return PlayerPrefs.GetInt("max_level_unlocked", 1);
+        }
+    }
     public int PlayingLevel
     {
         get
@@ -30,12 +36,12 @@ public class LevelManager : MonoBehaviour
             return PlayerPrefs.GetInt("playing_level", 1);
         }
     }
-    public int LastLevelIndex { get; private set; }
-
-    private void Awake()
+    public int LastLevelIndex
     {
-        MaxLevelUnlocked = PlayerPrefs.GetInt("max_level_unlocked", 1);
-        LastLevelIndex = SceneManager.sceneCountInBuildSettings - 1;
+        get
+        {
+            return SceneManager.sceneCountInBuildSettings - 1;
+        }
     }
 
     public void WinLevel()
@@ -56,6 +62,13 @@ public class LevelManager : MonoBehaviour
     public void PlayNextLevel()
     {
         int nextLevel = PlayingLevel + 1;
+#if DEMO_BUILD
+        if (nextLevel > GameConstants.MaxBetaLevels)
+        {
+            MenuManager.Instance.GoToWishListMenu();
+            return;
+        }
+#endif
         if (nextLevel <= LastLevelIndex)
         {
             LoadLevel(nextLevel);
@@ -98,7 +111,7 @@ public class LevelManager : MonoBehaviour
     {
         if (PlayingLevel == MaxLevelUnlocked)
         {
-            PlayerPrefs.SetInt("max_level_unlocked", ++MaxLevelUnlocked);
+            PlayerPrefs.SetInt("max_level_unlocked", MaxLevelUnlocked + 1);
 
         }
     }
