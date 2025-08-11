@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
     public bool IsPaused { get; private set; } 
     private void Awake()
     {
-        Unpause();
+        Time.timeScale = 1;
     }
 
     private void Update()

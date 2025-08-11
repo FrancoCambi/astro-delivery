@@ -241,11 +241,11 @@ MonoBehaviour:
   jumpBuffer: 0.2
   coyoteTime: 0.075
   acceleration: 60
-  groundDeceleration: 30
+  groundDeceleration: 45
   airDeceleration: 15
   groundingForce: -0.75
   fallAcceleration: 55
-  jumpEndEarlyGravityModifier: 2.3
+  jumpEndEarlyGravityModifier: 2
   jumpCollisionMask:
     serializedVersion: 2
     m_Bits: 12

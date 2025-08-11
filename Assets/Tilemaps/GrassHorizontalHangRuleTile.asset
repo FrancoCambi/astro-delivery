@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
-  m_Name: GrassPlatformRuleTile
+  m_Name: GrassHorizontalHangRuleTile
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: 6818874880351788203, guid: 383b7b073f866f44d8e5e8bb88c09237, type: 3}
+  m_DefaultSprite: {fileID: 3986865518952223350, guid: 34f9981764a35f0408effb55e4c7c228, type: 3}
   m_DefaultGameObject: {fileID: 0}
   m_DefaultColliderType: 1
   m_TilingRules:
