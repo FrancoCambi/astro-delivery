@@ -73,30 +73,15 @@ public class SoundMixerManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    private void LoadVolumes()
+    public void LoadVolumes()
     {
         float masterVolume = PlayerPrefs.GetFloat("masterVolume");
         float soundFXVolume = PlayerPrefs.GetFloat("soundFXVolume");
         float musicVolume = PlayerPrefs.GetFloat("musicVolume");
 
-
-        if (masterSlider && soundFXSlider && musicSlider)
-        {
-            float masterVolumeNormalized = Mathf.Pow(10, (masterVolume / (float)20));
-            float soundFxVolumeNormalized = Mathf.Pow(10, (soundFXVolume / (float)20));
-            float musicVolumeNormalized = Mathf.Pow(10, (musicVolume / (float)20));
-
-            // When sliders' values are changed, the OnValueChanged event of the slider
-            // sraises, calling the set functions.
-            masterSlider.value = masterVolumeNormalized;
-            soundFXSlider.value = soundFxVolumeNormalized;
-            musicSlider.value = musicVolumeNormalized;
-        }
-        else
-        {
-            audioMixer.SetFloat("MasterVolume", masterVolume);
-            audioMixer.SetFloat("SoundFXVolume", soundFXVolume);
-            audioMixer.SetFloat("MusicVolume", musicVolume);
-        }
+        audioMixer.SetFloat("MasterVolume", masterVolume);
+        audioMixer.SetFloat("SoundFXVolume", soundFXVolume);
+        audioMixer.SetFloat("MusicVolume", musicVolume);
+       
     }
 }

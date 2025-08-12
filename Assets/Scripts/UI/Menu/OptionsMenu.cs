@@ -3,25 +3,21 @@ using UnityEngine;
 public class OptionsMenu : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] CanvasGroup mainMenuGroup;
-    [SerializeField] CanvasGroup optionsGroup;
-    [SerializeField] CanvasGroup audioGroup;
+    [SerializeField] GameObject mainMenuGO;
+    [SerializeField] GameObject optionsGO;
+    [SerializeField] GameObject audioGO;
 
     public void AudioButton()
     {
-        optionsGroup.alpha = 0f;
-        optionsGroup.blocksRaycasts = false;
+        optionsGO.SetActive(false);
 
-        audioGroup.alpha = 1f;
-        audioGroup.blocksRaycasts = true;
+        audioGO.SetActive(true);
     }
 
     public void BackButton()
     {
-        optionsGroup.alpha = 0f;
-        optionsGroup.blocksRaycasts = false;
+        optionsGO.SetActive(false);
 
-        mainMenuGroup.alpha = 1f;
-        mainMenuGroup.blocksRaycasts = true;
+        mainMenuGO.SetActive(true);
     }
 }

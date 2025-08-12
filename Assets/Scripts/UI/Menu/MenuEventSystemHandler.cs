@@ -5,12 +5,17 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using DG.Tweening;
-using System.Security.Cryptography;
+using UnityEngine.InputSystem;
+using System.Collections;
 
 public class MenuEventSystemHandler : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] protected List<Selectable> selectables = new();
+    [SerializeField] protected Selectable firstSelected;
+
+    [Header("Controls")]
+    [SerializeField] protected InputActionReference navigateReference;
 
     [Header("Animations")]
     [SerializeField] protected float selectedAnimationScale = 1.1f;
@@ -20,6 +25,7 @@ public class MenuEventSystemHandler : MonoBehaviour
 
     protected Tween scaleUpTween;
     protected Tween scaleDownTween;
+    protected Selectable lastSelected;
 
     public virtual void Awake()
     {
@@ -32,14 +38,26 @@ public class MenuEventSystemHandler : MonoBehaviour
 
     public virtual void OnEnable()
     {
+        navigateReference.action.performed += OnNavigate;
+
         for (int i = 0; i < selectables.Count; i++)
         {
             selectables[i].transform.localScale = scales[selectables[i]];
         }
+
+        StartCoroutine(SelectAfterDelay());
+    }
+
+    protected virtual IEnumerator SelectAfterDelay()
+    {
+        yield return null;
+        EventSystem.current.SetSelectedGameObject(firstSelected.gameObject);
     }
 
     public virtual void OnDisable()
     {
+        navigateReference.action.performed -= OnNavigate;
+
         scaleUpTween.Kill(true);
         scaleDownTween.Kill(true);
     }
@@ -83,13 +101,15 @@ public class MenuEventSystemHandler : MonoBehaviour
 
     }
 
-    public void OnSelect(BaseEventData eventData)
+    public virtual void OnSelect(BaseEventData eventData)
     {
+        lastSelected = eventData.selectedObject.GetComponent<Selectable>();
+
         Vector3 newScale = eventData.selectedObject.transform.localScale * selectedAnimationScale;
         scaleUpTween = eventData.selectedObject.transform.DOScale(newScale, scaleDuration).SetUpdate(true);
     }
 
-    public void OnDeselect(BaseEventData eventData)
+    public virtual void OnDeselect(BaseEventData eventData)
     {
         Selectable sel = eventData.selectedObject.GetComponent<Selectable>();
         scaleDownTween = eventData.selectedObject.transform.DOScale(scales[sel], scaleDuration).SetUpdate(true);
@@ -112,12 +132,20 @@ public class MenuEventSystemHandler : MonoBehaviour
 
     public void OnPointerExit(BaseEventData eventData)
     {
-        PointerEventData pointerEventData = eventData as PointerEventData;
+        /*PointerEventData pointerEventData = eventData as PointerEventData;
         if (pointerEventData != null)
         {
             pointerEventData.selectedObject = null;
-        }
+        }*/
 
+    }
+
+    protected virtual void OnNavigate(InputAction.CallbackContext context)
+    {
+        if (EventSystem.current.currentSelectedGameObject == null && lastSelected != null)
+        {
+            EventSystem.current.SetSelectedGameObject(lastSelected.gameObject);
+        }
     }
 
 

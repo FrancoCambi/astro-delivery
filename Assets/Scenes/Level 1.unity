@@ -17169,6 +17169,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2025725346}
     m_Modifications:
+    - target: {fileID: 649090960865806810, guid: 49cadd1ff2a070f428c81b9de8620d8c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -900
+      objectReference: {fileID: 0}
     - target: {fileID: 1591588861949965387, guid: 49cadd1ff2a070f428c81b9de8620d8c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -17277,6 +17281,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1417772116}
+    - target: {fileID: 7073681434345660694, guid: 49cadd1ff2a070f428c81b9de8620d8c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -900
+      objectReference: {fileID: 0}
     - target: {fileID: 8874239070996902521, guid: 49cadd1ff2a070f428c81b9de8620d8c, type: 3}
       propertyPath: m_Name
       value: Overlay
@@ -17285,6 +17293,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1582624355}
+    - target: {fileID: 9083861994835939596, guid: 49cadd1ff2a070f428c81b9de8620d8c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -900
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

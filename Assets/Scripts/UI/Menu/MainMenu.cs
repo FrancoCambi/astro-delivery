@@ -3,9 +3,9 @@ using UnityEngine;
 public class MainMenu : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] CanvasGroup mainMenuGroup;
-    [SerializeField] CanvasGroup optionsGroup;
-    [SerializeField] CanvasGroup levelsGroup;
+    [SerializeField] GameObject mainMenuGO;
+    [SerializeField] GameObject optionsGO;
+    [SerializeField] GameObject levelsGO;
 
     private void Start()
     {
@@ -24,20 +24,16 @@ public class MainMenu : MonoBehaviour
 
     public void LevelSelection()
     {
-        mainMenuGroup.alpha = 0f;
-        mainMenuGroup.blocksRaycasts = false;
+        mainMenuGO.SetActive(false);
 
-        levelsGroup.alpha = 1f;
-        levelsGroup.blocksRaycasts = true;
+        levelsGO.SetActive(true);
     }
 
     public void OptionsButton()
     {
-        mainMenuGroup.alpha = 0f;
-        mainMenuGroup.blocksRaycasts = false;
+        mainMenuGO.SetActive(false);
 
-        optionsGroup.alpha = 1f;
-        optionsGroup.blocksRaycasts = true;
+        optionsGO.SetActive(true);
     }
 
     public void WishListMenu()

@@ -49,23 +49,7 @@ public class PlayerCarryHandler : MonoBehaviour
             SoftDropPackage();
         }
 
-        if (playerMovement.Falling && !calculatingTime)
-        {
-            calculatingTime = true;
-        }
-        else if (playerMovement.Falling && calculatingTime)
-        {
-            fallingTime += Time.deltaTime;
-        }
-        else
-        {
-            if (IsCarrying && fallingTime >= 0.58f)
-            {
-                HardDropPackage();
-            }
-            calculatingTime = false;
-            fallingTime = 0f;
-        }
+        CheckFalling();
 
     }
 
@@ -101,6 +85,29 @@ public class PlayerCarryHandler : MonoBehaviour
     {
         return !Package.Instance.IsBeingHeld && 
             Vector3.Distance(transform.position, Package.Instance.transform.position) <= tooltipDistance; 
+    }
+
+    public void CheckFalling()
+    {
+        if (!IsCarrying) return;
+
+        if (playerMovement.Falling && !calculatingTime)
+        {
+            calculatingTime = true;
+        }
+        else if (playerMovement.Falling && calculatingTime)
+        {
+            fallingTime += Time.deltaTime;
+        }
+        else
+        {
+            if (fallingTime >= 0.58f)
+            {
+                HardDropPackage();
+            }
+            calculatingTime = false;
+            fallingTime = 0f;
+        }
     }
 
 }

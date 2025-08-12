@@ -5,11 +5,12 @@ using UnityEngine.UI;
 public class LevelsMenu : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private CanvasGroup mainGroup;
-    [SerializeField] private CanvasGroup levelsGroup;
+    [SerializeField] private GameObject mainGO;
+    [SerializeField] private GameObject levelsGO;
     [SerializeField] private RectTransform levelPagesRect;
     [SerializeField] private Image[] barImages;
     [SerializeField] private Button previousBtn, nextBtn;
+    [SerializeField] private LevelPage[] pages;
 
     [Header("Settings")]
     [SerializeField] private int maxPage;
@@ -28,11 +29,18 @@ public class LevelsMenu : MonoBehaviour
         UpdateArrows();
     }
 
+    private void Start()
+    {
+        pages[0].MakeInteractable();
+    }
+
     public void Next()
     {
         if (currentPage < maxPage)
         {
+            pages[currentPage - 1].MakeNotInteractable();
             currentPage++;
+            pages[currentPage - 1].MakeInteractable();
             targetPos += pageStep;
             MovePage();
         }
@@ -42,7 +50,9 @@ public class LevelsMenu : MonoBehaviour
     {
         if (currentPage > 1)
         {
+            pages[currentPage - 1].MakeNotInteractable();
             currentPage--;
+            pages[currentPage - 1].MakeInteractable();
             targetPos -= pageStep;
             MovePage();
         }
@@ -50,11 +60,9 @@ public class LevelsMenu : MonoBehaviour
 
     public void Back()
     {
-        levelsGroup.alpha = 0f;
-        levelsGroup.blocksRaycasts = false;
+        levelsGO.SetActive(false);
 
-        mainGroup.alpha = 1f;
-        mainGroup.blocksRaycasts = true;
+        mainGO.SetActive(true);
     }
 
     public void MovePage()

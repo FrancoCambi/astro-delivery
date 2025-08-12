@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
+using System.Collections;
 
 public class OverlayManager : MonoBehaviour
 {
@@ -19,9 +20,9 @@ public class OverlayManager : MonoBehaviour
     }
 
     [Header("References")]
-    [SerializeField] private CanvasGroup pauseGroup;
-    [SerializeField] private CanvasGroup lostGroup;
-    [SerializeField] private CanvasGroup wonGroup;
+    [SerializeField] private GameObject pauseGO;
+    [SerializeField] private GameObject lostGO;
+    [SerializeField] private GameObject wonGO;
     [SerializeField] private TextMeshProUGUI completedTimeText;
     [SerializeField] private Image[] stars;
     [SerializeField] private Sprite emptyStar;
@@ -40,7 +41,7 @@ public class OverlayManager : MonoBehaviour
     [SerializeField] private AudioClip wonClip;
 
     private Camera mainCamera;
-    public bool IsPauseOpen => pauseGroup.alpha == 1;
+    public bool IsPauseOpen { get; private set; }
 
     private void Start()
     {
@@ -50,16 +51,15 @@ public class OverlayManager : MonoBehaviour
 
     public void OpenPause()
     {
-        pauseGroup.alpha = 1;
-        pauseGroup.blocksRaycasts = true;
+        pauseGO.SetActive(true);
         pauseTransform.DOLocalMove(Vector3.zero, tweenTime).SetEase(ease).SetUpdate(true);
+        IsPauseOpen = true;
 
     }
 
     public void OpenLost()
     {
-        lostGroup.alpha = 1f;
-        lostGroup.blocksRaycasts = true;
+        lostGO.SetActive(true);
         lostTransform.DOLocalMove(Vector3.zero, tweenTime).SetEase(ease).SetUpdate(true);
 
         SoundFXManager.Instance.PlaySoundFXClip(lostClip, transform);
@@ -68,8 +68,7 @@ public class OverlayManager : MonoBehaviour
 
     public void OpenWon(int starsAmount, float completedTime)
     {
-        wonGroup.alpha = 1f;
-        wonGroup.blocksRaycasts = true;
+        wonGO.SetActive(true);
         wonTransform.DOLocalMove(Vector3.zero, tweenTime).SetEase(ease).SetUpdate(true);
 
         for (int i = 0; i < starsAmount; i++)
@@ -85,29 +84,28 @@ public class OverlayManager : MonoBehaviour
 
         SoundFXManager.Instance.PlaySoundFXClip(wonClip, transform);
 
-
-
     }
 
     public void ClosePause()
     {
+        StartCoroutine(ClosePauseIE());
+    }
+
+    private IEnumerator ClosePauseIE()
+    {
         pauseTransform.DOLocalMove(GetOLDefaultPos(), tweenTime).SetEase(ease).SetUpdate(true);
-        //pauseGroup.alpha = 0;
-        //pauseGroup.blocksRaycasts = false;
-
-
+        IsPauseOpen = false;
+        yield return new WaitForSeconds(tweenTime);
+        pauseGO.SetActive(false);
     }
 
     public void CloseLost()
     {
-        //lostGroup.alpha = 0f;
-        //lostGroup.blocksRaycasts = false;
-
+        lostGO.SetActive(false);
     }
     public void CloseWon()
     {
-        //wonGroup.alpha = 0f;
-        //wonGroup.blocksRaycasts = false;
+        wonGO.SetActive(false);
 
         ResetStars();
     }

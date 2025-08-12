@@ -12,10 +12,10 @@ public class MainMenuTitle : MonoBehaviour
         titleText = GetComponent<TextMeshProUGUI>();
 
 #if DEMO_BUILD
-        titleText.text = "ASTRO DELIVERY<size=45> Demo</size>";
+        titleText.text = "<size=50>Demo</size>";
 #endif
 #if FULL_BUILD
-        titleText.text = "ASTRO DELIVERY";
+        titleText.text = "";
 #endif
 
 

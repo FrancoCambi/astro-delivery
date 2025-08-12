@@ -31,6 +31,11 @@ public class LevelButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     }
     private void Start()
     {
+        SetInteractable();
+    }
+
+    public void SetInteractable()
+    {
 #if DEMO_BUILD
         if (level > GameConstants.MaxBetaLevels)
         {
@@ -45,6 +50,17 @@ public class LevelButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             btn.interactable = false;
         }
     }
+
+    public void ShowTooltip()
+    {
+        LevelTooltip.Instance.ShowTooltip(level, rectTransform.localPosition);
+    }
+
+    public void HideTooltip()
+    {
+        LevelTooltip.Instance.HideTooltip();
+    }
+
     private void StartLevel()
     {
         LevelManager.Instance.LoadLevel(level);
@@ -52,11 +68,11 @@ public class LevelButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        LevelTooltip.Instance.ShowTooltip(level, rectTransform.localPosition);
+        ShowTooltip();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        LevelTooltip.Instance.HideTooltip();
+        HideTooltip();
     }
 }

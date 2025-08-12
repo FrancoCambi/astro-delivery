@@ -5,14 +5,10 @@ using UnityEngine.UI;
 
 public class VolumePercentageText : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private Slider slider;
-    private TextMeshProUGUI percentageText;
+    [SerializeField] private TextMeshProUGUI percentageText;
 
-    private void Awake()
-    {
-        percentageText = GetComponent<TextMeshProUGUI>();
-
-    }
 
     private void Start()
     {

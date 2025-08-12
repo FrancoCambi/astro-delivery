@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7073681434345660694}
   - component: {fileID: 7026140916261566871}
   - component: {fileID: 6564870734272412418}
-  - component: {fileID: 9163666757172247342}
   - component: {fileID: 3347156425320191345}
   m_Layer: 5
   m_Name: LostMenu
@@ -19,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7073681434345660694
 RectTransform:
   m_ObjectHideFlags: 0
@@ -81,18 +80,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!225 &9163666757172247342
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 938447530846669860}
-  m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 0
-  m_IgnoreParentGroups: 0
 --- !u!114 &3347156425320191345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,6 +96,8 @@ MonoBehaviour:
   - {fileID: 2056771112587091870}
   - {fileID: 2524148387100260221}
   - {fileID: 2061017709134952462}
+  firstSelected: {fileID: 2056771112587091870}
+  navigateReference: {fileID: -8784545083839296357, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   selectedAnimationScale: 1.1
   scaleDuration: 0.25
 --- !u!1 &1431867355395017576
@@ -1519,7 +1508,6 @@ GameObject:
   - component: {fileID: 649090960865806810}
   - component: {fileID: 1867433744203934461}
   - component: {fileID: 4433621158788100231}
-  - component: {fileID: 6102523651268710660}
   - component: {fileID: 8209562375806414885}
   m_Layer: 5
   m_Name: PauseMenu
@@ -1527,7 +1515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &649090960865806810
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1589,18 +1577,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!225 &6102523651268710660
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4099013184692931033}
-  m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 0
-  m_IgnoreParentGroups: 0
 --- !u!114 &8209562375806414885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1617,6 +1593,8 @@ MonoBehaviour:
   - {fileID: 3886114392471096331}
   - {fileID: 3539299497968634800}
   - {fileID: 1591588861949965387}
+  firstSelected: {fileID: 3886114392471096331}
+  navigateReference: {fileID: -8784545083839296357, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   selectedAnimationScale: 1.1
   scaleDuration: 0.25
 --- !u!1 &4418373466516145929
@@ -2845,7 +2823,6 @@ GameObject:
   - component: {fileID: 9083861994835939596}
   - component: {fileID: 1646138578262076172}
   - component: {fileID: 4967130498873095487}
-  - component: {fileID: 9135825518418789625}
   - component: {fileID: 6815889948422091102}
   m_Layer: 5
   m_Name: WonMenu
@@ -2853,7 +2830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9083861994835939596
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2915,18 +2892,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!225 &9135825518418789625
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7510902853938527722}
-  m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 0
-  m_IgnoreParentGroups: 0
 --- !u!114 &6815889948422091102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2942,6 +2907,8 @@ MonoBehaviour:
   selectables:
   - {fileID: 6359312748587218852}
   - {fileID: 9024739275068299371}
+  firstSelected: {fileID: 6359312748587218852}
+  navigateReference: {fileID: -8784545083839296357, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   selectedAnimationScale: 1.1
   scaleDuration: 0.25
 --- !u!1 &8162658317209266791
@@ -3206,9 +3173,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c68dde8cc2186c746818b8b86e983ca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseGroup: {fileID: 6102523651268710660}
-  lostGroup: {fileID: 9163666757172247342}
-  wonGroup: {fileID: 9135825518418789625}
+  pauseGO: {fileID: 4099013184692931033}
+  lostGO: {fileID: 938447530846669860}
+  wonGO: {fileID: 7510902853938527722}
   completedTimeText: {fileID: 4343704339988712274}
   stars:
   - {fileID: 4161107048598331626}
