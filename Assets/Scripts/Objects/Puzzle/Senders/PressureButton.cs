@@ -11,11 +11,6 @@ public class PressureButton : PuzzleSender
         if (!used) Activate();
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        timeAfterPressed = 0;
-    }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (onlyPressure)

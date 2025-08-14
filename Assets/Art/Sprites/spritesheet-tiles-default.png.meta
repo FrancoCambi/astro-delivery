@@ -596,7 +596,7 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -618,7 +618,7 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -640,7 +640,7 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -649,6 +649,50 @@ TextureImporter:
       bones: []
       spriteID: 7491257cb6483fd419b3c2d3541d7a3d
       internalID: 473811816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wheel
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9f6f2daebf2ff141845df7a386e66d9
+      internalID: -1523438630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chains
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9e83f1f2702b0646a66ce2beebca22e
+      internalID: -2000834143
       vertices: []
       indices: 
       edges: []
@@ -670,6 +714,7 @@ TextureImporter:
       BlueButton: -265305460
       BlueButtonPressed: 1608155066
       Bush: 1459805207
+      Chains: -2000834143
       DoorOpen: -2808014073550543062
       FullStar: 1063024075
       GrassCloud: -9164772
@@ -689,6 +734,8 @@ TextureImporter:
       SandCloud: -1494760716
       Spikes: 917623551
       Stick: 1719643817
+      Wheel: -1523438630
+      spritesheet-tiles-default_1: 969677346
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
