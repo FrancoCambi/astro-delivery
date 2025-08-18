@@ -196,7 +196,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1024
-        y: 383
+        y: 384
         width: 64
         height: 64
       alignment: 0
@@ -697,6 +697,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Cactus
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 772f75efefa7a274c9983e7ebb520aad
+      internalID: -626604494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -714,6 +736,7 @@ TextureImporter:
       BlueButton: -265305460
       BlueButtonPressed: 1608155066
       Bush: 1459805207
+      Cactus: -626604494
       Chains: -2000834143
       DoorOpen: -2808014073550543062
       FullStar: 1063024075
