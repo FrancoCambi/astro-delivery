@@ -6,19 +6,16 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject mainMenuGO;
     [SerializeField] GameObject optionsGO;
     [SerializeField] GameObject levelsGO;
+    [SerializeField] GameObject whishlistButtonGO;
 
     private void Start()
     {
+        ShowWishlistButton();
+
         if (PlayerPrefs.GetInt("levelMenu", 0) == 1)
         {
             LevelSelection();
             PlayerPrefs.SetInt("levelMenu", 0);
-        }
-
-        else if (PlayerPrefs.GetInt("wishMenu", 0) == 1)
-        {
-            WishListMenu();
-            PlayerPrefs.SetInt("wishMenu", 0);
         }
     }
 
@@ -36,13 +33,15 @@ public class MainMenu : MonoBehaviour
         optionsGO.SetActive(true);
     }
 
-    public void WishListMenu()
-    {
-        LevelSelection();
-    }
-
     public void ExitButton()
     {
         Application.Quit();
+    }
+
+    private void ShowWishlistButton()
+    {
+#if DEMO_BUILD
+        whishlistButtonGO.SetActive(true);
+#endif
     }
 }

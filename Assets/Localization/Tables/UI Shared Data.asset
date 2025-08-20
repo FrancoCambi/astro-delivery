@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UI Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: UI
+  m_TableCollectionNameGuidString: 432771dadd88aa84c8b1645bae3176fd
+  m_Entries:
+  - m_Id: 28802912256
+    m_Key: PlayButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 77716885504
+    m_Key: OptionsButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111418118144
+    m_Key: ExitButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 893358018560
+    m_Key: OptionsTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 978561110016
+    m_Key: AudioButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1023171727360
+    m_Key: BackButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7538439983104
+    m_Key: AudioTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7717150887936
+    m_Key: MasterAudio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7745747652608
+    m_Key: SFXAudio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7746666205184
+    m_Key: MusicAudio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7960475045888
+    m_Key: LevelsTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 286507932422144
+    m_Key: WishlistButton
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 8762696887066165542
+  references:
+    version: 2
+    RefIds:
+    - rid: 8762696887066165542
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1755564998809

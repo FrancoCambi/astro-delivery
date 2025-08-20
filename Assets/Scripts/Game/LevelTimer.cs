@@ -17,7 +17,7 @@ public class LevelTimer : MonoBehaviour
 
     private void Awake()
     {
-        maxSeconds = normalTime * 1.5f;
+        maxSeconds = normalTime * 2f;
         secondsRemaining = maxSeconds;
     }
 
@@ -50,7 +50,7 @@ public class LevelTimer : MonoBehaviour
     public int GetStarsAmount()
     {
         float threeStarsMax = minTime * 1.25f;
-        float twoStarsMax = normalTime * 1.25f;
+        float twoStarsMax = normalTime * 1.5f;
         float completedTime = maxSeconds - secondsRemaining;
 
         if (0 <= completedTime && completedTime <= threeStarsMax)

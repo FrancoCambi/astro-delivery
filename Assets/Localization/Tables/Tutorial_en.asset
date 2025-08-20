@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Tutorial_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: bd86e56848496ff4f8e8589e913d4a87, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 5998481408
+    m_Localized: 'Use <color=#FF8000> A, W, D</color> to move and jump.
+
+      You
+      can also use<color=#FF8000> Space</color> to jump.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20770820096
+    m_Localized: You can activate buttons by applying pressure.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40362414080
+    m_Localized: Some objects need activation.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57965907968
+    m_Localized: Doors may or may not be open.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68069986304
+    m_Localized: 'Use <color=#FF8000>E</color> to pickup the package.
+
+      If you
+      are not careful with it, it will drop and reappear.
+
+      You can use <color=#FF8000>F</color>
+      to carefully let it go.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 80069890048
+    m_Localized: Your job is to get the package to the door as fast as possible,
+      before the time runs out.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90689867776
+    m_Localized: You can use <color=#FF8000>E</color> to interact.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130820968448
+    m_Localized: Some obstacles can make you drop the package.
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

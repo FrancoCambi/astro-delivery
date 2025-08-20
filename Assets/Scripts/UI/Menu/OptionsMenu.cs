@@ -1,4 +1,8 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
+using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour
 {
@@ -20,4 +24,6 @@ public class OptionsMenu : MonoBehaviour
 
         mainMenuGO.SetActive(true);
     }
+
+  
 }

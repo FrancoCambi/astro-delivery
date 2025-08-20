@@ -105,13 +105,16 @@ public class LevelManager : MonoBehaviour
     public void LoadLevel(int level)
     {
         PlayerPrefs.SetInt("playing_level", level);
+        PlayerPrefs.Save();
         SceneManager.LoadScene(level);
+
     }
     private void UpdateMaxLevel()
     {
         if (PlayingLevel == MaxLevelUnlocked)
         {
             PlayerPrefs.SetInt("max_level_unlocked", MaxLevelUnlocked + 1);
+            PlayerPrefs.Save();
 
         }
     }
@@ -119,6 +122,9 @@ public class LevelManager : MonoBehaviour
     {
         PlayerPrefs.SetInt($"record_stars_{level}", newRecord.Stars);
         PlayerPrefs.SetFloat($"record_time_{level}", newRecord.CompletedTime);
+        PlayerPrefs.Save();
+
+
     }
 
 }

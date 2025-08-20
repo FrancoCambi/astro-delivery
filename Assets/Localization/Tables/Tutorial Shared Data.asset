@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Tutorial Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Tutorial
+  m_TableCollectionNameGuidString: bd86e56848496ff4f8e8589e913d4a87
+  m_Entries:
+  - m_Id: 5998481408
+    m_Key: Movement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20770820096
+    m_Key: Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40362414080
+    m_Key: LaunchPad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57965907968
+    m_Key: Door
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68069986304
+    m_Key: Package
+    m_Metadata:
+      m_Items: []
+  - m_Id: 80069890048
+    m_Key: PackageTwo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90689867776
+    m_Key: Lever
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130820968448
+    m_Key: Spikes
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 8762696887066165592
+  references:
+    version: 2
+    RefIds:
+    - rid: 8762696887066165592
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1755567256695

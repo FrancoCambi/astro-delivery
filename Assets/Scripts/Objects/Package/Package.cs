@@ -25,10 +25,10 @@ public class Package : MonoBehaviour
     [SerializeField] private PhysicsMaterial2D highFriction;
     [SerializeField] private AudioClip grabClip;
     [SerializeField] private AudioClip dropClip;
+    [SerializeField] private BoxCollider2D bottomCol;
 
     private Rigidbody2D rb;
     private SpriteRenderer playerRenderer;
-    private new BoxCollider2D collider;
     
     private Vector3 startingPos;
 
@@ -48,7 +48,6 @@ public class Package : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         playerRenderer = player.GetComponent<SpriteRenderer>();
-        collider = GetComponent<BoxCollider2D>();
 
         startingPos = transform.position;
         hardDropped = false;
@@ -98,7 +97,7 @@ public class Package : MonoBehaviour
     {
         IsBeingHeld = false;
         hardDropped = true;
-        collider.isTrigger = true;
+        bottomCol.isTrigger = true;
 
         rb.linearVelocity = Vector3.zero;
         rb.bodyType = RigidbodyType2D.Dynamic;
@@ -163,7 +162,7 @@ public class Package : MonoBehaviour
     private void SetUp()
     {
         hardDropped = false;
-        collider.isTrigger = false;
+        bottomCol.isTrigger = false;
         gameObject.layer = LayerMask.NameToLayer("Default");
         transform.rotation = Quaternion.identity;
         if (startsFloating) rb.gravityScale = 0f;

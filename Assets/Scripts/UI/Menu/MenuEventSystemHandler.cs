@@ -132,11 +132,11 @@ public class MenuEventSystemHandler : MonoBehaviour
 
     public void OnPointerExit(BaseEventData eventData)
     {
-        /*PointerEventData pointerEventData = eventData as PointerEventData;
+        PointerEventData pointerEventData = eventData as PointerEventData;
         if (pointerEventData != null)
         {
             pointerEventData.selectedObject = null;
-        }*/
+        }
 
     }
 
