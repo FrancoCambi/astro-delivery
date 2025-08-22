@@ -1,3 +1,5 @@
+using Steamworks;
+using Steamworks.Data;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -38,6 +40,24 @@ public class GameController : MonoBehaviour
             {
                 Unpause();
             }
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            SteamAchievements.ClearAchievementStatus("ACH_TEST");
+        }
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            SteamAchievements.UnlockAchievement("ACH_TEST");
+        }
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            print(SteamAchievements.IsUnlocked("ACH_TEST"));
+
+            print(SteamIntegration.Instance.IsConnected);
         }
     }
 

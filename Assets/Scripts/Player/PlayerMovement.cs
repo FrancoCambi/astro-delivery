@@ -6,6 +6,7 @@ public struct FrameInput
     public bool JumpDown;
     public bool JumpHeld;
     public Vector2 Move;
+    public bool WantClimb;
 }
 public class PlayerMovement : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Misc")]
     [SerializeField] LayerMask jumpCollisionMask;
+    [SerializeField] LayerMask climbMask;
     [SerializeField] float grounderDistance;
 
     [Header("Audio")]
@@ -53,6 +55,8 @@ public class PlayerMovement : MonoBehaviour
     private bool launchToConsume = false;
     private bool launchJumping = false;
     private bool madeFirstMove = false;
+    private bool canClimb = false;
+    private bool climbing = false;
     private bool HasBufferedJump => bufferedJumpUsable && time < timeJumpWasPressed + jumpBuffer;
     private bool CanUseCoyote => coyoteUsable && !grounded && time < frameLeftGrounded + coyoteTime;
     public bool Grounded => grounded;
@@ -85,7 +89,6 @@ public class PlayerMovement : MonoBehaviour
         GatherInput();
         SetAnimation();
         FlipSprite();
-
     }
 
     private void FixedUpdate()
@@ -94,6 +97,7 @@ public class PlayerMovement : MonoBehaviour
 
         HandleJump();
         HandleMovement();
+        HandleClimbing();
         HandleGravity();
 
         ApplyMovement();
@@ -105,10 +109,11 @@ public class PlayerMovement : MonoBehaviour
         {
             JumpDown = Input.GetButtonDown("Jump"),
             JumpHeld = Input.GetButton("Jump"),
-            Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"))
+            Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")),
+            WantClimb = Input.GetButton("Up")
         };
 
-        if (frameInput.JumpDown)
+        if (frameInput.JumpDown && !climbing)
         {
             jumpToConsume = true;
             timeJumpWasPressed = time;
@@ -119,6 +124,12 @@ public class PlayerMovement : MonoBehaviour
             OnFirstMove?.Invoke();
             madeFirstMove = true;
         }
+
+        if (canClimb && frameInput.WantClimb)
+        {
+            rb.gravityScale = 0f;
+            climbing = true;
+        }
     }
 
 
@@ -127,6 +138,15 @@ public class PlayerMovement : MonoBehaviour
         if (frameInput.Move.x != 0f && grounded)
         {
             playerAnimations.State = PlayerAnimationState.Walk;
+        }
+        else if (climbing && frameInput.Move != Vector2.zero)
+        {
+            playerAnimations.Resume();
+            playerAnimations.State = PlayerAnimationState.Climb;
+        }
+        else if (climbing && frameInput.Move == Vector2.zero)
+        {
+            playerAnimations.Stop();   
         }
         else if (!grounded)
         {
@@ -156,9 +176,21 @@ public class PlayerMovement : MonoBehaviour
 
         bool groundHit = Physics2D.BoxCast(currentCollider.bounds.center, currentCollider.size, 0, Vector2.down, grounderDistance, ~jumpCollisionMask);
         bool ceilingHit = Physics2D.BoxCast(currentCollider.bounds.center, currentCollider.size, 0, Vector2.up, grounderDistance, ~jumpCollisionMask);
+        bool climbHit = Physics2D.BoxCast(currentCollider.bounds.center, currentCollider.size, 0, Vector2.up, grounderDistance, climbMask);
 
         if (ceilingHit) frameVelocity.y = Mathf.Min(0, frameVelocity.y);
-        
+
+        if (climbHit)
+        {
+            canClimb = true;
+        }
+        else
+        {
+            canClimb = false;
+            climbing = false;
+            rb.gravityScale = 1f;
+        }
+
         if (!grounded && groundHit)
         {
             grounded = true;
@@ -166,6 +198,8 @@ public class PlayerMovement : MonoBehaviour
             coyoteUsable = true;
             bufferedJumpUsable = true;
             endedJumpEarly = false;
+            climbing = false;
+            rb.gravityScale = 1f;
         }
         else if (grounded && !groundHit)
         {
@@ -187,11 +221,20 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void HandleClimbing()
+    {
+        if (climbing)
+        {
+            frameVelocity.y = Mathf.MoveTowards(frameVelocity.y, frameInput.Move.y * maxMoveSpeed, acceleration * Time.fixedDeltaTime);
+        }
+
+    }
+
     private void HandleJump()
     {
         if (!endedJumpEarly && !grounded && !frameInput.JumpHeld && !launchJumping && frameVelocity.y > 0f) endedJumpEarly = true;
 
-        if (!jumpToConsume && !HasBufferedJump && !launchToConsume) return;
+        if ((!jumpToConsume && !HasBufferedJump && !launchToConsume) || climbing) return;
 
         if (grounded || CanUseCoyote) ExecuteJump();
 
@@ -220,6 +263,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleGravity()
     {
+        if (climbing) return;
+
         if (grounded && frameVelocity.y <= 0f)
         {
             frameVelocity.y = groundingForce;

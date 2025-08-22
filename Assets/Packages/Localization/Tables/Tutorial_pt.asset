@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Tutorial_pt
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pt
+  m_SharedData: {fileID: 11400000, guid: bd86e56848496ff4f8e8589e913d4a87, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 5998481408
+    m_Localized: "Use <color=#FF8000> A, W, D</color> para se mover e pular.\r\nVoc\xEA
+      tamb\xE9m pode usar <color=#FF8000>Espa\xE7o</color> para pular."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20770820096
+    m_Localized: "Voc\xEA pode ativar bot\xF5es aplicando press\xE3o."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40362414080
+    m_Localized: Alguns objetos precisam ser ativados.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57965907968
+    m_Localized: "As portas podem estar abertas ou n\xE3o."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68069986304
+    m_Localized: "Use <color=#FF8000>E</color> para pegar o pacote.\r\nSe voc\xEA
+      n\xE3o for cuidadoso, ele cair\xE1 e reaparecer\xE1.\r\nVoc\xEA pode usar <color=#FF8000>F</color>
+      para solt\xE1-lo com cuidado."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 80069890048
+    m_Localized: "Seu trabalho \xE9 levar o pacote at\xE9 a porta o mais r\xE1pido
+      poss\xEDvel, antes que o tempo acabe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90689867776
+    m_Localized: "Voc\xEA pode usar <color=#FF8000>E</color> para interagir."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130820968448
+    m_Localized: "Alguns obst\xE1culos podem fazer voc\xEA deixar cair o pacote."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

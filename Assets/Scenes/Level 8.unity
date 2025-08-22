@@ -1191,7 +1191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7756380715748026434, guid: 231ff8b69abeee84595d3741692f53b8, type: 3}
       propertyPath: moveSpeed
-      value: 5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 8819884835614821507, guid: 231ff8b69abeee84595d3741692f53b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1997,7 +1997,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7756380715748026434, guid: 231ff8b69abeee84595d3741692f53b8, type: 3}
       propertyPath: moveSpeed
-      value: 5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 8819884835614821507, guid: 231ff8b69abeee84595d3741692f53b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2532,7 +2532,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7756380715748026434, guid: 231ff8b69abeee84595d3741692f53b8, type: 3}
       propertyPath: moveSpeed
-      value: 5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 8819884835614821507, guid: 231ff8b69abeee84595d3741692f53b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4002,7 +4002,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7756380715748026434, guid: 231ff8b69abeee84595d3741692f53b8, type: 3}
       propertyPath: moveSpeed
-      value: 5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 8819884835614821507, guid: 231ff8b69abeee84595d3741692f53b8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -23140,7 +23140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7756380715748026434, guid: 231ff8b69abeee84595d3741692f53b8, type: 3}
       propertyPath: moveSpeed
-      value: 5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 8819884835614821507, guid: 231ff8b69abeee84595d3741692f53b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30438,7 +30438,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7756380715748026434, guid: 231ff8b69abeee84595d3741692f53b8, type: 3}
       propertyPath: moveSpeed
-      value: 5
+      value: 3.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

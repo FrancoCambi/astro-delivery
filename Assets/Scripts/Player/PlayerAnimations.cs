@@ -47,4 +47,14 @@ public class PlayerAnimations : MonoBehaviour
             return;
         }
     }
+
+    public void Stop()
+    {
+        animator.speed = 0f;
+    }
+
+    public void Resume()
+    {
+        animator.speed = 1f;
+    }
 }

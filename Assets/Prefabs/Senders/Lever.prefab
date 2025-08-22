@@ -213,15 +213,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   receivers:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   spriteUnused: {fileID: 1889002887, guid: 4ec24d92b57414743a7612c4443f93db, type: 3}
   spriteUsed: {fileID: 620970958, guid: 4ec24d92b57414743a7612c4443f93db, type: 3}
   releaseAfterTime: 0
   releaseTime: 0
   activateClip: {fileID: 8300000, guid: a214882ff77b21245ad28a2d40d033f7, type: 3}
   deActivateClip: {fileID: 8300000, guid: a214882ff77b21245ad28a2d40d033f7, type: 3}
-  player: {fileID: 0}
   spriteMiddle: {fileID: -1861282135, guid: 4ec24d92b57414743a7612c4443f93db, type: 3}
   spriteLeft: {fileID: 1889002887, guid: 4ec24d92b57414743a7612c4443f93db, type: 3}
   spriteRight: {fileID: 620970958, guid: 4ec24d92b57414743a7612c4443f93db, type: 3}
