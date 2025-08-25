@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 8641534327030839108}
   - component: {fileID: 8671995427472542929}
   - component: {fileID: 3783397974375775210}
-  - component: {fileID: 5596766723700242102}
+  - component: {fileID: 1663974677406978192}
+  - component: {fileID: 8064676015365408961}
   m_Layer: 0
   m_Name: WhiteSpike
   m_TagString: Untagged
@@ -101,9 +102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60733bfe3cebfe048afc10e7c571e250, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carryHandler: {fileID: 0}
   deadly: 0
---- !u!60 &5596766723700242102
+--- !u!60 &1663974677406978192
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,10 +149,101 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.28232598, y: 0.019042015}
-      - {x: -0.33571124, y: -0.20336556}
-      - {x: -0.44136155, y: -0.49625707}
-      - {x: 0.4429568, y: -0.50107384}
-      - {x: 0.34150153, y: -0.20748854}
-      - {x: 0.28185013, y: 0.014434814}
+    - - {x: -0.4921875, y: -0.4921875}
+      - {x: 0.3984375, y: -0.4921875}
+      - {x: 0.4453125, y: -0.4921875}
+      - {x: 0.4765625, y: -0.4921875}
+      - {x: 0.4921875, y: -0.4921875}
+      - {x: 0.4296875, y: -0.2734375}
+      - {x: 0.3515625, y: -0.0546875}
+      - {x: 0.3203125, y: -0.0078125}
+      - {x: 0.2734375, y: 0.0234375}
+      - {x: 0.1953125, y: 0.0234375}
+      - {x: 0.1640625, y: 0.0234375}
+      - {x: 0.1171875, y: -0.0078125}
+      - {x: 0.0546875, y: -0.1796875}
+      - {x: 0.0234375, y: -0.2421875}
+      - {x: 0.0234375, y: -0.2578125}
+      - {x: 0.0078125, y: -0.2734375}
+      - {x: -0.0234375, y: -0.2578125}
+      - {x: -0.0703125, y: -0.1015625}
+      - {x: -0.0859375, y: -0.0546875}
+      - {x: -0.1171875, y: -0.0078125}
+      - {x: -0.1640625, y: 0.0234375}
+      - {x: -0.2421875, y: 0.0234375}
+      - {x: -0.2734375, y: 0.0234375}
+      - {x: -0.3203125, y: -0.0078125}
+      - {x: -0.4140625, y: -0.2265625}
+      - {x: -0.4765625, y: -0.4140625}
   m_UseDelaunayMesh: 0
+--- !u!114 &8064676015365408961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7580264452504353764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c55c83d4c4dd1145ad5fbbab3c3df36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlphaTolerance: 20
+  DistanceThreshold: 0
+  Scale: 1
+  Decompose: 0
+  RunInPlayMode: 1
+  UseCache: 1
+  lastAlphaTolerance: 20
+  lastScale: 1
+  lastDistanceThreshold: 0
+  lastDecompose: 0
+  lastSprite: {fileID: 917623551, guid: 4ec24d92b57414743a7612c4443f93db, type: 3}
+  lastRect:
+    serializedVersion: 2
+    x: 640
+    y: 576
+    width: 64
+    height: 64
+  lastOffset: {x: 32, y: 32}
+  lastPixelsPerUnit: 64
+  lastFlipX: 0
+  lastFlipY: 0
+  editorCache:
+  - Key:
+      Texture: {fileID: 2800000, guid: 4ec24d92b57414743a7612c4443f93db, type: 3}
+      Rect:
+        serializedVersion: 2
+        x: 640
+        y: 576
+        width: 64
+        height: 64
+    Value:
+      List:
+      - Array:
+        - {x: -0.4921875, y: -0.4921875}
+        - {x: 0.3984375, y: -0.4921875}
+        - {x: 0.4453125, y: -0.4921875}
+        - {x: 0.4765625, y: -0.4921875}
+        - {x: 0.4921875, y: -0.4921875}
+        - {x: 0.4296875, y: -0.2734375}
+        - {x: 0.3515625, y: -0.0546875}
+        - {x: 0.3203125, y: -0.0078125}
+        - {x: 0.2734375, y: 0.0234375}
+        - {x: 0.1953125, y: 0.0234375}
+        - {x: 0.1640625, y: 0.0234375}
+        - {x: 0.1171875, y: -0.0078125}
+        - {x: 0.0546875, y: -0.1796875}
+        - {x: 0.0234375, y: -0.2421875}
+        - {x: 0.0234375, y: -0.2578125}
+        - {x: 0.0078125, y: -0.2734375}
+        - {x: -0.0234375, y: -0.2578125}
+        - {x: -0.0703125, y: -0.1015625}
+        - {x: -0.0859375, y: -0.0546875}
+        - {x: -0.1171875, y: -0.0078125}
+        - {x: -0.1640625, y: 0.0234375}
+        - {x: -0.2421875, y: 0.0234375}
+        - {x: -0.2734375, y: 0.0234375}
+        - {x: -0.3203125, y: -0.0078125}
+        - {x: -0.4140625, y: -0.2265625}
+        - {x: -0.4765625, y: -0.4140625}
