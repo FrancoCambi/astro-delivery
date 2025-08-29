@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      banner_modern_0: 3772323705919896535
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

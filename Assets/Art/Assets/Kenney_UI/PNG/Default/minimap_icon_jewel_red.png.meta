@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      minimap_icon_jewel_red_0: -3901801069273815800
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

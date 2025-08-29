@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      round_damaged_brown_0: 7572898546484051644
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

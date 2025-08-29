@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      banner_classic_curtain_0: 1964998277103338304
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

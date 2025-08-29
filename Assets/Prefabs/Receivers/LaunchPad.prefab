@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcfbc52519e9cd24e96fea33a0328fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activatorsAmount: 1
   spriteDown: {fileID: 1325159006, guid: 4ec24d92b57414743a7612c4443f93db, type: 3}
   spriteUp: {fileID: 602304636, guid: 4ec24d92b57414743a7612c4443f93db, type: 3}
   downCollider: {fileID: 7219058660292603756}

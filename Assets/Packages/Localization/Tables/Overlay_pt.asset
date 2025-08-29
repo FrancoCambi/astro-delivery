@@ -42,6 +42,10 @@ MonoBehaviour:
     m_Localized: "<size=40>V</size>OC\xCA <size=40>P</size>ERDEU"
     m_Metadata:
       m_Items: []
+  - m_Id: 2485023165485056
+    m_Localized: "Voc\xEA precisa do pacote!"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

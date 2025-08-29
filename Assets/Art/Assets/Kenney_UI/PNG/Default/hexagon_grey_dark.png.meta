@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hexagon_grey_dark_0: 3609561742546842538
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

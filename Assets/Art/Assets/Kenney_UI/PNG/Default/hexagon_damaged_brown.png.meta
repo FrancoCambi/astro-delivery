@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hexagon_damaged_brown_0: -2172114532333240752
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

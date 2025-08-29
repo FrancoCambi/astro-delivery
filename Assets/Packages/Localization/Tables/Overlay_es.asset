@@ -42,6 +42,10 @@ MonoBehaviour:
     m_Localized: <size=40>H</size>AS <size=40>P</size>ERDIDO
     m_Metadata:
       m_Items: []
+  - m_Id: 2485023165485056
+    m_Localized: Necesitas el paquete!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

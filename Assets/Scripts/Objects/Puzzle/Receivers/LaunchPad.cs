@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class LaunchPad : PuzzleReceiver
 {
-    [Header("Platform References")]
+    [Header("LaunchPad References")]
     [SerializeField] private Sprite spriteDown;
     [SerializeField] private Sprite spriteUp;
     [SerializeField] private BoxCollider2D downCollider;
     [SerializeField] private BoxCollider2D upCollider;
 
-    [Header("Platform Settings")]
+    [Header("LaunchPad Settings")]
     [SerializeField] private float pushForce;
     [SerializeField] private float restoreTime;
     [SerializeField] private bool activated;

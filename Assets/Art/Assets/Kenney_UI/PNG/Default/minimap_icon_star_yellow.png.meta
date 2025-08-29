@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      minimap_icon_star_yellow_0: 6005139801522138115
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

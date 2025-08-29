@@ -137,32 +137,16 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -0.3671875, y: -0.4921875}
-      - {x: 0.3046875, y: -0.4921875}
-      - {x: 0.3515625, y: -0.4921875}
       - {x: 0.3671875, y: -0.4921875}
-      - {x: 0.3671875, y: -0.4140625}
       - {x: 0.3515625, y: -0.3515625}
-      - {x: 0.3046875, y: -0.2734375}
       - {x: 0.2265625, y: -0.1953125}
-      - {x: 0.1484375, y: -0.1484375}
-      - {x: 0.0234375, y: -0.1328125}
-      - {x: -0.0078125, y: -0.1328125}
       - {x: -0.0390625, y: -0.1171875}
-      - {x: -0.0390625, y: 0.0390625}
       - {x: -0.0703125, y: 0.1484375}
-      - {x: -0.1171875, y: 0.2578125}
       - {x: -0.1640625, y: 0.3046875}
-      - {x: -0.2421875, y: 0.3046875}
       - {x: -0.3828125, y: 0.2578125}
-      - {x: -0.4296875, y: 0.2265625}
       - {x: -0.4609375, y: 0.1953125}
-      - {x: -0.4609375, y: 0.1171875}
       - {x: -0.4453125, y: 0.0546875}
-      - {x: -0.3984375, y: -0.0390625}
-      - {x: -0.3046875, y: -0.1640625}
-      - {x: -0.2734375, y: -0.1953125}
       - {x: -0.2578125, y: -0.2109375}
-      - {x: -0.3359375, y: -0.3203125}
       - {x: -0.3671875, y: -0.3984375}
   m_UseDelaunayMesh: 0
 --- !u!114 &2231123700517086457
@@ -178,14 +162,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AlphaTolerance: 20
-  DistanceThreshold: 0
+  DistanceThreshold: 2
   Scale: 1
   Decompose: 0
   RunInPlayMode: 1
   UseCache: 1
   lastAlphaTolerance: 20
   lastScale: 1
-  lastDistanceThreshold: 0
+  lastDistanceThreshold: 2
   lastDecompose: 0
   lastSprite: {fileID: 1889002887, guid: 4ec24d92b57414743a7612c4443f93db, type: 3}
   lastRect:
@@ -198,7 +182,30 @@ MonoBehaviour:
   lastPixelsPerUnit: 64
   lastFlipX: 0
   lastFlipY: 0
-  editorCache: []
+  editorCache:
+  - Key:
+      Texture: {fileID: 2800000, guid: 4ec24d92b57414743a7612c4443f93db, type: 3}
+      Rect:
+        serializedVersion: 2
+        x: 704
+        y: 576
+        width: 64
+        height: 64
+    Value:
+      List:
+      - Array:
+        - {x: -0.3671875, y: -0.4921875}
+        - {x: 0.3671875, y: -0.4921875}
+        - {x: 0.3515625, y: -0.3515625}
+        - {x: 0.2265625, y: -0.1953125}
+        - {x: -0.0390625, y: -0.1171875}
+        - {x: -0.0703125, y: 0.1484375}
+        - {x: -0.1640625, y: 0.3046875}
+        - {x: -0.3828125, y: 0.2578125}
+        - {x: -0.4609375, y: 0.1953125}
+        - {x: -0.4453125, y: 0.0546875}
+        - {x: -0.2578125, y: -0.2109375}
+        - {x: -0.3671875, y: -0.3984375}
 --- !u!114 &4253634089691961856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,4 +230,4 @@ MonoBehaviour:
   spriteLeft: {fileID: 1889002887, guid: 4ec24d92b57414743a7612c4443f93db, type: 3}
   spriteRight: {fileID: 620970958, guid: 4ec24d92b57414743a7612c4443f93db, type: 3}
   directionSensitive: 0
-  maxPlayerDistance: 1.5
+  maxPlayerDistance: 2

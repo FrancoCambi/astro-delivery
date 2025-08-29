@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      banner_hanging_0: 4373949683825282896
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

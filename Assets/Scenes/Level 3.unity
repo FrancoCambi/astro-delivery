@@ -672,6 +672,10 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1610440803}
+    - target: {fileID: 1093402110255367847, guid: 1ff366a0f8670364d93db0b3642d3990, type: 3}
+      propertyPath: activatorsAmount
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1942,6 +1946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aab2b5ad244b8ca4aa41dc6296b8eda6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activatorsAmount: 1
   wall: {fileID: 400999780}
   actuateOnContrary: 0
   activatedByDefault: 1
@@ -17533,6 +17538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aab2b5ad244b8ca4aa41dc6296b8eda6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activatorsAmount: 1
   wall: {fileID: 886568466}
   actuateOnContrary: 0
   activatedByDefault: 1
@@ -25651,6 +25657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aab2b5ad244b8ca4aa41dc6296b8eda6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activatorsAmount: 1
   wall: {fileID: 1601276157}
   actuateOnContrary: 0
   activatedByDefault: 0

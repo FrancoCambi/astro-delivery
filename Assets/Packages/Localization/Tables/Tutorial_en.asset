@@ -19,10 +19,8 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 5998481408
-    m_Localized: 'Use <color=#FF8000> A, W, D</color> to move and jump.
-
-      You
-      can also use<color=#FF8000> Space</color> to jump.'
+    m_Localized: Use <color=#FF8000>A, D</color> to move and <color=#FF8000>Space</color>
+      to jump.
     m_Metadata:
       m_Items: []
   - m_Id: 20770820096
@@ -40,11 +38,11 @@ MonoBehaviour:
   - m_Id: 68069986304
     m_Localized: 'Use <color=#FF8000>E</color> to pickup the package.
 
-      If you
-      are not careful with it, it will drop and reappear.
+      If
+      you are not careful with it, it will drop and reappear.
 
-      You can use <color=#FF8000>F</color>
-      to carefully let it go.'
+      You can use
+      <color=#FF8000>F</color> to carefully let it go.'
     m_Metadata:
       m_Items: []
   - m_Id: 80069890048

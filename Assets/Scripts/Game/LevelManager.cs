@@ -22,11 +22,18 @@ public class LevelManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private LevelTimer timer;
 
+    private int maxLevelUnlocked;
+
+    public void Start()
+    {
+        maxLevelUnlocked = PersistenceManager.Load().MaxLevelUnlocked;
+    }
+
     public int MaxLevelUnlocked
     {
         get
         {
-            return PlayerPrefs.GetInt("max_level_unlocked", 1);
+            return maxLevelUnlocked;
         }
     }
     public int PlayingLevel
@@ -95,13 +102,24 @@ public class LevelManager : MonoBehaviour
 
     public LevelRecord GetLevelRecord(int level)
     {
+        GameData data = PersistenceManager.Load();
+
+        int stars = data.LevelStars[level];
+        float completedTime = data.MinTimes[level];
+
         return new LevelRecord
         {
-            Stars = PlayerPrefs.GetInt($"record_stars_{level}", 0),
-            CompletedTime = PlayerPrefs.GetFloat($"record_time_{level}", Mathf.Infinity)
+            Stars = stars,
+            CompletedTime = completedTime,
         };
     }
 
+    private void SetLevelRecord(int level, LevelRecord newRecord)
+    {
+        PersistenceManager.UpdateStarsInLevel(level, newRecord.Stars);
+        PersistenceManager.UpdateMinTimeInLevel(level, newRecord.CompletedTime);
+
+    }
     public void LoadLevel(int level)
     {
         PlayerPrefs.SetInt("playing_level", level);
@@ -113,18 +131,9 @@ public class LevelManager : MonoBehaviour
     {
         if (PlayingLevel == MaxLevelUnlocked)
         {
-            PlayerPrefs.SetInt("max_level_unlocked", MaxLevelUnlocked + 1);
-            PlayerPrefs.Save();
-
+            maxLevelUnlocked = PlayingLevel + 1;
+            PersistenceManager.UpdateMaxLevelUnlocked(maxLevelUnlocked);
         }
-    }
-    private void SetLevelRecord(int level, LevelRecord newRecord)
-    {
-        PlayerPrefs.SetInt($"record_stars_{level}", newRecord.Stars);
-        PlayerPrefs.SetFloat($"record_time_{level}", newRecord.CompletedTime);
-        PlayerPrefs.Save();
-
-
     }
 
 }

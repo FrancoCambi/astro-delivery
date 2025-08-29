@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class DisappearingWall : PuzzleReceiver
 {
-    [Header("References")]
+    [Header("DW References")]
     [SerializeField] private GameObject wall;
 
-    [Header("Settings")]
+    [Header("DW Settings")]
     [SerializeField] private bool actuateOnContrary;
     [SerializeField] private bool activatedByDefault;
 

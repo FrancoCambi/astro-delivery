@@ -3,17 +3,17 @@ using UnityEngine;
 public abstract class PuzzleSender : MonoBehaviour
 {
     [Header("Sender References")]
-    [SerializeField] PuzzleReceiver[] receivers;
-    [SerializeField] private Sprite spriteUnused;
-    [SerializeField] private Sprite spriteUsed;
+    [SerializeField] protected PuzzleReceiver[] receivers;
+    [SerializeField] protected Sprite spriteUnused;
+    [SerializeField] protected Sprite spriteUsed;
 
     [Header("Sender Settings")]
     [SerializeField] protected bool releaseAfterTime;
     [SerializeField] protected float releaseTime;
 
     [Header("Audio")]
-    [SerializeField] private AudioClip activateClip;
-    [SerializeField] private AudioClip deActivateClip;
+    [SerializeField] protected AudioClip activateClip;
+    [SerializeField] protected AudioClip deActivateClip;
 
     protected SpriteRenderer spriteRenderer;
 
@@ -46,7 +46,7 @@ public abstract class PuzzleSender : MonoBehaviour
     {
         foreach (PuzzleReceiver receiver in receivers)
         {
-            receiver.Actuate();
+            receiver.ReceiveActivation();
         }
         used = true;
         if (spriteUsed) spriteRenderer.sprite = spriteUsed;
@@ -59,7 +59,7 @@ public abstract class PuzzleSender : MonoBehaviour
     {
         foreach (PuzzleReceiver receiver in receivers)
         {
-            receiver.Restore();
+            receiver.ReceiveDeactivation();
         }
         used = false;
         if (spriteUnused) spriteRenderer.sprite = spriteUnused;

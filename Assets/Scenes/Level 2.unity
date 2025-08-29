@@ -16059,6 +16059,10 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 289973822}
+    - target: {fileID: 1093402110255367847, guid: 1ff366a0f8670364d93db0b3642d3990, type: 3}
+      propertyPath: activatorsAmount
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16255,6 +16259,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7349900821621159464, guid: 93992eede793d434cb4a25ee9baca522, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7896794408241091264, guid: 93992eede793d434cb4a25ee9baca522, type: 3}
+      propertyPath: activatorsAmount
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

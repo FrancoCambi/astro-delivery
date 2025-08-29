@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aab2b5ad244b8ca4aa41dc6296b8eda6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activatorsAmount: 1
   wall: {fileID: 6833767453956221796}
   actuateOnContrary: 1
   activatedByDefault: 0

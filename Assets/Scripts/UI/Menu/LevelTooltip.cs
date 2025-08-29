@@ -37,7 +37,7 @@ public class LevelTooltip : MonoBehaviour
             if (i < record.Stars) tooltipStars[i].sprite = fullStar;
         }
 #if FULL_BUILD
-        tooltipText.text = record.CompletedTime != Mathf.Infinity ? SecondsToTimeText(record.CompletedTime) 
+        tooltipText.text = record.CompletedTime != float.MaxValue ? SecondsToTimeText(record.CompletedTime) 
             : level <= LevelManager.Instance.MaxLevelUnlocked ? "Not Completed." : "Locked.";
 #endif
 #if DEMO_BUILD

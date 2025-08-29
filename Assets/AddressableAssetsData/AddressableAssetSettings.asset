@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: ad8c8d0b8502c054b9e353fa61dc8672
   m_currentHash:
     serializedVersion: 2
-    Hash: 353a944e86c31fed80d7a74834d79e27
+    Hash: 506a79eade2fbc6d97c75fedd9878114
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_CatalogRequestsTimeout: 0
@@ -60,12 +60,22 @@ MonoBehaviour:
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
   - {fileID: 11400000, guid: 3d07ce2c513308643b9575a71749173d, type: 2}
+  - {fileID: 11400000, guid: 7b46f1225ad96e24b9dff94224406dd8, type: 2}
+  - {fileID: 11400000, guid: b7991efb03c170745a98fd49d088c775, type: 2}
   - {fileID: 11400000, guid: 59c0a6755d177d346986fae1cdf9e591, type: 2}
   - {fileID: 11400000, guid: 299a96c2abf3e764da29d495cfffb5a3, type: 2}
   - {fileID: 11400000, guid: 7a787df2c90c4904fbf1fc4a3fc6eadf, type: 2}
+  - {fileID: 11400000, guid: abccfea5b9a55da438b4dda4fdc6c365, type: 2}
+  - {fileID: 11400000, guid: 5d63f605b4b2870488351bddbe261339, type: 2}
   - {fileID: 11400000, guid: 8e72c6e66af996541ba0750c03c78248, type: 2}
+  - {fileID: 11400000, guid: 7ff0c6c248ed61047ab64da52a4b32d2, type: 2}
   - {fileID: 11400000, guid: fcc0a03e69debcd478d322d659c7aaa7, type: 2}
   - {fileID: 11400000, guid: 370a367808df08b49a1f8acfa8a331a6, type: 2}
+  - {fileID: 11400000, guid: 80e08a6c7d31fe74287aad5b1b2061e6, type: 2}
+  - {fileID: 11400000, guid: 43b62719106d0ee48bb1b9f979be007d, type: 2}
+  - {fileID: 11400000, guid: 4204d3bc6498541419094764ce27fb3d, type: 2}
+  - {fileID: 11400000, guid: e92845126e5790247ae6758a72d796d0, type: 2}
+  - {fileID: 11400000, guid: dd46a3df86309f44091e6fc9e5352aaf, type: 2}
   - {fileID: 11400000, guid: 2e93ff4ec202bf046964c05dd5772aa5, type: 2}
   - {fileID: 11400000, guid: 7d057a2c8ea8d0c4e96fb4b9dd70a675, type: 2}
   - {fileID: 11400000, guid: ca7ddc690f1b3b24ab0772ad2591b529, type: 2}
@@ -115,6 +125,8 @@ MonoBehaviour:
     - Locale-pt-BR
     - Locale-it
     - Locale-pt
+    - Locale-zh
+    - Locale-ru
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 3312b55b153edf84ab1891538492dff6, type: 2}

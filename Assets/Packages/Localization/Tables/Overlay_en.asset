@@ -42,6 +42,10 @@ MonoBehaviour:
     m_Localized: <size=40>Y</size>OU <size=40>L</size>OST
     m_Metadata:
       m_Items: []
+  - m_Id: 2485023165485056
+    m_Localized: You need the package!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

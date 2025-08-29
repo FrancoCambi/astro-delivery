@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      minimap_icon_exclamation_red_0: -1766761036623636895
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -39,6 +39,10 @@ MonoBehaviour:
     m_Key: LostTitle
     m_Metadata:
       m_Items: []
+  - m_Id: 2485023165485056
+    m_Key: PackageWarning
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

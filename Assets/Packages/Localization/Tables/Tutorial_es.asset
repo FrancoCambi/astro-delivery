@@ -19,8 +19,8 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 5998481408
-    m_Localized: "Usa <color=#FF8000> A, W, D</color> para moverte y saltar.\r\nAdem\xE1s,
-      puedes usar <color=#FF8000>Espacio</color> para saltar."
+    m_Localized: Usa <color=#FF8000>A, D</color> para moverte y <color=#FF8000>Espacio</color>
+      para saltar.
     m_Metadata:
       m_Items: []
   - m_Id: 20770820096

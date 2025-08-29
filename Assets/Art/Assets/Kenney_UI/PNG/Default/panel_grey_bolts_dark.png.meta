@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      panel_grey_bolts_dark_0: 3130004812279995205
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
