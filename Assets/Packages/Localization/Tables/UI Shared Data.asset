@@ -63,6 +63,14 @@ MonoBehaviour:
     m_Key: WishlistButton
     m_Metadata:
       m_Items: []
+  - m_Id: 3613030944968704
+    m_Key: NotCompletedLevel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3613261874958336
+    m_Key: LockedLevel
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

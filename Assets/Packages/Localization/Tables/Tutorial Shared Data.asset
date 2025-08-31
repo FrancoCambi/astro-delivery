@@ -47,6 +47,10 @@ MonoBehaviour:
     m_Key: Spikes
     m_Metadata:
       m_Items: []
+  - m_Id: 3890799113244672
+    m_Key: RedSpikes
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

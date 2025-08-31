@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Overlay_pl
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pl
+  m_SharedData: {fileID: 11400000, guid: 9a41927f74d7e3240b3449865959dbdd, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 19755798528
+    m_Localized: Pauza
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30853926912
+    m_Localized: "<size=30>P</size>OWT\xD3RZ <size=30>P</size>OZIOM"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58599247872
+    m_Localized: '<size=30>M</size>ENU <size=30>P</size>OZIOMY '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 73107345408
+    m_Localized: "<size=30>M</size>ENU <size=30>G</size>\u0141\xD3WNE"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 94972252160
+    m_Localized: <size=30>K</size>ONTYNUUJ
+    m_Metadata:
+      m_Items: []
+  - m_Id: 123476742144
+    m_Localized: "<size=40>P</size>RZEGRA\u0141E\u015A"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2485023165485056
+    m_Localized: Potrzebujesz pakietu!
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

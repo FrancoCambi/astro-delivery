@@ -19,8 +19,11 @@ MonoBehaviour:
     m_Address: MainFont
     m_ReadOnly: 1
     m_SerializedLabels:
+    - Locale-de
     - Locale-en
     - Locale-es
+    - Locale-fr
+    - Locale-it
     - Locale-pt
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 432771dadd88aa84c8b1645bae3176fd
@@ -42,6 +45,13 @@ MonoBehaviour:
     m_Address: Assets/Localization/Tables/Tutorial Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dbd4c03ec194f654b9d7092b753cfe23
+    m_Address: ChineseFont
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ja
+    - Locale-zh
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 29fab85b35726eb45be8b38505941635, type: 2}

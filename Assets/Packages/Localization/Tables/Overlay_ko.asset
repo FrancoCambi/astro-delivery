@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Overlay_ko
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: ko
+  m_SharedData: {fileID: 11400000, guid: 9a41927f74d7e3240b3449865959dbdd, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 19755798528
+    m_Localized: "\uC815\uC9C0\uC2DC\uD0A4\uB2E4"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30853926912
+    m_Localized: "\uC7AC\uC2DC\uB3C4 \uC218\uC900"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58599247872
+    m_Localized: "\uB808\uBCA8 \uBA54\uB274"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 73107345408
+    m_Localized: "\uBA54\uC778 \uBA54\uB274"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 94972252160
+    m_Localized: "\uACC4\uC18D\uD558\uB2E4"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 123476742144
+    m_Localized: "\uB2F9\uC2E0\uC740 \uC84C\uB2E4"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2485023165485056
+    m_Localized: "\uB2F9\uC2E0\uC5D0\uAC8C \uC774 \uD328\uD0A4\uC9C0\uAC00 \uD544\uC694\uD574\uC694!"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

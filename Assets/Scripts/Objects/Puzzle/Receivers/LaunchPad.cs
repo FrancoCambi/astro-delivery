@@ -21,7 +21,7 @@ public class LaunchPad : PuzzleReceiver
 
     private PlayerMovement playerMovement;
 
-    private float delay = 1f;
+    private readonly float delay = 0.5f;
     private bool used = false;
     private float timeAfterUsed = 0f;
     private bool playerOnTop;

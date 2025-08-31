@@ -15,6 +15,16 @@ public class MusicManager : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private AudioSource musicSource;
+    [SerializeField] private LevelInfo levelInfo;
+
+    private AudioClip musicClip;
+
+    private void Start()
+    {
+        musicClip = levelInfo.MusicClip;
+        musicSource.resource = musicClip;
+        musicSource.Play();
+    }
 
     public void StopMusic()
     {

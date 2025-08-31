@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LevelsMenu : MonoBehaviour
@@ -11,6 +12,7 @@ public class LevelsMenu : MonoBehaviour
     [SerializeField] private Image[] barImages;
     [SerializeField] private Button previousBtn, nextBtn;
     [SerializeField] private LevelPage[] pages;
+    [SerializeField] private LevelInfo[] levelInfos;
 
     [Header("Settings")]
     [SerializeField] private int maxPage;
@@ -70,6 +72,35 @@ public class LevelsMenu : MonoBehaviour
         levelPagesRect.LeanMoveLocal(targetPos, tweenTime).setEase(tweenType);
         UpdateBar();
         UpdateArrows();
+    }
+
+    public int GetStarsAmount(int level, float completedTime)
+    {
+        LevelInfo levelInfo = levelInfos[level - 1];
+
+        float threeStarsMax = levelInfo.SpecialTimeCap;
+        float twoStarsMax = levelInfo.NormalTimeCap;
+
+        if (0 <= completedTime && completedTime <= threeStarsMax)
+        {
+            return 3;
+        }
+        else if (threeStarsMax < completedTime && completedTime <= twoStarsMax)
+        {
+            return 2;
+        }
+        else
+        {
+            return 1;
+        }
+    }
+
+    public void LoadLevel(int level)
+    {
+        PlayerPrefs.SetInt("playing_level", level);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene(level);
+
     }
 
     private void UpdateBar()

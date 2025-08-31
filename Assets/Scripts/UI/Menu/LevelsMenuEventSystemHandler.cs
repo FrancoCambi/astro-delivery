@@ -8,18 +8,22 @@ public class LevelsMenuEventSystemHandler : MenuEventSystemHandler
     [Header("Levels Menu References")]
     [SerializeField] protected List<GameObject> levelsGO = new();
 
+    private int maxLevelUnlocked;
+
     public override void Awake()
     {
+        maxLevelUnlocked = PersistenceManager.Load().MaxLevelUnlocked;
+
         foreach (GameObject go in levelsGO)
         {
             int levelNumber = go.GetComponent<LevelButton>().Level;
 #if DEMO_BUILD
-            if (levelNumber > LevelManager.Instance.MaxLevelUnlocked 
-                || levelNumber > GameConstants.MaxBetaLevels) continue;
+            if (levelNumber > maxLevelUnlocked
+                || levelNumber > GameConstants.DemoLevels) continue;
 #endif
 
 #if FULL_BUILD
-            if (levelNumber > LevelManager.Instance.MaxLevelUnlocked) continue;
+            if (levelNumber > maxLevelUnlocked) continue;
 #endif
 
             Button levelButton = go.GetComponent<Button>();

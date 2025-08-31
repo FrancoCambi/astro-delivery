@@ -19,6 +19,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2967d2c154fc43d4484634ec730087b1, type: 2}
   - {fileID: 11400000, guid: ba94e9df5ee6a5742bd5aa0165ac03a0, type: 2}
   - {fileID: 11400000, guid: 9e729fc50f70cbf489cb7c8a0b2fad71, type: 2}
+  - {fileID: 11400000, guid: c95c0cd98682e284997dbae3c79a31c2, type: 2}
+  - {fileID: 11400000, guid: 37eea1947c4ba644cb82d7b113e62f03, type: 2}
+  - {fileID: 11400000, guid: ec51a501bfc553948b8eaa6f6487adb9, type: 2}
+  - {fileID: 11400000, guid: f6c76792dd318f745b7b10e7d2a9f646, type: 2}
+  - {fileID: 11400000, guid: 08238d737ff1f574d8b92a99da97622e, type: 2}
+  - {fileID: 11400000, guid: b79ada73e894b844c9e68fcddb0ab58b, type: 2}
   m_Extensions: []
   m_Group: Asset Table
   references:

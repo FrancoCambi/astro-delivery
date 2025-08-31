@@ -36,13 +36,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 68069986304
-    m_Localized: 'Use <color=#FF8000>E</color> to pickup the package.
-
-      If
-      you are not careful with it, it will drop and reappear.
-
-      You can use
-      <color=#FF8000>F</color> to carefully let it go.'
+    m_Localized: Use <color=#FF8000>E</color> to pickup the package.\nIf you are
+      not careful with it, it will drop and reappear.\nYou can use <color=#FF8000>F</color>
+      to carefully let it go.
     m_Metadata:
       m_Items: []
   - m_Id: 80069890048
@@ -56,6 +52,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 130820968448
     m_Localized: Some obstacles can make you drop the package.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3890799113244672
+    m_Localized: Red spikes kill you, but don't affect the package
     m_Metadata:
       m_Items: []
   references:

@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Misc")]
     [SerializeField] LayerMask jumpCollisionMask;
+    [SerializeField] LayerMask ceilingCollisionMask;
     [SerializeField] LayerMask climbMask;
     [SerializeField] float grounderDistance;
 
@@ -175,7 +176,7 @@ public class PlayerMovement : MonoBehaviour
         BoxCollider2D currentCollider = playerColliderManager.CurrentCollider;
 
         bool groundHit = Physics2D.BoxCast(currentCollider.bounds.center, currentCollider.size, 0, Vector2.down, grounderDistance, ~jumpCollisionMask);
-        bool ceilingHit = Physics2D.BoxCast(currentCollider.bounds.center, currentCollider.size, 0, Vector2.up, grounderDistance, ~jumpCollisionMask);
+        bool ceilingHit = Physics2D.BoxCast(currentCollider.bounds.center, currentCollider.size, 0, Vector2.up, grounderDistance, ~ceilingCollisionMask);
         bool climbHit = Physics2D.BoxCast(currentCollider.bounds.center, currentCollider.size, 0, Vector2.up, grounderDistance, climbMask);
 
         if (ceilingHit) frameVelocity.y = Mathf.Min(0, frameVelocity.y);

@@ -80,7 +80,7 @@ public class OverlayManager : MonoBehaviour
 
         String[] values = timeSpan.ToString(@"mm\:ss\:ff").Split(":");
 
-        completedTimeText.text = $"{values[0]}:{values[1]}<size=25>:{values[2]}</size>";
+        completedTimeText.text = $"{values[0]}:{values[1]}<size=30>:{values[2]}</size>";
 
         SoundFXManager.Instance.PlaySoundFXClip(wonClip, transform);
 
@@ -89,14 +89,6 @@ public class OverlayManager : MonoBehaviour
     public void ClosePause()
     {
         StartCoroutine(ClosePauseIE());
-    }
-
-    private IEnumerator ClosePauseIE()
-    {
-        pauseTransform.DOLocalMove(GetOLDefaultPos(), tweenTime).SetEase(ease).SetUpdate(true);
-        IsPauseOpen = false;
-        yield return new WaitForSeconds(tweenTime);
-        pauseGO.SetActive(false);
     }
 
     public void CloseLost()
@@ -108,6 +100,31 @@ public class OverlayManager : MonoBehaviour
         wonGO.SetActive(false);
 
         ResetStars();
+    }
+
+    public void GoToMainMenu()
+    {
+        Time.timeScale = 1;
+        LoadMainMenu();
+    }
+
+    public void GoToLevelMenu()
+    {
+        PlayerPrefs.SetInt("levelMenu", 1);
+        GoToMainMenu();
+    }
+    private void LoadMainMenu()
+    {
+        PlayerPrefs.SetInt("playing_level", 0);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene(0);
+    }
+    private IEnumerator ClosePauseIE()
+    {
+        pauseTransform.DOLocalMove(GetOLDefaultPos(), tweenTime).SetEase(ease).SetUpdate(true);
+        IsPauseOpen = false;
+        yield return new WaitForSeconds(tweenTime);
+        pauseGO.SetActive(false);
     }
 
     private void ResetStars()

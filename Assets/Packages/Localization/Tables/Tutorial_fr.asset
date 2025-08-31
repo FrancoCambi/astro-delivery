@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Tutorial_fr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: bd86e56848496ff4f8e8589e913d4a87, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 5998481408
+    m_Localized: "Utilisez <color=#FF8000>A, D</color> pour vous d\xE9placer et <color=#FF8000>Espace</color>
+      pour sauter."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20770820096
+    m_Localized: "Vous pouvez activer des boutons en exer\xE7ant une pression."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40362414080
+    m_Localized: "Certains objets n\xE9cessitent une activation."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57965907968
+    m_Localized: "Les portes peuvent \xEAtre ouvertes ou ferm\xE9es."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68069986304
+    m_Localized: "Appuyez sur <color=#FF8000>E</color> pour ramasser le colis.\\nSi
+      vous n\u2019\xEAtes pas prudent, il tombera et r\xE9appara\xEEtra.\\nVous pouvez
+      utiliser <color=#FF8000>F</color> pour le poser doucement."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 80069890048
+    m_Localized: "Votre t\xE2che est de livrer le colis \xE0 la porte le plus vite
+      possible, avant la fin du temps."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90689867776
+    m_Localized: Vous pouvez utiliser <color=#FF8000>E</color> pour interagir.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130820968448
+    m_Localized: "Certains obstacles peuvent vous faire l\xE2cher le colis."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3890799113244672
+    m_Localized: Les pointes rouges vous tuent, mais n'affectent pas le colis
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 
 public class LevelTooltip : MonoBehaviour
@@ -27,22 +28,39 @@ public class LevelTooltip : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private Vector2 offset;
 
+    private int maxLevelUnlocked;
+    private GameData gameData;
+
+    private void Start()
+    {
+        maxLevelUnlocked = PersistenceManager.Load().MaxLevelUnlocked;
+        gameData = PersistenceManager.Load();
+    }
+
     public void ShowTooltip(int level, Vector2 pos)
     {
-        LevelRecord record = LevelManager.Instance.GetLevelRecord(level);
+        LevelRecord record = new LevelRecord
+        {
+            CompletedTime = gameData.MinTimes[level],
+            Stars = gameData.LevelStars[level],
+        };
 
         for (int i = 0; i < 3; i++)
         {
             tooltipStars[i].sprite = emptyStar;
             if (i < record.Stars) tooltipStars[i].sprite = fullStar;
         }
+
+        string notCompletedLocalized = new LocalizedString("UI", "NotCompletedLevel").GetLocalizedString();
+        string lockedLocalized = new LocalizedString("UI", "LockedLevel").GetLocalizedString();
+
 #if FULL_BUILD
         tooltipText.text = record.CompletedTime != float.MaxValue ? SecondsToTimeText(record.CompletedTime) 
-            : level <= LevelManager.Instance.MaxLevelUnlocked ? "Not Completed." : "Locked.";
+            : level <= maxLevelUnlocked ? notCompletedLocalized : lockedLocalized;
 #endif
 #if DEMO_BUILD
-        tooltipText.text = record.CompletedTime != Mathf.Infinity ? SecondsToTimeText(record.CompletedTime)
-            : level <= GameConstants.MaxBetaLevels ? "Not Completed." : "Locked.";
+        tooltipText.text = record.CompletedTime != float.MaxValue ? SecondsToTimeText(record.CompletedTime)
+            : level <= GameConstants.DemoLevels ? level <= maxLevelUnlocked ? notCompletedLocalized : lockedLocalized : lockedLocalized;
 #endif
 
         rectTransform.anchoredPosition = pos + offset;

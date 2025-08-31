@@ -193,7 +193,9 @@ public class Package : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ground") && hardDropped)
+        if (collision.gameObject.CompareTag("Player")) return;
+
+        if (hardDropped)
         {
             Respawn();
         }

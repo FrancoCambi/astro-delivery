@@ -21,6 +21,7 @@ public class LevelManager : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private LevelTimer timer;
+    [SerializeField] private LevelInfo levelInfo;
 
     private int maxLevelUnlocked;
 
@@ -29,13 +30,6 @@ public class LevelManager : MonoBehaviour
         maxLevelUnlocked = PersistenceManager.Load().MaxLevelUnlocked;
     }
 
-    public int MaxLevelUnlocked
-    {
-        get
-        {
-            return maxLevelUnlocked;
-        }
-    }
     public int PlayingLevel
     {
         get
@@ -53,8 +47,8 @@ public class LevelManager : MonoBehaviour
 
     public void WinLevel()
     {
-        int starsWon = timer.GetStarsAmount();
         float completedTime = timer.GetCompletedTime();
+        int starsWon = GetStarsAmount(completedTime);
         OverlayManager.Instance.OpenWon(starsWon, completedTime);
 
         UpdateMaxLevel();
@@ -70,9 +64,9 @@ public class LevelManager : MonoBehaviour
     {
         int nextLevel = PlayingLevel + 1;
 #if DEMO_BUILD
-        if (nextLevel > GameConstants.MaxBetaLevels)
+        if (nextLevel > GameConstants.DemoLevels)
         {
-            MenuManager.Instance.GoToWishListMenu();
+            LoadLevel(0);
             return;
         }
 #endif
@@ -114,11 +108,23 @@ public class LevelManager : MonoBehaviour
         };
     }
 
-    private void SetLevelRecord(int level, LevelRecord newRecord)
+    public int GetStarsAmount(float completedTime)
     {
-        PersistenceManager.UpdateStarsInLevel(level, newRecord.Stars);
-        PersistenceManager.UpdateMinTimeInLevel(level, newRecord.CompletedTime);
+        float threeStarsMax = levelInfo.SpecialTimeCap;
+        float twoStarsMax = levelInfo.NormalTimeCap;
 
+        if (0 <= completedTime && completedTime <= threeStarsMax)
+        {
+            return 3;
+        }
+        else if (threeStarsMax < completedTime && completedTime <= twoStarsMax)
+        {
+            return 2;
+        }
+        else
+        {
+            return 1;
+        }
     }
     public void LoadLevel(int level)
     {
@@ -127,13 +133,21 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(level);
 
     }
+
+    private void SetLevelRecord(int level, LevelRecord newRecord)
+    {
+        PersistenceManager.UpdateStarsInLevel(level, newRecord.Stars);
+        PersistenceManager.UpdateMinTimeInLevel(level, newRecord.CompletedTime);
+
+    }
     private void UpdateMaxLevel()
     {
-        if (PlayingLevel == MaxLevelUnlocked)
+        if (PlayingLevel == maxLevelUnlocked)
         {
             maxLevelUnlocked = PlayingLevel + 1;
             PersistenceManager.UpdateMaxLevelUnlocked(maxLevelUnlocked);
         }
     }
+
 
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -13,22 +14,30 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    [Header("References")]
+    [SerializeField] private LevelsMenu levelsMenu;
+
     public void GoToMainMenu()
     {
         Time.timeScale = 1;
-        LevelManager.Instance.LoadLevel(0);
+        LoadMainMenu();
     }
 
     public void GoToLevelMenu()
     {
         PlayerPrefs.SetInt("levelMenu", 1);
         GoToMainMenu();
-        
     }
 
     public void GoToWishListMenu()
     {
         PlayerPrefs.SetInt("wishMenu", 1);
         GoToMainMenu();
+    }
+    private void LoadMainMenu()
+    {
+        PlayerPrefs.SetInt("playing_level", 0);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene(0);
     }
 }

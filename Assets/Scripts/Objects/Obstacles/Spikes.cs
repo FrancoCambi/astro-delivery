@@ -15,11 +15,12 @@ public class Spikes : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag("Player")) return;
 
-        if (deadly)
+        if (deadly && PlayerHurtbox.CanDie)
         {
             GameController.Instance.LoseLevel();
+            PlayerHurtbox.CanDie = false;        
         }
-        else if (carryHandler.IsCarrying)
+        else if (carryHandler.IsCarrying && !deadly)
         {
             carryHandler.HardDropPackage();
         }

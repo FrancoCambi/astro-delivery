@@ -14,7 +14,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: Localization-String-Tables-Italian (it)
   m_GUID: de77dd55c9e91074db2397e20b189153
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 545ea3578b7766b4fb4b71d5e5a42f2d
+    m_Address: Tutorial_it
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-it
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0da7c470a6f7ce4f9391d12fdf4df1f
+    m_Address: Overlay_it
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-it
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc147db09d3b635468e3434317f959ea
+    m_Address: UI_it
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-it
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 29fab85b35726eb45be8b38505941635, type: 2}
   m_SchemaSet:

@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
@@ -30,9 +31,7 @@ public static class PersistenceManager
         }
         else
         {
-            GameData emptyData = new();
-            Save(emptyData);
-            return Load();
+            return new GameData();
         }
     }
 
@@ -53,11 +52,21 @@ public static class PersistenceManager
 
         Save(data);
     }
+
     public static void UpdateStarsInLevel(int level, int newStars)
     {
         GameData data = Load();
 
         data.LevelStars[level] = newStars;
+
+        Save(data);
+    }
+
+    public static void UpdateVersion(Version newVersion)
+    {
+        GameData data = Load();
+
+        data.SaveVersion = newVersion;
 
         Save(data);
     }

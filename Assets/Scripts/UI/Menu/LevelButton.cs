@@ -7,12 +7,16 @@ using UnityEngine.UI;
 
 public class LevelButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    [Header("References")]
+    [SerializeField] private LevelsMenu levelsMenu;
+    
     [Header("Settings")]
     [SerializeField] private int level;
 
     private Button btn;
     private TextMeshProUGUI levelText;
     private RectTransform rectTransform;
+    private int maxLevelUnlocked;
 
     public int Level
     {
@@ -28,7 +32,9 @@ public class LevelButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         btn.onClick.AddListener(StartLevel);
         levelText = GetComponentInChildren<TextMeshProUGUI>();
         rectTransform = GetComponent<RectTransform>();
+        maxLevelUnlocked = PersistenceManager.Load().MaxLevelUnlocked;
     }
+
     private void Start()
     {
         SetInteractable();
@@ -36,15 +42,16 @@ public class LevelButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void SetInteractable()
     {
+
 #if DEMO_BUILD
-        if (level > GameConstants.MaxBetaLevels)
+        if (level > GameConstants.DemoLevels)
         {
             levelText.color = new Color(levelText.color.r, levelText.color.g, levelText.color.b, 128);
             btn.interactable = false;
         }
 #endif
 
-        if (level > LevelManager.Instance.MaxLevelUnlocked)
+        if (level > maxLevelUnlocked)
         {
             levelText.color = new Color(levelText.color.r, levelText.color.g, levelText.color.b, 128);
             btn.interactable = false;
@@ -63,7 +70,7 @@ public class LevelButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     private void StartLevel()
     {
-        LevelManager.Instance.LoadLevel(level);
+        levelsMenu.LoadLevel(level);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

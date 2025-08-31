@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Tutorial_pl
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pl
+  m_SharedData: {fileID: 11400000, guid: bd86e56848496ff4f8e8589e913d4a87, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 5998481408
+    m_Localized: "U\u017Cyj <color=#FF8000>A, D</color>, aby si\u0119 porusza\u0107
+      i <color=#FF8000>Spacji</color>, aby skaka\u0107."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20770820096
+    m_Localized: "Mo\u017Cesz aktywowa\u0107 przyciski naciskaj\u0105c je."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40362414080
+    m_Localized: "Niekt\xF3re obiekty wymagaj\u0105 aktywacji."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57965907968
+    m_Localized: "Drzwi mog\u0105 by\u0107 otwarte lub zamkni\u0119te."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68069986304
+    m_Localized: "U\u017Cyj <color=#FF8000>E</color>, aby podnie\u015B\u0107 paczk\u0119.\\nJe\u015Bli
+      nie b\u0119dziesz ostro\u017Cny, upadnie i pojawi si\u0119 ponownie.\\nMo\u017Cesz
+      u\u017Cy\u0107 <color=#FF8000>F</color>, aby ostro\u017Cnie j\u0105 od\u0142o\u017Cy\u0107."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 80069890048
+    m_Localized: "Twoim zadaniem jest dostarczy\u0107 paczk\u0119 do drzwi tak szybko,
+      jak to mo\u017Cliwe, zanim sko\u0144czy si\u0119 czas."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90689867776
+    m_Localized: "Mo\u017Cesz u\u017Cy\u0107 <color=#FF8000>E</color>, aby wej\u015B\u0107
+      w interakcj\u0119."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130820968448
+    m_Localized: "Niekt\xF3re przeszkody mog\u0105 spowodowa\u0107, \u017Ce upu\u015Bcisz
+      paczk\u0119."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3890799113244672
+    m_Localized: "Czerwone kolce zabijaj\u0105, ale nie wp\u0142ywaj\u0105 na przesy\u0142k\u0119"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

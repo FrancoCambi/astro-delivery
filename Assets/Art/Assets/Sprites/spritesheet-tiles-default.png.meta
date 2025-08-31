@@ -719,6 +719,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: PackageStick
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0464f35634b01249ac03647b2949819
+      internalID: -2020894334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -752,6 +774,7 @@ TextureImporter:
       LeverMiddle: -1861282135
       LeverRight: 620970958
       Package: -734905680
+      PackageStick: -2020894334
       RedButton: -1051958158
       RedButtonPressed: -218180363
       SandCloud: -1494760716

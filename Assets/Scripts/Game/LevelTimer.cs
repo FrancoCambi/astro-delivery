@@ -7,18 +7,13 @@ public class LevelTimer : MonoBehaviour
     [Header("References")]
     [SerializeField] private TextMeshProUGUI timerText;
 
-    [Header("Settings")]
-    [SerializeField] private float minTime;
-    [SerializeField] private float normalTime;
-
     private bool start = false;
-    private float secondsRemaining;
-    private float maxSeconds;
+    private float currentSeconds;
+    private bool playing = true;
 
     private void Awake()
     {
-        maxSeconds = normalTime * 2f;
-        secondsRemaining = maxSeconds;
+        currentSeconds = 0f;
     }
 
     private void OnEnable()
@@ -34,49 +29,28 @@ public class LevelTimer : MonoBehaviour
 
     private void Update()
     {
-        if (!start) return;
+        if (!start || !playing) return;
 
-        secondsRemaining -= Time.deltaTime;
+        currentSeconds += Time.deltaTime;
 
         UpdateText();
 
-        if (secondsRemaining <= 0)
+        if (currentSeconds >= 3600)
         {
             GameController.Instance.LoseLevel();
             start = false;
         }
     }
 
-    public int GetStarsAmount()
-    {
-        float threeStarsMax = minTime * 1.25f;
-        float twoStarsMax = normalTime * 1.5f;
-        float completedTime = maxSeconds - secondsRemaining;
-
-        if (0 <= completedTime && completedTime <= threeStarsMax)
-        {
-            return 3;
-        }
-        else if (threeStarsMax < completedTime && completedTime <= twoStarsMax)
-        {
-            return 2;
-        }
-        else
-        {
-            return 1;
-        }
-    }
-
     public float GetCompletedTime()
     {
-        float completedTime = maxSeconds - secondsRemaining;
-
-        return completedTime;
+        playing = false;
+        return currentSeconds;
     }
 
     private void UpdateText()
     {
-        TimeSpan timeSpan = TimeSpan.FromSeconds(secondsRemaining);
+        TimeSpan timeSpan = TimeSpan.FromSeconds(currentSeconds);
 
         String[] values = timeSpan.ToString(@"mm\:ss\:ff").Split(":");
 

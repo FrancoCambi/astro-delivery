@@ -36,8 +36,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 68069986304
-    m_Localized: "Use <color=#FF8000>E</color> para pegar o pacote.\r\nSe voc\xEA
-      n\xE3o for cuidadoso, ele cair\xE1 e reaparecer\xE1.\r\nVoc\xEA pode usar <color=#FF8000>F</color>
+    m_Localized: "Use <color=#FF8000>E</color> para pegar o pacote.\\nSe voc\xEA
+      n\xE3o for cuidadoso, ele cair\xE1 e reaparecer\xE1.\\nVoc\xEA pode usar <color=#FF8000>F</color>
       para solt\xE1-lo com cuidado."
     m_Metadata:
       m_Items: []
@@ -52,6 +52,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 130820968448
     m_Localized: "Alguns obst\xE1culos podem fazer voc\xEA deixar cair o pacote."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3890799113244672
+    m_Localized: "Picos vermelhos matam voc\xEA, mas n\xE3o afetam o pacote"
     m_Metadata:
       m_Items: []
   references:
