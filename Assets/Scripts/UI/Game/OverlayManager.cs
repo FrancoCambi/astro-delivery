@@ -118,6 +118,7 @@ public class OverlayManager : MonoBehaviour
         PlayerPrefs.SetInt("playing_level", 0);
         PlayerPrefs.Save();
         SceneManager.LoadScene(0);
+        MusicManager.Instance.PlayMusic();
     }
     private IEnumerator ClosePauseIE()
     {

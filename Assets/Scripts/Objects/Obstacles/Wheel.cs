@@ -18,6 +18,8 @@ public class NewMonoBehaviourScript : PuzzleReceiver
     private bool waiting = false;
     private float waitingTime = 0f;
     private bool used = false;
+    private bool lost = false;
+
     private List<GameObject> Points
     {
         get
@@ -54,16 +56,6 @@ public class NewMonoBehaviourScript : PuzzleReceiver
             waiting = true;
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            GameController.Instance.LoseLevel();
-        }
-    }
-
-
     public override void Actuate()
     {
         used = true;
@@ -75,4 +67,23 @@ public class NewMonoBehaviourScript : PuzzleReceiver
         used = false;
         nextPoint = Points[currentPoint % (Points.Count)];
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && PlayerHurtbox.TouchingWheel == gameObject)
+        {
+            GameController.Instance.LoseLevel();
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && PlayerHurtbox.TouchingWheel == gameObject && !lost)
+        {
+            lost = true;
+            GameController.Instance.LoseLevel();
+        }
+    }
+
+
 }

@@ -16,9 +16,11 @@ public class SettingsManager : MonoBehaviour
     public void SwitchLanguage(int value)
     {
 
-        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[value];
+        PlayerPrefs.SetInt("old_language", PlayerPrefs.GetInt("language", 0));
 
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[value];
         SaveLanguage(value);
+
     }
 
     private void SaveLanguage(int value)

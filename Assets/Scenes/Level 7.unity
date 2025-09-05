@@ -864,7 +864,7 @@ PrefabInstance:
     - target: {fileID: 2056771112587091870, guid: 49cadd1ff2a070f428c81b9de8620d8c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1796123712}
     - target: {fileID: 2056771112587091870, guid: 49cadd1ff2a070f428c81b9de8620d8c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ResetLevel
@@ -896,7 +896,7 @@ PrefabInstance:
     - target: {fileID: 3886114392471096331, guid: 49cadd1ff2a070f428c81b9de8620d8c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1796123712}
     - target: {fileID: 3886114392471096331, guid: 49cadd1ff2a070f428c81b9de8620d8c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ResetLevel
@@ -996,7 +996,7 @@ PrefabInstance:
     - target: {fileID: 6359312748587218852, guid: 49cadd1ff2a070f428c81b9de8620d8c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1417772116}
     - target: {fileID: 6359312748587218852, guid: 49cadd1ff2a070f428c81b9de8620d8c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PlayNextLevel
@@ -1527,7 +1527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3432290909806400286, guid: e485f9e33e6cc7d409d0ad4937bddeec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.352
+      value: -14.328882
       objectReference: {fileID: 0}
     - target: {fileID: 3432290909806400286, guid: e485f9e33e6cc7d409d0ad4937bddeec, type: 3}
       propertyPath: m_LocalPosition.y
@@ -37390,7 +37390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4135204162154956558, guid: 8f3156802a097a3499393c9217afa939, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.33
+      value: -5.310278
       objectReference: {fileID: 0}
     - target: {fileID: 4135204162154956558, guid: 8f3156802a097a3499393c9217afa939, type: 3}
       propertyPath: m_LocalPosition.z

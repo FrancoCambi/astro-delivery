@@ -42,8 +42,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 80069890048
-    m_Localized: "Il tuo compito \xE8 portare il pacco alla porta il pi\xF9 velocemente
-      possibile, prima che il tempo scada."
+    m_Localized: "Il tuo compito \xE8 portare il pacco alla porta nel minor tempo
+      possibile."
     m_Metadata:
       m_Items: []
   - m_Id: 90689867776

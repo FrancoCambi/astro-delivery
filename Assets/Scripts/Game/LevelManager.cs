@@ -25,6 +25,14 @@ public class LevelManager : MonoBehaviour
 
     private int maxLevelUnlocked;
 
+    public LevelInfo LevelInfo
+    {
+        get
+        {
+            return levelInfo;
+        }
+    }
+
     public void Start()
     {
         maxLevelUnlocked = PersistenceManager.Load().MaxLevelUnlocked;
@@ -131,6 +139,7 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetInt("playing_level", level);
         PlayerPrefs.Save();
         SceneManager.LoadScene(level);
+        MusicManager.Instance.PlayMusic();
 
     }
 

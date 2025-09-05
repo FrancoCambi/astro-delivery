@@ -43,7 +43,7 @@ public class GameController : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.K))
+        /*if (Input.GetKeyDown(KeyCode.K))
         {
             SteamAchievements.ClearAchievementStatus("ACH_TEST");
         }
@@ -58,12 +58,13 @@ public class GameController : MonoBehaviour
             print(SteamAchievements.IsUnlocked("ACH_TEST"));
 
             print(SteamIntegration.Instance.IsConnected);
-        }
+        }*/
     }
 
     public void ResetLevel()
     {
         LevelManager.Instance.LoadLevel(LevelManager.Instance.PlayingLevel);
+        MusicManager.Instance.PlayMusic();
     }
 
     public void LoseLevel()
@@ -85,7 +86,7 @@ public class GameController : MonoBehaviour
         if (overlay) OverlayManager.Instance.OpenPause();
         Time.timeScale = 0;
         IsPaused = true;
-        MusicManager.Instance.StopMusic();
+        MusicManager.Instance.PauseMusic();
     }
 
     private void Unpause()
@@ -93,6 +94,6 @@ public class GameController : MonoBehaviour
         OverlayManager.Instance.ClosePause();
         Time.timeScale = 1;
         IsPaused = false;
-        MusicManager.Instance.StartMusic();
+        MusicManager.Instance.UnPauseMusic();
     }
 }

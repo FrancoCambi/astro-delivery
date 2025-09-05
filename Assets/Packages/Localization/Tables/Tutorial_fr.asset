@@ -42,8 +42,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 80069890048
-    m_Localized: "Votre t\xE2che est de livrer le colis \xE0 la porte le plus vite
-      possible, avant la fin du temps."
+    m_Localized: "Ton travail consiste \xE0 livrer le colis \xE0 la porte le plus
+      rapidement possible."
     m_Metadata:
       m_Items: []
   - m_Id: 90689867776

@@ -42,8 +42,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 80069890048
-    m_Localized: Your job is to get the package to the door as fast as possible,
-      before the time runs out.
+    m_Localized: Your job is to get the package to the door in the shortest time
+      possible.
     m_Metadata:
       m_Items: []
   - m_Id: 90689867776

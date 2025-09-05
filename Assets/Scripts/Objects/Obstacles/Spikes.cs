@@ -6,6 +6,7 @@ public class Spikes : MonoBehaviour
     [SerializeField] private bool deadly;
 
     private PlayerCarryHandler carryHandler;
+    private bool lost = false;
 
     private void Start()
     {
@@ -15,10 +16,24 @@ public class Spikes : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag("Player")) return;
 
-        if (deadly && PlayerHurtbox.CanDie)
+        if (deadly && PlayerHurtbox.TouchingSpike == gameObject)
         {
             GameController.Instance.LoseLevel();
-            PlayerHurtbox.CanDie = false;        
+        }
+        else if (carryHandler.IsCarrying && !deadly)
+        {
+            carryHandler.HardDropPackage();
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (!collision.gameObject.CompareTag("Player")) return;
+
+        if (deadly && PlayerHurtbox.TouchingSpike == gameObject && !lost)
+        {
+            lost = true;
+            GameController.Instance.LoseLevel();       
         }
         else if (carryHandler.IsCarrying && !deadly)
         {

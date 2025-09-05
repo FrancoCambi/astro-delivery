@@ -2150,6 +2150,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6731085423095089180, guid: 800d9ee9f223d3b4789300a7d2b9913c, type: 3}
+      propertyPath: releaseTime
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731085423095089180, guid: 800d9ee9f223d3b4789300a7d2b9913c, type: 3}
       propertyPath: 'receivers.Array.data[0]'
       value: 
       objectReference: {fileID: 636319199}
