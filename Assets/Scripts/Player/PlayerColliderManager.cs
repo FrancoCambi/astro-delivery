@@ -6,13 +6,21 @@ public class PlayerColliderManager : MonoBehaviour
     [SerializeField] private BoxCollider2D normalCollider;
     [SerializeField] private BoxCollider2D crouchingCollider;
     [SerializeField] private BoxCollider2D climbingCollider;
-    [SerializeField] private BoxCollider2D carryingCollider;
+    [SerializeField] private BoxCollider2D carryingPackageCollider;
 
-    public BoxCollider2D CurrentCollider { get; private set; }
-
-    private void Awake()
+    public BoxCollider2D NormalCollider
     {
-        CurrentCollider = normalCollider;
+        get
+        {
+            return normalCollider;
+        }
+    }
+    public BoxCollider2D CarryingPackageCollider
+    {
+        get
+        {
+            return carryingPackageCollider;
+        }
     }
 
     private void OnEnable()
@@ -31,24 +39,10 @@ public class PlayerColliderManager : MonoBehaviour
         switch (state)
         {
             case PlayerState.Normal:
-                CurrentCollider.enabled = false;
-                CurrentCollider = normalCollider;
-                CurrentCollider.enabled = true;
-                break;
-            case PlayerState.Crouching:
-                CurrentCollider.enabled = false;
-                CurrentCollider = crouchingCollider;
-                CurrentCollider.enabled = true;
-                break;
-            case PlayerState.Climbing:
-                CurrentCollider.enabled = false;
-                CurrentCollider = climbingCollider;
-                CurrentCollider.enabled = true;
+                carryingPackageCollider.enabled = false;
                 break;
             case PlayerState.Carrying:
-                CurrentCollider.enabled = false;
-                CurrentCollider = carryingCollider;
-                CurrentCollider.enabled = true;
+                carryingPackageCollider.enabled = true;
                 break;
             default:
                 break;
@@ -56,4 +50,5 @@ public class PlayerColliderManager : MonoBehaviour
 
         }
     }
+
 }

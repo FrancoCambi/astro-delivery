@@ -352,7 +352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5575603808582946930, guid: 709c601f4a1046b4f8d2ee48355fb4bf, type: 3}
       propertyPath: m_Size.y
-      value: 3.049821
+      value: 4.0205917
       objectReference: {fileID: 0}
     - target: {fileID: 5575603808582946930, guid: 709c601f4a1046b4f8d2ee48355fb4bf, type: 3}
       propertyPath: m_Offset.x
@@ -360,7 +360,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5575603808582946930, guid: 709c601f4a1046b4f8d2ee48355fb4bf, type: 3}
       propertyPath: m_Offset.y
-      value: 3.4937067
+      value: 3.0083213
       objectReference: {fileID: 0}
     - target: {fileID: 5907531583465830615, guid: 709c601f4a1046b4f8d2ee48355fb4bf, type: 3}
       propertyPath: m_Sprite
@@ -484,7 +484,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6704512169467624652, guid: 25b6634c49fd5f942b63bc7c83d1b915, type: 2}
-  m_audioClip: {fileID: 8300000, guid: ff6b043494c2c904e98379cf559c157a, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: ff6b043494c2c904e98379cf559c157a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -599,7 +599,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSource: {fileID: 115468064}
-  levelInfo: {fileID: 11400000, guid: 131358a1ee7c86e48b4801caa3164c3a, type: 2}
 --- !u!1001 &161051697
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2860,7 +2859,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5575603808582946930, guid: 709c601f4a1046b4f8d2ee48355fb4bf, type: 3}
       propertyPath: m_Size.y
-      value: 5.139001
+      value: 6.0974813
       objectReference: {fileID: 0}
     - target: {fileID: 5575603808582946930, guid: 709c601f4a1046b4f8d2ee48355fb4bf, type: 3}
       propertyPath: m_Offset.x
@@ -2868,7 +2867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5575603808582946930, guid: 709c601f4a1046b4f8d2ee48355fb4bf, type: 3}
       propertyPath: m_Offset.y
-      value: 1.015936
+      value: 0.5366957
       objectReference: {fileID: 0}
     - target: {fileID: 5907531583465830615, guid: 709c601f4a1046b4f8d2ee48355fb4bf, type: 3}
       propertyPath: m_Sprite

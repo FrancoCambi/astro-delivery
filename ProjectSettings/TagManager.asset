@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - RedSpike
   - Wheel
+  - PlayerPackageCol
   layers:
   - Default
   - TransparentFX

@@ -912,7 +912,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSource: {fileID: 115468064}
-  levelInfo: {fileID: 11400000, guid: d64f210052e04c847851338317d98ba7, type: 2}
 --- !u!1 &148646143
 GameObject:
   m_ObjectHideFlags: 0
@@ -1694,6 +1693,7 @@ Transform:
   - {fileID: 2126316670}
   - {fileID: 1182451529}
   - {fileID: 96124911}
+  - {fileID: 1236458297}
   - {fileID: 375656144}
   - {fileID: 1926841551}
   - {fileID: 114867067}
@@ -15727,6 +15727,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 865687120904689802, guid: 709c601f4a1046b4f8d2ee48355fb4bf, type: 3}
   m_PrefabInstance: {fileID: 1966585247}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1236458297 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1000589554366968570, guid: ce32753d573e875479cec436ecead73d, type: 3}
+  m_PrefabInstance: {fileID: 1353421055}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1239536318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15973,6 +15978,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aab2b5ad244b8ca4aa41dc6296b8eda6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1353421055
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 403504178}
+    m_Modifications:
+    - target: {fileID: 1000589554366968570, guid: ce32753d573e875479cec436ecead73d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000589554366968570, guid: ce32753d573e875479cec436ecead73d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000589554366968570, guid: ce32753d573e875479cec436ecead73d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0012797043
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000589554366968570, guid: ce32753d573e875479cec436ecead73d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000589554366968570, guid: ce32753d573e875479cec436ecead73d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000589554366968570, guid: ce32753d573e875479cec436ecead73d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000589554366968570, guid: ce32753d573e875479cec436ecead73d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000589554366968570, guid: ce32753d573e875479cec436ecead73d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000589554366968570, guid: ce32753d573e875479cec436ecead73d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000589554366968570, guid: ce32753d573e875479cec436ecead73d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1386168679897300570, guid: ce32753d573e875479cec436ecead73d, type: 3}
+      propertyPath: m_Name
+      value: RedSpike (27)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ce32753d573e875479cec436ecead73d, type: 3}
 --- !u!1001 &1372456504
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -16,4 +16,4 @@ MonoBehaviour:
   specialTimeMultiplier: 1.25
   normalTimeReference: 14
   normalTimeMultiplier: 1.25
-  MusicClip: {fileID: 8300000, guid: ff6b043494c2c904e98379cf559c157a, type: 3}
+  MusicClip: {fileID: 8300000, guid: 8a12c3eb5dda3cb4eb1da8d91755a656, type: 3}

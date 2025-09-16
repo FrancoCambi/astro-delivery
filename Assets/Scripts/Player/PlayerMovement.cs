@@ -173,11 +173,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckCollisions()
     {
-        BoxCollider2D currentCollider = playerColliderManager.CurrentCollider;
+        BoxCollider2D normalCollider = playerColliderManager.NormalCollider;
+        BoxCollider2D upCollider = Package.Instance.IsBeingHeld ? playerColliderManager.CarryingPackageCollider : normalCollider;
 
-        bool groundHit = Physics2D.BoxCast(currentCollider.bounds.center, currentCollider.size, 0, Vector2.down, grounderDistance, ~jumpCollisionMask);
-        bool ceilingHit = Physics2D.BoxCast(currentCollider.bounds.center, currentCollider.size, 0, Vector2.up, grounderDistance, ~ceilingCollisionMask);
-        bool climbHit = Physics2D.BoxCast(currentCollider.bounds.center, currentCollider.size, 0, Vector2.up, grounderDistance, climbMask);
+        bool groundHit = Physics2D.BoxCast(normalCollider.bounds.center, normalCollider.size, 0, Vector2.down, grounderDistance, ~jumpCollisionMask);
+        bool ceilingHit = Physics2D.BoxCast(upCollider.bounds.center, upCollider.size, 0, Vector2.up, grounderDistance, ~ceilingCollisionMask);
+        bool climbHit = Physics2D.BoxCast(normalCollider.bounds.center, normalCollider.size, 0, Vector2.up, grounderDistance, climbMask);
 
         if (ceilingHit) frameVelocity.y = Mathf.Min(0, frameVelocity.y);
 
