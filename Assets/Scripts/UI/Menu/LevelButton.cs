@@ -33,6 +33,7 @@ public class LevelButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         levelText = GetComponentInChildren<TextMeshProUGUI>();
         rectTransform = GetComponent<RectTransform>();
         maxLevelUnlocked = PersistenceManager.Load().MaxLevelUnlocked;
+        print(maxLevelUnlocked);
     }
 
     private void Start()

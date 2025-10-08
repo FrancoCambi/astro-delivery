@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 
 public class MigrationSystem : MonoBehaviour
@@ -9,7 +10,14 @@ public class MigrationSystem : MonoBehaviour
     private GameData gameData;
     private Version saveVersion;
 
-    void Start()
+    private void Awake()
+    {
+#if FULL_BUILD
+        PersistenceManager.UpdateMaxLevelUnlocked(GameConstants.LevelsAmount);
+#endif
+    }
+
+    private void Start()
     {
         gameData = PersistenceManager.Load();
         saveVersion = gameData.SaveVersion;
@@ -26,13 +34,19 @@ public class MigrationSystem : MonoBehaviour
         }
     }
 
-    
+
     private void Migrate()
     {
-        if (saveVersion <= new Version(0,2,0))
+        if (saveVersion <= new Version(0, 2, 0))
         {
             Migration_0_1_0_to_0_2_0();
-            PersistenceManager.UpdateVersion(new Version(0,2,0));
+            PersistenceManager.UpdateVersion(new Version(0, 2, 0));
+        }
+
+        if (saveVersion <= new Version(0, 2, 2))
+        {
+            Migration_0_2_0_to_0_2_2();
+            PersistenceManager.UpdateVersion(new Version(0, 2, 2));
         }
 
 #if UNITY_EDITOR
@@ -53,6 +67,13 @@ public class MigrationSystem : MonoBehaviour
             int newStars = levelsMenu.GetStarsAmount(i, completedTime);
             PersistenceManager.UpdateStarsInLevel(i, newStars);
         }
+    }
+
+    private void Migration_0_2_0_to_0_2_2()
+    {
+        PersistenceManager.AppendToMinTimes(float.MaxValue);
+        PersistenceManager.AppendToStarsInLevel(0);
+
     }
 
     #endregion

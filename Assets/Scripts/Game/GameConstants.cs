@@ -3,7 +3,7 @@ using UnityEngine;
 
 public static class GameConstants
 {
-    public static Version GameVersion = new(0, 2, 0);
+    public static Version GameVersion = new(0, 2, 2);
 
     public static int DemoLevels = 6;
 

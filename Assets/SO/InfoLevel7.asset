@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a12d0e413eb92c2488bb5a247c96ea8d, type: 3}
   m_Name: InfoLevel7
   m_EditorClassIdentifier: 
-  specialTimeReference: 10
+  specialTimeReference: 16.5
   specialTimeMultiplier: 1.25
-  normalTimeReference: 150
+  normalTimeReference: 20
   normalTimeMultiplier: 1.25
   MusicClip: {fileID: 8300000, guid: 0c6ab36067e53db438192eae48158502, type: 3}

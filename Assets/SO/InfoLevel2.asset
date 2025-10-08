@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   specialTimeReference: 8.5
   specialTimeMultiplier: 1.25
-  normalTimeReference: 14
+  normalTimeReference: 13.93
   normalTimeMultiplier: 1.25
   MusicClip: {fileID: 8300000, guid: 8a12c3eb5dda3cb4eb1da8d91755a656, type: 3}

@@ -18,6 +18,7 @@ public abstract class PuzzleReceiver : MonoBehaviour
         if (currentActivators == activatorsAmount)
         {
             Actuate();
+            currentActivators = 0;
         }
     }
 

@@ -66,7 +66,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.015459895, y: 1.2818081}
+  m_Offset: {x: -0.015156269, y: 1.2818081}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -76,7 +76,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.8783871, y: 1.6578212}
+  m_Size: {x: 0.80642223, y: 1.6578212}
   m_EdgeRadius: 0
 --- !u!1 &3341350546873942091
 GameObject:
@@ -144,7 +144,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.01545988, y: -0.11220455}
+  m_Offset: {x: -0.014583588, y: -0.11220455}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -154,7 +154,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.8783871, y: 1.1250362}
+  m_Size: {x: 0.80653, y: 1.1250362}
   m_EdgeRadius: 0
 --- !u!1 &3466345316120399724
 GameObject:
@@ -218,6 +218,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -239,6 +241,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -391484703
   m_SortingLayer: 3
   m_SortingOrder: 0
@@ -319,7 +322,7 @@ MonoBehaviour:
   maxFallSpeed: 20
   jumpBuffer: 0.2
   coyoteTime: 0.075
-  acceleration: 60
+  acceleration: 100
   groundDeceleration: 45
   airDeceleration: 15
   groundingForce: -0.75
