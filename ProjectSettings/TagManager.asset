@@ -9,6 +9,7 @@ TagManager:
   - RedSpike
   - Wheel
   - PlayerPackageCol
+  - Key
   layers:
   - Default
   - TransparentFX

@@ -728,7 +728,7 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -737,6 +737,116 @@ TextureImporter:
       bones: []
       spriteID: a0464f35634b01249ac03647b2949819
       internalID: -2020894334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ClosedDoor
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 896
+        width: 64
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdace3ce135918849b9d16b47668fb04
+      internalID: 258764839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YellowKey
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e077b1bb8b092b41a6b1a73852be136
+      internalID: -215148236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YellowKeyUI
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 324
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4ef789a1b8af1e4a981f4bc264fa31c
+      internalID: -325134926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: XSprite
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aecf161b24d0ebf4a8c4acc1815eae29
+      internalID: -886873158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NumberOne
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 324
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c7da78623a81d84dabfa7791554a680
+      internalID: -1247279075
       vertices: []
       indices: 
       edges: []
@@ -760,6 +870,7 @@ TextureImporter:
       Bush: 1459805207
       Cactus: -626604494
       Chains: -2000834143
+      ClosedDoor: 258764839
       DoorOpen: -2808014073550543062
       FullStar: 1063024075
       GrassCloud: -9164772
@@ -773,6 +884,7 @@ TextureImporter:
       LeverLeft: 1889002887
       LeverMiddle: -1861282135
       LeverRight: 620970958
+      NumberOne: -1247279075
       Package: -734905680
       PackageStick: -2020894334
       RedButton: -1051958158
@@ -781,6 +893,9 @@ TextureImporter:
       Spikes: 917623551
       Stick: 1719643817
       Wheel: -1523438630
+      XSprite: -886873158
+      YellowKey: -215148236
+      YellowKeyUI: -325134926
       spritesheet-tiles-default_1: 969677346
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
