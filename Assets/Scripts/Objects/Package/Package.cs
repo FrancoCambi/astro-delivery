@@ -143,6 +143,7 @@ public class Package : MonoBehaviour
             {
                 GoingToRespawn = true;
                 Respawn();
+                SteamAchievementsEventsHandler.RaiseBoxDestroyed();
             }
             calculatingTime = false;
             fallingTime = 0f;
@@ -197,6 +198,7 @@ public class Package : MonoBehaviour
         if (hardDropped)
         {
             Respawn();
+            SteamAchievementsEventsHandler.RaiseBoxDestroyed();
         }
     }
 

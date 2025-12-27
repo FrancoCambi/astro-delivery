@@ -59,6 +59,13 @@ public class LevelManager : MonoBehaviour
         int starsWon = GetStarsAmount(completedTime);
         OverlayManager.Instance.OpenWon(starsWon, completedTime);
 
+        SteamAchievementsEventsHandler.RaiseLevelCompleted(new LevelCompletedData
+        {
+            levelIndex = PlayingLevel,
+            stars = starsWon,
+            time = completedTime
+        });
+
         UpdateMaxLevel();
         UpdateRecord(starsWon, completedTime);
     }

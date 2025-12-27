@@ -7,5 +7,5 @@ public static class GameConstants
 
     public static int DemoLevels = 6;
 
-    public static int LevelsAmount = 30;
+    public static int LevelsAmount = 24;
 }

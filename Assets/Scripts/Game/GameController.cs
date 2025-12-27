@@ -43,21 +43,20 @@ public class GameController : MonoBehaviour
         }
 
 
-        /*if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K))
         {
-            SteamAchievements.ClearAchievementStatus("ACH_TEST");
+            SteamUserStats.ResetAll(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.J))
+        /*if (Input.GetKeyDown(KeyCode.J))
         {
             SteamAchievements.UnlockAchievement("ACH_TEST");
         }
 
         if (Input.GetKeyDown(KeyCode.H))
         {
-            print(SteamAchievements.IsUnlocked("ACH_TEST"));
+            print(SteamAchievements.IsUnlocked("ACH_FIRST_LEVEL"));
 
-            print(SteamIntegration.Instance.IsConnected);
         }*/
     }
 
