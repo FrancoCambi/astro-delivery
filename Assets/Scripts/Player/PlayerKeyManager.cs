@@ -36,7 +36,7 @@ public class PlayerKeyManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Key"))
+        if (!hasKey && collision.gameObject.CompareTag("Key"))
         {
             CollectKey();
             Destroy(collision.gameObject);

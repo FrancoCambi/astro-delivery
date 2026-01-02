@@ -29,6 +29,13 @@ MonoBehaviour:
     - Locale-ru
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 49f90661552c08a43ab1156cb3fc166f
+    m_Address: HUD_ru
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e460eed3f05bdf847a64b271263f5887
     m_Address: Tutorial_ru
     m_ReadOnly: 1

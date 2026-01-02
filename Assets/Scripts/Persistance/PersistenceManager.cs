@@ -93,4 +93,22 @@ public static class PersistenceManager
 
         Save(data);
     }
+
+    public static void UpdateLevelAttempts(int level, int newAttempts)
+    {
+        GameData data = Load();
+
+        data.LevelAttempts[level] = newAttempts;
+
+        Save(data);
+    }
+
+    public static void AddLevelAttempt(int level)
+    {
+        GameData data = Load();
+
+        data.LevelAttempts[level]++;
+
+        Save(data);
+    }
 }

@@ -31,7 +31,7 @@ public class TemporalPlatform : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!stepped && collision.gameObject.CompareTag("Player"))
         {

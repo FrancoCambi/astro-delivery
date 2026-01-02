@@ -1,5 +1,6 @@
 using Steamworks;
 using Steamworks.Data;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,7 +19,10 @@ public class GameController : MonoBehaviour
 
     public KeyCode InteractKey => KeyCode.E;
     public string InteractKeyString => InteractKey.ToString();
-    public bool IsPaused { get; private set; } 
+    public bool IsPaused { get; private set; }
+
+    public static event Action<int> OnRetry;
+
     private void Awake()
     {
         Time.timeScale = 1;
@@ -62,8 +66,10 @@ public class GameController : MonoBehaviour
 
     public void ResetLevel()
     {
-        LevelManager.Instance.LoadLevel(LevelManager.Instance.PlayingLevel);
+        int playingLevel = LevelManager.Instance.PlayingLevel;
+        LevelManager.Instance.LoadLevel(playingLevel);
         MusicManager.Instance.PlayMusic();
+        LevelRetried(playingLevel);
     }
 
     public void LoseLevel()
@@ -72,6 +78,7 @@ public class GameController : MonoBehaviour
 
         Pause(false);
         LevelManager.Instance.LoseLevel();
+        LevelRetried(LevelManager.Instance.PlayingLevel);
     }
 
     public void WinLevel()
@@ -94,5 +101,11 @@ public class GameController : MonoBehaviour
         Time.timeScale = 1;
         IsPaused = false;
         MusicManager.Instance.UnPauseMusic();
+    }
+
+    private void LevelRetried(int level)
+    {
+        PersistenceManager.AddLevelAttempt(level);
+        OnRetry.Invoke(level);
     }
 }
