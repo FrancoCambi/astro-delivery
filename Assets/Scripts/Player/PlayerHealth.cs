@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (collision.gameObject.CompareTag("RedSpike") || collision.gameObject.CompareTag("Wheel"))
         {
-            GameController.Instance.LoseLevel();
+            Die();
         }
     }
 
@@ -16,7 +16,13 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Lava"))
         {
-            GameController.Instance.LoseLevel();   
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        GameController.Instance.LoseLevel();
+        SteamAchievementsEventsHandler.RaiseDeath();
     }
 }

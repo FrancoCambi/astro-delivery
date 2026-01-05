@@ -78,7 +78,6 @@ public class GameController : MonoBehaviour
 
         Pause(false);
         LevelManager.Instance.LoseLevel();
-        LevelRetried(LevelManager.Instance.PlayingLevel);
     }
 
     public void WinLevel()
@@ -103,7 +102,7 @@ public class GameController : MonoBehaviour
         MusicManager.Instance.UnPauseMusic();
     }
 
-    private void LevelRetried(int level)
+    public void LevelRetried(int level)
     {
         PersistenceManager.AddLevelAttempt(level);
         OnRetry.Invoke(level);

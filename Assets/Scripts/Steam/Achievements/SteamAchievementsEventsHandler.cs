@@ -6,22 +6,11 @@ public struct LevelCompletedData
     public int levelIndex;
     public int stars;
     public float time;
+    public int attempts;
 }
 
 public class SteamAchievementsEventsHandler : MonoBehaviour
 {
-    private void OnEnable()
-    {
-        OnLevelCompleted += HandleLevelCompleted;
-        OnBoxDestroyed += HandleBoxDestroyed;
-    }
-
-    private void OnDisable()
-    {
-        OnLevelCompleted -= HandleLevelCompleted;
-        OnBoxDestroyed -= HandleBoxDestroyed;
-
-    }
 
     #region events
 
@@ -29,7 +18,39 @@ public class SteamAchievementsEventsHandler : MonoBehaviour
 
     public static event Action OnBoxDestroyed;
 
+    public static event Action OnDeath;
+
     #endregion
+
+    #region aux_var
+
+    private bool packageLost = false;
+
+    private bool stoppedMovement = false;
+
+    #endregion
+    private void OnEnable()
+    {
+        OnLevelCompleted += HandleLevelCompleted;
+        OnBoxDestroyed += HandleBoxDestroyed;
+        OnDeath += HandleDeath;
+
+        PlayerMovement.OnStopped += StoppedMovement;
+        GameController.OnRetry += AddRetry;
+        OverlayManager.OnMenu += ResetRetries;
+    }
+
+    private void OnDisable()
+    {
+        OnLevelCompleted -= HandleLevelCompleted;
+        OnBoxDestroyed -= HandleBoxDestroyed;
+        OnDeath -= HandleDeath;
+
+        PlayerMovement.OnStopped -= StoppedMovement;
+        GameController.OnRetry -= AddRetry;
+        OverlayManager.OnMenu -= ResetRetries;
+
+    }
 
     #region Raisers
 
@@ -37,6 +58,8 @@ public class SteamAchievementsEventsHandler : MonoBehaviour
         => OnLevelCompleted?.Invoke(levelCompletedData);
 
     public static void RaiseBoxDestroyed() => OnBoxDestroyed?.Invoke();
+
+    public static void RaiseDeath() => OnDeath?.Invoke();
 
     #endregion
 
@@ -85,17 +108,60 @@ public class SteamAchievementsEventsHandler : MonoBehaviour
         if (!SteamAchievements.IsUnlocked("ACH_ALL_LEVELS_THREE_STARS") && data.levelIndex >= 1 && data.levelIndex <= 24
             && CheckRangeThreeStars(1, 24))
             SteamAchievements.UnlockAchievement("ACH_ALL_LEVELS_THREE_STARS");
+
+        if (!SteamAchievements.IsUnlocked("ACH_LOST_PACKAGE_WON") && packageLost && data.stars == 3)
+            SteamAchievements.UnlockAchievement("ACH_LOST_PACKAGE_WON");
+
+        if (!SteamAchievements.IsUnlocked("ACH_WON_AFTER_10") && data.attempts > 10)
+            SteamAchievements.UnlockAchievement("ACH_WON_AFTER_10");
+
+        if (!SteamAchievements.IsUnlocked("ACH_WON_AFTER_10") && data.attempts > 25)
+            SteamAchievements.UnlockAchievement("ACH_WON_AFTER_25");
+
+        if (!SteamAchievements.IsUnlocked("ACH_WON_AFTER_10") && data.attempts > 50)
+            SteamAchievements.UnlockAchievement("ACH_WON_AFTER_50");
+
+        if (!SteamAchievements.IsUnlocked("ACH_WON_AFTER_10") && data.attempts > 100)
+            SteamAchievements.UnlockAchievement("ACH_WON_AFTER_100");
+
+        if (!SteamAchievements.IsUnlocked("ACH_WON_AFTER_10") && data.attempts > 200)
+            SteamAchievements.UnlockAchievement("ACH_WON_AFTER_200");
+
+        if (!SteamAchievements.IsUnlocked("ACH_NON_STOP") && !stoppedMovement)
+            SteamAchievements.UnlockAchievement("ACH_NON_STOP");
+
+        if (!SteamAchievements.IsUnlocked("ACH_UNDER_10_SECONDS") && data.time < 10)
+            SteamAchievements.UnlockAchievement("ACH_UNDER_10_SECONDS");
+
+        packageLost = false;
     }
 
     private void HandleBoxDestroyed()
     {
+
         if (!SteamAchievements.IsUnlocked("ACH_BOX_DESTROYED"))
             SteamAchievements.UnlockAchievement("ACH_BOX_DESTROYED");
+
+        packageLost = true;
+    }
+
+    private void HandleDeath()
+    {
+        if (!SteamAchievements.IsUnlocked("ACH_FIRST_DEATH"))
+            SteamAchievements.UnlockAchievement("ACH_FIRST_DEATH");
+    }
+
+    private void HandleRetried()
+    {
+        int rowRetries = PlayerPrefs.GetInt("rowRetries", 0);
+
+        if (!SteamAchievements.IsUnlocked("ACH_25_RESET_NO_MENU") && rowRetries >= 25)
+            SteamAchievements.UnlockAchievement("ACH_25_RESET_NO_MENU");
     }
 
     #endregion
 
-    #region aux
+    #region aux_functions
 
     private bool CheckRangeThreeStars(int a, int b)
     {
@@ -105,12 +171,33 @@ public class SteamAchievementsEventsHandler : MonoBehaviour
         {
             if (data.LevelStars[i] != 3)
             {
-                print(data.LevelStars[i]);
                 return false;
             }
         }
 
         return true;
+    }
+
+    private void StoppedMovement()
+    {
+        stoppedMovement = true;
+    }
+
+    private void AddRetry(int _)
+    {
+        PlayerPrefs.SetInt("rowRetries", PlayerPrefs.GetInt("rowRetries", 0) + 1);
+
+        HandleRetried();
+    }
+
+    private void ResetRetries()
+    {
+        PlayerPrefs.SetInt("rowRetries", 0);
+    }
+
+    private void OnApplicationQuit()
+    {
+        ResetRetries();
     }
 
     #endregion

@@ -56,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
     private bool launchToConsume = false;
     private bool launchJumping = false;
     private bool madeFirstMove = false;
+    private bool stoppedMovement = false;
     private bool canClimb = false;
     private bool climbing = false;
     private bool HasBufferedJump => bufferedJumpUsable && time < timeJumpWasPressed + jumpBuffer;
@@ -64,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
     public bool Falling => !grounded && frameVelocity.y < 0;
 
     public static Action OnFirstMove;
+    public static Action OnStopped;
 
     #endregion
 
@@ -102,6 +104,8 @@ public class PlayerMovement : MonoBehaviour
         HandleGravity();
 
         ApplyMovement();
+
+        CheckMovementStopped();
     }
 
     private void GatherInput()
@@ -286,6 +290,16 @@ public class PlayerMovement : MonoBehaviour
     {
         launchForce = force;
         launchToConsume = true;
+    }
+
+    private void CheckMovementStopped()
+    {
+        if (rb.linearVelocity.x == 0 && !stoppedMovement && madeFirstMove)
+        {
+            print("stopped");
+            stoppedMovement = true;
+            OnStopped?.Invoke();
+        }
     }
 
     #endregion

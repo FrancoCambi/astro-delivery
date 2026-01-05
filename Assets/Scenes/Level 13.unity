@@ -39889,6 +39889,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1644935348}
   - component: {fileID: 1644935347}
+  - component: {fileID: 1644935349}
   m_Layer: 0
   m_Name: SteamManager
   m_TagString: Untagged
@@ -39923,6 +39924,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1644935349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644935346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f117a884a80fa564193920a908c63605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SteamAchievementsEventsHandler
 --- !u!1 &1675583158
 GameObject:
   m_ObjectHideFlags: 0

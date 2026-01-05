@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -55,6 +56,7 @@ public class LevelManager : MonoBehaviour
 
     public void WinLevel()
     {
+        GameData data = PersistenceManager.Load();
         float completedTime = timer.GetCompletedTime();
         int starsWon = GetStarsAmount(completedTime);
         OverlayManager.Instance.OpenWon(starsWon, completedTime);
@@ -63,7 +65,8 @@ public class LevelManager : MonoBehaviour
         {
             levelIndex = PlayingLevel,
             stars = starsWon,
-            time = completedTime
+            time = completedTime,
+            attempts = data.LevelAttempts[PlayingLevel]
         });
 
         UpdateMaxLevel();

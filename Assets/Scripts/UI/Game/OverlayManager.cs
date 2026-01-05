@@ -41,7 +41,11 @@ public class OverlayManager : MonoBehaviour
     [SerializeField] private AudioClip wonClip;
 
     private Camera mainCamera;
+
+    private bool lost = false;
     public bool IsPauseOpen { get; private set; }
+
+    public static event Action OnMenu;
 
     private void Start()
     {
@@ -63,6 +67,8 @@ public class OverlayManager : MonoBehaviour
         lostTransform.DOLocalMove(Vector3.zero, tweenTime).SetEase(ease).SetUpdate(true);
 
         SoundFXManager.Instance.PlaySoundFXClip(lostClip, transform);
+
+        lost = true;
 
     }
 
@@ -104,6 +110,9 @@ public class OverlayManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        if (lost)
+            GameController.Instance.LevelRetried(LevelManager.Instance.PlayingLevel);
+
         Time.timeScale = 1;
         LoadMainMenu();
     }
@@ -117,6 +126,7 @@ public class OverlayManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("playing_level", 0);
         PlayerPrefs.Save();
+        OnMenu?.Invoke();
         SceneManager.LoadScene(0);
         MusicManager.Instance.PlayMusic();
     }
