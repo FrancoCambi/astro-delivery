@@ -111,7 +111,7 @@ public class OverlayManager : MonoBehaviour
     public void GoToMainMenu()
     {
         if (lost)
-            GameController.Instance.LevelRetried(LevelManager.Instance.PlayingLevel);
+            GameController.Instance.LevelRetried(LevelManager.Instance.PlayingLevel, false);
 
         Time.timeScale = 1;
         LoadMainMenu();

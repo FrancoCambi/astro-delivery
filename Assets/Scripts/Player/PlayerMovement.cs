@@ -296,7 +296,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (rb.linearVelocity.x == 0 && !stoppedMovement && madeFirstMove)
         {
-            print("stopped");
             stoppedMovement = true;
             OnStopped?.Invoke();
         }

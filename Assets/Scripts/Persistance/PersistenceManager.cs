@@ -111,4 +111,22 @@ public static class PersistenceManager
 
         Save(data);
     }
+
+    public static void UpdateLevelStreaks(int level, int newStreak)
+    {
+        GameData data = Load();
+
+        data.LevelStreaks[level] = newStreak;
+
+        Save(data);
+    }
+
+    public static void AddLevelStreak(int level)
+    {
+        GameData data = Load();
+
+        data.LevelStreaks[level]++;
+
+        Save(data);
+    }
 }

@@ -7,6 +7,7 @@ public struct LevelCompletedData
     public int stars;
     public float time;
     public int attempts;
+    public int streak;
 }
 
 public class SteamAchievementsEventsHandler : MonoBehaviour
@@ -67,6 +68,8 @@ public class SteamAchievementsEventsHandler : MonoBehaviour
 
     private void HandleLevelCompleted(LevelCompletedData data)
     {
+        if (!SteamIntegration.Instance.IsConnected) return;
+
 
         if (!SteamAchievements.IsUnlocked("ACH_FIRST_LEVEL") && data.levelIndex == 1) 
             SteamAchievements.UnlockAchievement("ACH_FIRST_LEVEL");
@@ -133,11 +136,24 @@ public class SteamAchievementsEventsHandler : MonoBehaviour
         if (!SteamAchievements.IsUnlocked("ACH_UNDER_10_SECONDS") && data.time < 10)
             SteamAchievements.UnlockAchievement("ACH_UNDER_10_SECONDS");
 
+        if (!SteamAchievements.IsUnlocked("ACH_ANY_FIRST_WORLD_THREE_TIMES_ROW") && data.streak >= 3 && data.levelIndex >= 1 && data.levelIndex <= 6)
+            SteamAchievements.UnlockAchievement("ACH_ANY_FIRST_WORLD_THREE_TIMES_ROW");
+
+        if (!SteamAchievements.IsUnlocked("ACH_ANY_SECOND_WORLD_THREE_TIMES_ROW") && data.streak >= 3 && data.levelIndex >= 7 && data.levelIndex <= 12)
+            SteamAchievements.UnlockAchievement("ACH_ANY_SECOND_WORLD_THREE_TIMES_ROW");
+
+        if (!SteamAchievements.IsUnlocked("ACH_ANY_THIRD_WORLD_THREE_TIMES_ROW") && data.streak >= 3 && data.levelIndex >= 13 && data.levelIndex <= 18)
+            SteamAchievements.UnlockAchievement("ACH_ANY_THIRD_WORLD_THREE_TIMES_ROW");
+
+        if (!SteamAchievements.IsUnlocked("ACH_ANY_FOURTH_WORLD_THREE_TIMES_ROW") && data.streak >= 3 && data.levelIndex >= 19 && data.levelIndex <= 24)
+            SteamAchievements.UnlockAchievement("ACH_ANY_FOURTH_WORLD_THREE_TIMES_ROW");
+
         packageLost = false;
     }
 
     private void HandleBoxDestroyed()
     {
+        if (!SteamIntegration.Instance.IsConnected) return;
 
         if (!SteamAchievements.IsUnlocked("ACH_BOX_DESTROYED"))
             SteamAchievements.UnlockAchievement("ACH_BOX_DESTROYED");
@@ -147,16 +163,23 @@ public class SteamAchievementsEventsHandler : MonoBehaviour
 
     private void HandleDeath()
     {
+        if (!SteamIntegration.Instance.IsConnected) return;
+
         if (!SteamAchievements.IsUnlocked("ACH_FIRST_DEATH"))
             SteamAchievements.UnlockAchievement("ACH_FIRST_DEATH");
     }
 
-    private void HandleRetried()
+    private void HandleRetried(bool justLost)
     {
+        if (!SteamIntegration.Instance.IsConnected) return;
+
         int rowRetries = PlayerPrefs.GetInt("rowRetries", 0);
 
         if (!SteamAchievements.IsUnlocked("ACH_25_RESET_NO_MENU") && rowRetries >= 25)
             SteamAchievements.UnlockAchievement("ACH_25_RESET_NO_MENU");
+
+        if (!SteamAchievements.IsUnlocked("ACH_INSTA_RETRY") && justLost)
+            SteamAchievements.UnlockAchievement("ACH_INSTA_RETRY");
     }
 
     #endregion
@@ -183,11 +206,11 @@ public class SteamAchievementsEventsHandler : MonoBehaviour
         stoppedMovement = true;
     }
 
-    private void AddRetry(int _)
+    private void AddRetry(int _, bool justLost)
     {
         PlayerPrefs.SetInt("rowRetries", PlayerPrefs.GetInt("rowRetries", 0) + 1);
 
-        HandleRetried();
+        HandleRetried(justLost);
     }
 
     private void ResetRetries()

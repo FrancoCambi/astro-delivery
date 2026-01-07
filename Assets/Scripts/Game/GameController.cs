@@ -17,11 +17,15 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public static event Action<int, bool> OnRetry;
     public KeyCode InteractKey => KeyCode.E;
     public string InteractKeyString => InteractKey.ToString();
     public bool IsPaused { get; private set; }
 
-    public static event Action<int> OnRetry;
+    private bool justLost = false;
+
+    private bool justWon = false;
+
 
     private void Awake()
     {
@@ -67,9 +71,9 @@ public class GameController : MonoBehaviour
     public void ResetLevel()
     {
         int playingLevel = LevelManager.Instance.PlayingLevel;
+        LevelRetried(playingLevel, justLost);
         LevelManager.Instance.LoadLevel(playingLevel);
         MusicManager.Instance.PlayMusic();
-        LevelRetried(playingLevel);
     }
 
     public void LoseLevel()
@@ -77,12 +81,14 @@ public class GameController : MonoBehaviour
         if (IsPaused) return;
 
         Pause(false);
+        justLost = true;
         LevelManager.Instance.LoseLevel();
     }
 
     public void WinLevel()
     {
         Pause(false);
+        justWon = true;
         LevelManager.Instance.WinLevel();
     }
 
@@ -102,9 +108,12 @@ public class GameController : MonoBehaviour
         MusicManager.Instance.UnPauseMusic();
     }
 
-    public void LevelRetried(int level)
+    public void LevelRetried(int level, bool justLostLvl)
     {
+        if (!justWon)
+            PersistenceManager.UpdateLevelStreaks(level, 0);
+        justLost = false;
         PersistenceManager.AddLevelAttempt(level);
-        OnRetry.Invoke(level);
+        OnRetry?.Invoke(level, justLostLvl);
     }
 }

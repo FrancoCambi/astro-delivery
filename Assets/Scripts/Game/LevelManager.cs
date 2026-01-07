@@ -54,19 +54,23 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+
     public void WinLevel()
     {
+        PersistenceManager.AddLevelStreak(PlayingLevel);
         GameData data = PersistenceManager.Load();
         float completedTime = timer.GetCompletedTime();
         int starsWon = GetStarsAmount(completedTime);
         OverlayManager.Instance.OpenWon(starsWon, completedTime);
+
 
         SteamAchievementsEventsHandler.RaiseLevelCompleted(new LevelCompletedData
         {
             levelIndex = PlayingLevel,
             stars = starsWon,
             time = completedTime,
-            attempts = data.LevelAttempts[PlayingLevel]
+            attempts = data.LevelAttempts[PlayingLevel],
+            streak = data.LevelStreaks[PlayingLevel]
         });
 
         UpdateMaxLevel();
@@ -75,6 +79,7 @@ public class LevelManager : MonoBehaviour
 
     public void LoseLevel()
     {
+        PersistenceManager.UpdateLevelStreaks(PlayingLevel, 0);
         OverlayManager.Instance.OpenLost();
     }
 
@@ -167,6 +172,5 @@ public class LevelManager : MonoBehaviour
             PersistenceManager.UpdateMaxLevelUnlocked(maxLevelUnlocked);
         }
     }
-
 
 }

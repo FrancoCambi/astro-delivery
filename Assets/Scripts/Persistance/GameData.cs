@@ -8,6 +8,7 @@ public class GameData
     public float[] MinTimes = new float[GameConstants.LevelsAmount + 1];
     public int[] LevelStars = new int[GameConstants.LevelsAmount + 1];
     public int[] LevelAttempts = new int[GameConstants.LevelsAmount + 1];
+    public int[] LevelStreaks = new int[GameConstants.LevelsAmount + 1];
 
     public GameData()
     {
@@ -18,6 +19,7 @@ public class GameData
             MinTimes[i] = float.MaxValue;
             LevelStars[i] = 0;
             LevelAttempts[i] = 0;
+            LevelStreaks[i] = 0;
         }
     }
 

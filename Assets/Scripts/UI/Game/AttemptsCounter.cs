@@ -27,7 +27,7 @@ public class AttemptsCounter : MonoBehaviour
         }
         
         gameData = PersistenceManager.Load();
-        UpdateCounter(LevelManager.Instance.PlayingLevel);
+        UpdateCounter(LevelManager.Instance.PlayingLevel, false);
     }
 
     private void OnEnable()
@@ -39,7 +39,7 @@ public class AttemptsCounter : MonoBehaviour
         GameController.OnRetry -= UpdateCounter;
     }
 
-    private void UpdateCounter(int level)
+    private void UpdateCounter(int level, bool justLost)
     {
         attempts.Value = gameData.LevelAttempts[level];
     }
